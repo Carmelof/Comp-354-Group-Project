@@ -27,18 +27,26 @@ public class Cell {
     public void setColumn(int i) {
     	column = i; 
     }
-    public Cell(float value, String formula) {
+    public Cell(double value, String formula) {
         super();
         this.value = value;
         this.formula = formula;
     }
     
-
+    public void validateInput(Object o) {
+    	//Need code here to validate the input
+    	/*if (o instanceof Double)
+    		value = (Double) o;
+    	if (o instanceof String)
+    		formula = o.toString();*/
+    	//System.out.println("Value: " + value + "\nFormula: " + formula);
+    	return;
+    }
     public double getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(double value) {
         this.value = value;
     }
 

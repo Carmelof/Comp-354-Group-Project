@@ -16,7 +16,7 @@ public class Main {
     private DefaultTableModel model;
     private TableRowSorter<TableModel> sorter;
     private JTable headerTable;
-    public Cell[][] cell;
+    private Cell[][] cell;
     public Main() {
         table = new JTable(10, 11);
         //Fill the table with empty values
@@ -56,6 +56,7 @@ public class Main {
                         return super.getColumnClass(colNum);
                 }
             }
+            
         };
         headerTable = new JTable(model);
         for (int i = 0; i < table.getRowCount(); i++) {
@@ -82,6 +83,7 @@ public class Main {
                 return component;
             }
         });
+        
         table.getRowSorter().addRowSorterListener(new RowSorterListener() {
 
             @Override
@@ -99,6 +101,17 @@ public class Main {
         scrollPane = new JScrollPane(table);
         scrollPane.setRowHeaderView(headerTable);
         table.setPreferredScrollableViewportSize(table.getPreferredSize());
+        table.getModel().addTableModelListener(new TableModelListener() {
+        	@Override
+        	//Track changes to individual cells here.
+        	public void tableChanged(TableModelEvent e) {
+            	TableModel model = (TableModel)e.getSource();
+            	Object data = model.getValueAt(e.getFirstRow(), e.getColumn());
+            	
+            	System.out.println("Changing cell (" + (e.getFirstRow()+1) + ", " + (e.getColumn()+1) +") to " + model.getValueAt(e.getFirstRow(), e.getColumn()));
+            	//cell[e.getFirstRow()][e.getColumn()].validateInput(model.getValueAt(e.getFirstRow(), e.getColumn()));
+        	}
+        });
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.add(scrollPane);
         frame.pack();
