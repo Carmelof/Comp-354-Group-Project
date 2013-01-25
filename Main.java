@@ -16,13 +16,14 @@ public class Main {
     private DefaultTableModel model;
     private TableRowSorter<TableModel> sorter;
     private JTable headerTable;
-
+    public Cell[][] cell;
     public Main() {
         table = new JTable(10, 11);
         //Fill the table with empty values
         for (int i = 0; i < table.getRowCount(); i++) {
         	for (int j = 0; j < table.getColumnCount(); j++) {
-        		table.setValueAt(0, i, j);
+        		Cell cell = new Cell(0.0, i, j);
+        		table.setValueAt(cell, i, j);
         	}
         }
         sorter = new TableRowSorter<TableModel>(table.getModel());

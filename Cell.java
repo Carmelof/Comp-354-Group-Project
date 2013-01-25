@@ -3,12 +3,29 @@ public class Cell {
     //Attributes
     private double value;
     private String formula;
-    
+    private int row;
+    private int column;
     //constructors
     public Cell() {
         value=0.0;
         formula="";
-        
+    }
+    public Cell(double value, int row, int column) {
+    	this.value = value;
+    	this.row = row;
+    	this.column = column; 
+    }
+    public int getRow() {
+    	return row;
+    }
+    public int getColumn() {
+    	return column;
+    }
+    public void setRow(int i) {
+    	row = i;
+    }
+    public void setColumn(int i) {
+    	column = i; 
     }
     public Cell(float value, String formula) {
         super();
@@ -45,7 +62,12 @@ public class Cell {
     }
     @Override
     public String toString() {
-        return "Cell [value=" + value + ", formula=" + formula + "]";
+        /*This method should determine whether or not there is a formula associated with the given cell
+         * If there is a formula, determine the value
+         * Then set the "value" and output it here
+         */
+    	//return "Cell [value=" + value + ", formula=" + formula + "]";
+    	return ""+value;
     }
 
 
