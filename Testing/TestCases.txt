@@ -1,0 +1,48 @@
+_______________________________________________________________
+
+	Testing of Basic Functionality for Increment 1 
+_______________________________________________________________
+
+GUIDELINE:
+ - test for success and failure
+ - test boundary conditions
+ - test as many combinations as feasable
+
+FUNCTIONALITY TO BE TESTED
+ • select a cell 
+	(depending on the implementation)
+	IF cell selection is (column A..K) + (row number 1..10), 
+	- try to select a valid cell
+	- try to select a non-existing cell
+	- try selecting cell with not-allowed characters
+	(3-6 test cases each)
+
+	OR ... if cell selection is (column letter) first, (row number) second
+	- try selecting valid ascii characters/ valid number
+	- try selecting invalid ascii characters/ valid number
+	- try selecting invalid ascii characters/ invalid number
+	(3-6 test cases each)
+
+ • enter a primitive value or formula for the selected cell 
+	- try entering valid formula
+	- try entering invalid formula
+	(6-9 test cases each)
+
+ • automatic computation of cell values which are given by formulas 
+	- after entering valid data check that formulas are alculated correctly
+	- after entering invalid data check for errors
+	(6-9 test cases each)
+
+ • output the spreadsheet as a grid of cells with values 
+	- check output whith valid data in cells
+	- check output whith invalid data in cells
+	(6-9 test cases each)
+
+ • load and save spreadsheets to file 
+	- try loading a valid spreadsheet
+	- try loading an invalid spreadsheet
+	(6-9 test cases each)
+
+
+ • quit
+	- check that no errors are thrown when the program terminates
