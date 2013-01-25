@@ -19,8 +19,11 @@ public class Main {
 
     public Main() {
         table = new JTable(10, 11);
+        //Fill the table with empty values
         for (int i = 0; i < table.getRowCount(); i++) {
-            table.setValueAt(i, i, 0);
+        	for (int j = 0; j < table.getColumnCount(); j++) {
+        		table.setValueAt(0, i, j);
+        	}
         }
         sorter = new TableRowSorter<TableModel>(table.getModel());
         table.setRowSorter(sorter);
@@ -55,7 +58,7 @@ public class Main {
         };
         headerTable = new JTable(model);
         for (int i = 0; i < table.getRowCount(); i++) {
-            headerTable.setValueAt("Row " + (i + 1), i, 0);
+            headerTable.setValueAt((i + 1), i, 0);
         }
         headerTable.setShowGrid(false);
         headerTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -103,7 +106,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        try {// UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    	try {// UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if (info.getName().equals("Nimbus")) {
                     UIManager.setLookAndFeel(info.getClassName());
