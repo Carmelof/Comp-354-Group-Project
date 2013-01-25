@@ -14,18 +14,22 @@ import java.awt.print.PrinterException;
 
 public class Main {
 
-  public static void main(String[] args) throws Exception {
-    String[] columns = { "A", "B"};
-
-    Object[][] content = { { "R", new Integer(24) }, { "A", new Integer(25) },
-        { "J", new Integer(30) }, { "A", new Integer(32) }, { "S", new Integer(27) } };
+	
+	public static void main(String[] args) throws Exception {
+		//Initialize columns A-K
+		String[] columns = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
+		//Initialize The contents to 0
+		Object[][] content = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+    		, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }};
 
     JTable table = new JTable(content, columns);
     JFrame frame = new JFrame();
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    JPanel jPanel = new JPanel(new GridLayout(2, 0));
+    JPanel jPanel = new JPanel(new GridLayout(2, 2));
     jPanel.setOpaque(true);
-    table.setPreferredScrollableViewportSize(new Dimension(500, 70));
+    table.setPreferredScrollableViewportSize(new Dimension(500, 500));
     jPanel.add(new JScrollPane(table));
     /* Add the panel to the JFrame */
     frame.add(jPanel);
