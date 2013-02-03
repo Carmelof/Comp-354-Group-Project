@@ -49,7 +49,10 @@ public class Cell {
     public void setValue(double value) {
         this.value = value;
     }
-
+    
+    public void setFormula(String equation) {
+    	formula = equation;
+    }
     
     public String getFormula() {
         return formula;

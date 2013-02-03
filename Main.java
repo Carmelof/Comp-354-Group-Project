@@ -25,14 +25,16 @@ public class Main {
     private DefaultTableModel model;
     private TableRowSorter<TableModel> sorter;
     private JTable headerTable;
-    private Cell[][] cell;
+    //private Cell cell[][] = new Cell[10][11];
+    //contains the formula for each cell if there are any
+    private String[][] formulas = new String[10][11]; 
     public Main() {
         table = new JTable(10, 11);
         //Fill the table with empty values
         for (int i = 0; i < table.getRowCount(); i++) {
-        	for (int j = 0; j < table.getColumnCount(); j++) {
-        		//Cell cell = new Cell(0.0, i, j); 
+        	for (int j = 0; j < table.getColumnCount(); j++) {        		
         		table.setValueAt(0.0, i, j); //************** NEEDED TO BE CHANGED TO WORK (from "cell" to 0.0 ***********/
+        		//cell[i][j].setValue(0.0);
         	}
         }
         sorter = new TableRowSorter<TableModel>(table.getModel());
@@ -138,11 +140,18 @@ public class Main {
     	String numericPattern = "^[A-Ka-k]\\d{1,2}=[^A-Za-z=]*$";
     	//Equation contains cell names i.e A1 = B1 + 4 - C1; DOESN'T APPLY TO => A1 = 4.7 + 90 (no cell names after "=");
     	String alphaNumPattern = "^.*[A-K]\\d{1,2}.*$"; 
+    	String greeting = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n"
+    					+ "***SPREADSHEET***\n\nCOMMANDS:\n\ncellname = numeric expression:\t( i.e. A1 = 35 + 4 * (9 / 3 – 4) )"
+    					+ "\ncellname = alphanumeric expression\t( i.e. A1 = B1 + 5 + C4 * 6)\ncellname = [constant][operator]cellname:\t"
+    					+ "( i.e. A1 = B1; A1 = -4 * B1)\nload:\tLoad the spreadsheet\nsave:\tSave the spreadsheet\nquit:\tQuit the spreadsheet program"
+    					+ "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+ 
+    	System.out.println(greeting);
     	
     	while(!quit) {
     	    		
-    		while(!noSpaceCommand.equals("EXIT")) {// As long as the input from the console isn't "exit" do...
-    			
+    		while(!noSpaceCommand.equals("QUIT")) {// As long as the input from the console isn't "quit" do...
+    			System.out.println("\nEnter a command: ");
     			inputStr = inputCommand.nextLine();
             	noSpaceCommand = inputStr.replaceAll("\\s", ""); //take out any whitespace chars
             	noSpaceCommand = noSpaceCommand.toUpperCase(); //put the char in the cell name to uppercase i.e b1 => B1
@@ -162,7 +171,7 @@ public class Main {
         	    	//split the equation in two halves i.e A1 = 4.5 + 30 => part1: A1, part2: 4.5 + 30
         	    	splitCommand = noSpaceCommand.split("=");
         	    	cellName = splitCommand[0]; //name of cell that will be modified
-        	    	equation = splitCommand[1]; //equation associated with the cell
+        	    	equation = splitCommand[1]; //equation associated with the cell, also stored in cell.setFormula(formula)
         	    	
         	    	//if the equation only contains numbers
             		if(noSpaceCommand.matches(numericPattern)) {
@@ -176,7 +185,15 @@ public class Main {
 								cellValue = (double) result;
 								
 								//store the value in the correct cell of the JTable
-								table.getModel().setValueAt(cellValue, getCellRow(cellName), getCellColumn(cellName));
+								table.getModel().setValueAt(cellValue, row, column);
+								
+								//set the value of the cell and its formula i.e A1= 4.5 & formula of A1=> "4.5 - 8 * 2"
+								//cell[row][column].setValue(cellValue);
+								//cell[row][column].setFormula(equation);
+								
+								//store the formula of the cell in an array i.e formula of A1=> "4.5 - 8 * 2"
+								formulas[row][column] = equation;
+								
 								
             				} catch (ScriptException e) {
 							// TODO Auto-generated catch block
@@ -198,7 +215,7 @@ public class Main {
                 		//every time you find a cell name i.e A1, retrieve its index by using getCellRow & getCellColumn
                 		//if you find C4 its index is row = 4 & column = 3
                 		//once you find the index of the cell, retrieve its value and replace the name of the cell by its value
-                		//in the newEquation i.e if newEquation = "B1 + 4 + C2" and B1=7, C2=9; then newEquation becomes "7 + 4 + 9"
+                		//in the newEquation string i.e if newEquation = "B1 + 4 + C2" and B1=7, C2=9; then newEquation becomes "7 + 4 + 9"
                 		while(myMatch.find()) {
                 			
                 			otherCells = myMatch.group();                			
@@ -213,6 +230,13 @@ public class Main {
                 		try {
 							Object result = engine.eval(newEquation);								
 							table.getModel().setValueAt(result, getCellRow(cellName), getCellColumn(cellName));
+							
+							//set the value of the cell and its formula i.e A1= 4.5 & formula of A1=> "4.5 - B1 * 2 - E5"
+							//cell[getCellRow(cellName)][getCellColumn(cellName)].setValue((double) result);
+							//cell[getCellRow(cellName)][getCellColumn(cellName)].setFormula(equation);
+							
+							//store the formula of the cell in an array i.e formula of A1=> "4.5 - B1 * 2 - E5"
+							formulas[getCellRow(cellName)][getCellColumn(cellName)] = equation;
 							
         				} catch (ScriptException e) {
 						// TODO Auto-generated catch block
@@ -230,13 +254,13 @@ public class Main {
                 	
             	}
             	else {
-            		System.out.println("Exiting...");
+            		System.out.println("Quitting...");
             		inputCommand.close();
             	}
             		
     		}//end while
     		
-    		if(noSpaceCommand.equals("EXIT"))
+    		if(noSpaceCommand.equals("QUIT"))
     			quit = true;
     		
     	} //end while(!quit)
