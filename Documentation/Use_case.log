@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.19)  2 FEB 2013 21:21
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.19)  19 JAN 2013 10:27
 entering extended mode
-**C:/Comp-354-Group-Project/Documentation/HelpDocument.tex
-(C:/Comp-354-Group-Project/Documentation/HelpDocument.tex
+**C:/Comp-354-Group-Project/Documentation/Use_case.tex
+(C:/Comp-354-Group-Project/Documentation/Use_case.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -30,7 +30,7 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Comp-354-Group-Project\Documentation\HelpDocument.aux)
+(C:\Comp-354-Group-Project\Documentation\Use_case.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
@@ -52,45 +52,45 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 83--85
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
 
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 103--105
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--108
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--111
-
- []
-
-[3] (C:\Comp-354-Group-Project\Documentation\HelpDocument.aux) ) 
+[3] (C:\Comp-354-Group-Project\Documentation\Use_case.aux) ) 
 Here is how much of TeX's memory you used:
  236 strings out of 494045
- 2804 string characters out of 3145969
- 51890 words of memory out of 3000000
+ 2764 string characters out of 3145969
+ 50890 words of memory out of 3000000
  3604 multiletter control sequences out of 15000+200000
  7894 words of font info for 28 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 22i,7n,19p,258b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on HelpDocument.pdf (3 pages, 38420 bytes).
+ 22i,7n,19p,180b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on Use_case.pdf (3 pages, 35102 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
