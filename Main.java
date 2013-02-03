@@ -141,7 +141,7 @@ public class Main {
     	//Equation contains cell names i.e A1 = B1 + 4 - C1; DOESN'T APPLY TO => A1 = 4.7 + 90 (no cell names after "=");
     	String alphaNumPattern = "^.*[A-K]\\d{1,2}.*$"; 
     	String greeting = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n"
-    					+ "***SPREADSHEET***" +
+    					+ "***SPREADSHEET***"
                         + "\n"
                         + "\nCOMMANDS:"
                         + "\n"
