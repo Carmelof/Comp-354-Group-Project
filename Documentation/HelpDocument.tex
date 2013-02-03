@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage{graphicx}
 \pagestyle{empty}
 \setcounter{secnumdepth}{2}
 
@@ -84,52 +85,51 @@ Use Case model provides an understanding of the interaction between the user and
 system. It consists of one or more actors and one or more use cases where actors represent particular
 role and use cases represent actions performed by the system. 
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=90mm]{USE_CASE_DIAGRAM.jpg}
+
+\begin{figure}
+\includegraphics{USE_CASE_DIAGRAM.jpg}
 \caption{Use Case Diagram}
 \label{fig:use-case-diagram}
 \end{figure}
+
+\clearpage
 
 \subsubsection{Use Case 1} \label{uc:1}
 
 \noindent
 {\bf Name}\\
-Give a name.
+Select a Cell
 
 \noindent
 {\bf Summary}\\
-A short summary/description/story.
+A user will select a cell that can be used for various operations
 
 \noindent
 {\bf Actors}\\
+1. Person\\
+2. System\\
 
 \noindent
 {\bf Precondition}\\
-
+The user has opened the program, and opened or created a spread sheet\\
 \noindent
 {\bf Main Scenario}\\
 \vspace*{-0.2in}
 \begin{enumerate}
-\item Describe step 1.
-\item Describe step 2.
-\item Describe step 3.
+\item User will click on the desired cell or enter the cell address.
 \end{enumerate}
 
 \noindent
 {\bf Exceptions}\\
+The cell is outside an acceptable range
 
 \noindent
 {\bf Postcondition}\\
-
-\noindent
-{\bf Priority}\\
-
-\noindent
-{\bf Traces to Test Cases}\\
-Add when test cases done.
+Selecting a cell will trigger an event in the system to evaluate the input
 
 \subsubsection{Use Case 2} \label{uc:2}
+
+\clearpage
 
 \section{Non-Functional Constraints}
 
