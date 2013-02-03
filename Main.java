@@ -267,13 +267,10 @@ public class Main {
             		
             		  
             		 if(noSpaceCommand.equals("QUIT")) {
-            			 /* 
-            			  * 
-            			  * Max's code
-            			  * 
-            			  */
             			 System.out.println("Quitting..."); 
             			 inputCommand.close();
+                         // if unsaved, prompt to save
+                         System.exit(0);
             		 }            		 	
             		 	
             		 else if(noSpaceCommand.equals("LOAD")) {
