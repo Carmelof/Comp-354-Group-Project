@@ -27,7 +27,7 @@ public class tryout2 {
 			// then setting to a specific cell
 			// then add a star, first using a get bla bla, get value and add a *
 		
-		if CC.matches("^[A-K][1-10]$")
+		if (CC.matches("^[A-K][1-10]$"))
 		{
 			return CellTable.getCell(CC).setValue(CC+"*");
 			
@@ -35,7 +35,7 @@ public class tryout2 {
 			
 		}
 		
-		else if CC.matches("[A-K][1-10]=[A-K][1-10]+[A-K][1-10]$"){
+		else if (CC.matches("[A-K][1-10]=[A-K][1-10]+[A-K][1-10]$")){
 			
 			CC.split("=");
 			CC.split("+");
@@ -50,7 +50,7 @@ public class tryout2 {
 		}
 		
 		
-		else if CC.matches("^[A-K][1-10]=[A-K][1-10]-[A-K][1-10]$"){
+		else if (CC.matches("^[A-K][1-10]=[A-K][1-10]-[A-K][1-10]$")){
 			
 			CC.split("=");
 			CC.split("+");
@@ -59,7 +59,7 @@ public class tryout2 {
 							
 		
 		}
-		else if CC.matches("^[A-K][1-10]=[A-K][1-10]*[A-K][1-10]$"){
+		else if (CC.matches("^[A-K][1-10]=[A-K][1-10]*[A-K][1-10]$")){
 			
 			CC.split("=");
 			CC.split("+");
@@ -69,7 +69,7 @@ public class tryout2 {
 		
 		}
 			
-		else if CC.matches("^[A-K][1-10]=[A-K][1-10]/[A-K][1-10]$"){
+		else if (CC.matches("^[A-K][1-10]=[A-K][1-10]/[A-K][1-10]$")){
 			
 			CC.split("=");
 			CC.split("+");
@@ -79,7 +79,7 @@ public class tryout2 {
 		
 		}
 		
-		else if CC.matches("Exit"){
+		else if (CC.matches("Exit")){
 			System.out.println("You ar enow exiting....");
 			System.exit(0);
 			

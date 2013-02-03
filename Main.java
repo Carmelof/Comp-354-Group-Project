@@ -141,9 +141,17 @@ public class Main {
     	//Equation contains cell names i.e A1 = B1 + 4 - C1; DOESN'T APPLY TO => A1 = 4.7 + 90 (no cell names after "=");
     	String alphaNumPattern = "^.*[A-K]\\d{1,2}.*$"; 
     	String greeting = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n"
-    					+ "***SPREADSHEET***\n\nCOMMANDS:\n\ncellname = numeric expression:\t( i.e. A1 = 35 + 4 * (9 / 3 – 4) )"
-    					+ "\ncellname = alphanumeric expression\t( i.e. A1 = B1 + 5 + C4 * 6)\ncellname = [constant][operator]cellname:\t"
-    					+ "( i.e. A1 = B1; A1 = -4 * B1)\nload:\tLoad the spreadsheet\nsave:\tSave the spreadsheet\nquit:\tQuit the spreadsheet program"
+    					+ "***SPREADSHEET***" +
+                        + "\n"
+                        + "\nCOMMANDS:"
+                        + "\n"
+                        + "\ncellname = numeric expression:\t( i.e. A1 = 35 + 4 * (9 / 3 - 4) )"
+    					+ "\ncellname = alphanumeric expression\t( i.e. A1 = B1 + 5 + C4 * 6)"
+                        + "\ncellname = [constant][operator]cellname:\t"
+    					+ "( i.e. A1 = B1; A1 = -4 * B1)"
+                        + "\nload:\tLoad the spreadsheet"
+                        + "\nsave:\tSave the spreadsheet"
+                        + "\nquit:\tQuit the spreadsheet program"
     					+ "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
  
     	System.out.println(greeting);
