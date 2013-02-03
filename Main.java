@@ -253,17 +253,50 @@ public class Main {
         				}//end catch
                 		
                 	
-                	}
+                	}//end else if
             		
                 	else {
                 		System.out.println("The command is not valid");
                 	}
                 		
                 	
-            	}
+            	}//end if
+            	
             	else {
-            		System.out.println("Quitting...");
-            		inputCommand.close();
+            		
+            		
+            		  
+            		 if(noSpaceCommand.equals("QUIT")) {
+            			 /* 
+            			  * 
+            			  * Max's code
+            			  * 
+            			  */
+            			 System.out.println("Quitting..."); 
+            			 inputCommand.close();
+            		 }            		 	
+            		 	
+            		 else if(noSpaceCommand.equals("LOAD")) {
+            			 /* 
+            			  * 
+            			  * Max's code
+            			  * 
+            			  */
+            		 }
+            		 
+            		 else if(noSpaceCommand.equals("SAVE")) {
+            			 /* 
+            			  * 
+            			  * Max's code
+            			  * 
+            			  */
+            		 }
+            		 
+            		 else {
+            			 System.out.println("The command is not valid!");
+            		 }
+            		             		             		
+            		
             	}
             		
     		}//end while
