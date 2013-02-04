@@ -27,7 +27,7 @@ public class Main {
 
     private JFrame frame = new JFrame("Comp 354-Excel Document");
     private JScrollPane scrollPane;
-    private JTable table;
+    public JTable table;
     private DefaultTableModel model;
     private TableRowSorter<TableModel> sorter;
     private JTable headerTable;
