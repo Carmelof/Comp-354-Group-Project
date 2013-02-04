@@ -22,31 +22,7 @@ import dev.Main;
 public class MainTest {
 	// Acceptable error for comparing doubles
 	public final double ACCEPTED_ERROR = 1E-10;
-	/*=====================================================================
-	 * Tester: DRAGOS
-	 *=====================================================================
-	 */
-
-	@Test
-	public final void testMain() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public final void testExecuteCommand() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public final void testSaveFile() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public final void testLoadFile() {
-		fail("Not yet implemented"); // TODO
-	}
-
+	
 	/*=====================================================================
 	 * Tester: Karim
 	 * the save checks halt the automatic testing
@@ -102,6 +78,111 @@ public class MainTest {
 		a.prepareVars();
 		return;
 	}
+	
+	/*=====================================================================
+	 * Tester: Dragos
+	 * Note: due to the application's design, these tests cannot be fully automated.
+	 *=====================================================================
+	 */
+    	@Rule
+   	public ExpectedException exceptionThrown = ExpectedException.none();
+
+	@Test
+	public final void testMain() {
+		Main application = new Main();
+		// No errors expected
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameNumExpr() {
+		Main application = new Main();
+		application.executeCommand("A1 = 35 + 4 * (9 / 3 - 4)");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameNumExprRowOOB() {
+		exceptionThrown.expect(IndexOutOfBoundsException.class);
+		Main application = new Main();
+		application.executeCommand("A52 = 25");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameNumExprColOOB() {
+		exceptionThrown.expect(IndexOutOfBoundsException.class);
+		Main application = new Main();
+		application.executeCommand("Z2 = 25");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameAlphaNumExpr() {
+		Main application = new Main();
+		application.executeCommand("A1 = B1 + 5 + C4 * 6");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameAlphaNumExprLeftOOB() {
+		exceptionThrown.expect(IndexOutOfBoundsException.class);
+		Main application = new Main();
+		application.executeCommand("A31 = B1 + 5");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameAlphaNumExprRightOOB() {
+		exceptionThrown.expect(IndexOutOfBoundsException.class);
+		Main application = new Main();
+		application.executeCommand("A1 = B21 + 5");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameConstOpExpr() {
+		Main application = new Main();
+		application.executeCommand("A1 = B1");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameConstOpExprOOB() {
+		exceptionThrown.expect(IndexOutOfBoundsException.class);
+		Main application = new Main();
+		application.executeCommand("A1 = Z1");
+	}
+
+	@Test
+	public final void testExecuteCommandCellNameConstOpExprAlt() {
+		Main application = new Main();
+		application.executeCommand("A1 = -4 * B1");
+	}
+
+	@Test
+	public final void testExecuteCommandLoad() {
+		Main application = new Main();
+		application.executeCommand("load");
+	}
+
+	@Test
+	public final void testExecuteCommandSave() {
+		Main application = new Main();
+		application.executeCommand("save");
+	}
+
+	@Test
+	public final void testExecuteCommandQuit() {
+		Main application = new Main();
+		application.executeCommand("quit");
+	}
+
+	@Test
+	public final void testSaveFile() {
+		Main application = new Main();
+		String[][] data = {{"1", "2"}, {"3", "4"}};
+		application.saveFile(data);
+	}
+
+	@Test
+	public final void testLoadFile() {
+		Main application = new Main();
+		application.loadFile();
+	}
+	
 	/*=====================================================================
 	 * Tester: Carmelo
 	 * Note: In order for the JUnits to function, the while loop in main
