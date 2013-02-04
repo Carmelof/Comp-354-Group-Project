@@ -87,7 +87,7 @@ public class Main {
         
     }
     	
-    private void executeCommand(String inputStr) {
+    public void executeCommand(String inputStr) {
     	String noSpaceCommand = inputStr.replaceAll("\\s", ""); //take out any whitespace chars
     	noSpaceCommand = noSpaceCommand.toUpperCase(); //put the char in the cell name to uppercase i.e b1 => B1
     	
@@ -132,7 +132,7 @@ public class Main {
     		 }
     	}
 	}
-    private void saveFile(String[][] entries){
+    public void saveFile(String[][] entries){
     	System.out.println(
     			"Enter a filename to save to "
     			+ "\n(the .csv extension will be automatically appended.");
@@ -154,7 +154,7 @@ public class Main {
     	System.out.println("File successfully saved as " + filename + ".csv");
     	saved = true;
     }
-    private void loadFile(){
+    public void loadFile(){
 		JFileChooser fileopen = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv files", "csv");
 		fileopen.addChoosableFileFilter(filter);
@@ -193,7 +193,7 @@ public class Main {
 		saved = true;
     }
     
-    private boolean checkSaved(){
+    public boolean checkSaved(){
     	if (saved)
     		return true;
     	int n = JOptionPane.showConfirmDialog(new JFrame(),
@@ -204,7 +204,7 @@ public class Main {
     		return true;
     	return false;
     }
-	private void numericInput(String cellName, String equation){
+    public void numericInput(String cellName, String equation){
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 		int row = getCellRow(cellName);
@@ -226,7 +226,7 @@ public class Main {
 			e.printStackTrace();
 		}//end catch
 	}
-	private void alphanumericInput(String cellName, String equation){
+    public void alphanumericInput(String cellName, String equation){
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 		//check if there are cell names after the "=" sign i.e check for C4 & F7 in "A1 = C4 + 5 - F7"
@@ -264,7 +264,7 @@ public class Main {
 		}//end catch
 	}
 
-	private void prepareVars(){
+    public void prepareVars(){
 		table = new JTable(10, 10);
         //Fill the table with empty values
         for (int i = 0; i < table.getRowCount(); i++) {

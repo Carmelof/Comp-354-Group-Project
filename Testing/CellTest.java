@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import dev.Cell;
 
-public class Testing_it1 {
+public class CellTest {
 
 	// Acceptable error for comparing doubles
 	public final double ACCEPTED_ERROR = 1E-10;
