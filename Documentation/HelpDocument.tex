@@ -61,7 +61,15 @@ FunSheets is an electronic spreadsheet program used for storing, organizing and 
 FunSheets is used to automate data orginization and the calculations of complex expressions involving large amounts of data.
 \subsection{Context}
 FunSheets will allow the user to create, open or modify a spread sheet and evaluate the source to produce a new spreadsheet featuring calculated value, evaluated expressions, and sorted information.
+
 \section{Domain Concepts}
+\subsection{Domain Model}
+
+\begin{figure}[htbp]
+\includegraphics{DomainModel.jpg}
+\caption{Domain Model}
+\label{fig:Domain-model-diagram}
+\end{figure}
 
 \section{Actors}
 A list of actors (primary/secondary), and use cases are mentioned in this section.
@@ -86,7 +94,7 @@ system. It consists of one or more actors and one or more use cases where actors
 role and use cases represent actions performed by the system. 
 
 
-\begin{figure}
+\begin{figure}[htbp]
 \includegraphics{USE_CASE_DIAGRAM.jpg}
 \caption{Use Case Diagram}
 \label{fig:use-case-diagram}
@@ -128,6 +136,155 @@ The cell is outside an acceptable range
 Selecting a cell will trigger an event in the system to evaluate the input
 
 \subsubsection{Use Case 2} \label{uc:2}
+
+\noindent
+{\bf Name}\\
+Enter Formula / Primitive valuel
+
+\noindent
+{\bf Summary}\\
+The user can enter a primitive value of type real which must have at least
+one digit before the decimal point, and if the real number has a decimal part then there is
+at least one digit after the decimal point. The numbers may be negative. In addition, the
+user can enter a formula which start by equal sign (=) and these formulas are the usual
+arithmetic expressions.
+
+\noindent
+{\bf Actors}\\
+1. Person\\
+2. System\\
+
+\noindent
+{\bf Precondition}\\
+The user has selected a cell\\
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Select a Cell
+\item Enter primitive data through standard input devices (eg. keyboard, scanner etc.)
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+None
+
+\noindent
+{\bf Postcondition}\\
+Data stored in the selected cell of the spread sheet
+
+\clearpage
+
+\subsubsection{Use Case 3} \label{uc:2}
+
+\noindent
+{\bf Name}\\
+Automatic Computation
+
+\noindent
+{\bf Summary}\\
+When a cell contains an expression the system will parse the string and evaluate the elements to produce a value.
+
+\noindent
+{\bf Actors}\\
+1. System\\
+
+\noindent
+{\bf Precondition}\\
+A cell contains an expression\\
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User opens the program
+\item User enters an expression, or loads a sheet with expressions
+\item The user selects Automatic computation
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+None
+
+\noindent
+{\bf Postcondition}\\
+The cell that contains the expression will display the results of the evaluation
+
+\clearpage
+
+\subsubsection{Use Case 4} \label{uc:2}
+
+\noindent
+{\bf Name}\\
+Display On Screen
+
+\noindent
+{\bf Summary}\\
+Output the spreadsheet as a grid of cells with values and evaluated expressions.
+
+\noindent
+{\bf Actors}\\
+1. System\\
+
+\noindent
+{\bf Precondition}\\
+Program is open\\
+A spreadsheet has been created or loaded\\
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User opens the program
+\item User enters an expression, or loads a sheet with expressions
+\item System will display the results in a grid of cells.
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+None
+
+\noindent
+{\bf Postcondition}\\
+A GUI representation of the grid is displayed with evalutated cells in a row / column grid.
+
+\clearpage
+
+
+\subsubsection{Use Case 5} \label{uc:2}
+
+\noindent
+{\bf Name}\\
+File management
+
+\noindent
+{\bf Summary}\\
+Allow the user to load or save an existing spreadsheet to disk
+
+\noindent
+{\bf Actors}\\
+1. System\\
+2. User \\
+
+\noindent
+{\bf Precondition}\\
+Program is open\\
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User opens the program
+\item User loads an existing file
+\item User can make modifications to the spreadsheet
+\item System will evaluate the results
+\item User save the changes to disk
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+None
+
+\noindent
+{\bf Postcondition}\\
+A GUI representation of the grid is displayed with evalutated cells in a row / column grid.
 
 \clearpage
 
