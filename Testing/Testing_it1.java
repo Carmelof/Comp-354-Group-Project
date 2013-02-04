@@ -1,3 +1,10 @@
+/*How to see the tests:
+ * 
+ * For those of you not familiar with JUnit, it comes already installed if using eclipse
+ * to see the tests right click on the Testing_it1.java then "Run As"-> JUnit Test
+ * 
+ */
+ 
 package Testing;
 
 import static org.junit.Assert.*;

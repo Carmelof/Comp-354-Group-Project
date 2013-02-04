@@ -4,15 +4,20 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.UIManager.*;
 import javax.swing.event.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.*;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import java.io.*;
+
 //import java
 //-------------------------------
 // Source code acquired from 
@@ -28,8 +33,11 @@ public class Main {
     private JTable headerTable;
     //private Cell cell[][] = new Cell[10][11];
     //contains the formula for each cell if there are any
-    private String[][] formulas = new String[10][11]; 
-    private boolean quit = false;
+    private String[][] formulas = new String[10][11];
+    private String[][] cellEntries = new String[10][11];
+    private boolean quit;
+    private boolean saved;
+    Scanner inputCommand;
     
     
 	//Equation starts with a cell name followed by "=" i.e "A1="
@@ -43,9 +51,10 @@ public class Main {
         prepareVars();
         
       //*******************************************************my code (Simone)**************************************************//
-    	Scanner inputCommand = new Scanner(System.in);
+    	inputCommand = new Scanner(System.in);
     	String inputStr = "";
-    	boolean quit = false;
+    	quit = false;
+    	saved = true;
     	String greeting = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n"
     					+ "***SPREADSHEET***"
                         + "\n"
@@ -92,39 +101,109 @@ public class Main {
 	    	//if the equation only contains numbers
     		if(noSpaceCommand.matches(numericPattern)) {
         		numericInput(cellName, equation);
+        		saved = false;
         	}
     		//if the equation contains cell names
         	else if(equation.matches(alphaNumPattern)) {
         		alphanumericInput(cellName, equation);
+        		saved = false;
         	} else {
         		System.out.println("The command is not valid");
         	}
     	} else {
     		 if(noSpaceCommand.equals("QUIT")) {
-    			 System.out.println("Quitting...");
-                 // if unsaved, prompt to save
-                 System.exit(0);
+    			 if (checkSaved()){
+	    			 System.out.println("Quitting...");
+	                 // if unsaved, prompt to save
+	                 System.exit(0);
+    			 }
     		 }            		 	
     		 else if(noSpaceCommand.equals("LOAD")) {
-    			 /* 
-    			  * 
-    			  * Max's code
-    			  * 
-    			  */
+    			 if (checkSaved()){
+	    			 loadFile();
+    			 }
     		 }
     		 else if(noSpaceCommand.equals("SAVE")) {
-    			 /* 
-    			  * 
-    			  * Max's code
-    			  * 
-    			  */
+    			 String[][] saveTest = {{"1", "2"}, {"3", "4"}};
+    			 saveFile(saveTest);
     		 }
     		 else {
     			 System.out.println("The command is not valid!");
     		 }
     	}
 	}
-
+    private void saveFile(String[][] entries){
+    	System.out.println(
+    			"Enter a filename to save to "
+    			+ "\n(the .csv extension will be automatically appended.");
+    	String filename = inputCommand.nextLine();
+    	try {
+    		FileWriter fstream = new FileWriter(filename + ".csv");
+    		BufferedWriter out = new BufferedWriter(fstream);
+    		for (String[] row : entries){
+    			String line = "";
+    			for (String col : row)
+    				line += col + ",";
+    			out.write(line + "\n");
+    		}
+    		out.close();
+    	} catch (Exception e) {
+    		System.err.println("There was an error trying to write to file:");
+    		e.printStackTrace();
+    	}
+    	System.out.println("File successfully saved as " + filename + ".csv");
+    	saved = true;
+    }
+    private void loadFile(){
+		JFileChooser fileopen = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv files", "csv");
+		fileopen.addChoosableFileFilter(filter);
+		int ret = fileopen.showDialog(new JPanel(), "Open file");
+		if (ret == JFileChooser.APPROVE_OPTION) {
+		    File file = fileopen.getSelectedFile();
+	        try {
+	            Scanner in = new Scanner(file).useDelimiter(",\n");
+	            ArrayList<String[]> cellArray = new ArrayList<String[]>();
+	            while (in.hasNext()){
+	            	cellArray.add(in.next().split(","));
+	            }
+	            in.close();
+	            assert cellArray.size() > 0;
+	            int rows = cellArray.size();
+	            int cols = cellArray.get(0).length;
+	            cellEntries = new String[rows][cols];
+	    		System.out.println("Data successfully loaded from file:\n\t" + file);
+	            for (int i = 0; i < cellArray.size(); ++i){
+	            	String[] row = cellArray.get(i);
+	            	if (i < cellArray.size()-1)
+	            		assert row.length == cellArray.get(i+1).length;
+	            	for (int j=0; j<row.length; j++){
+	            		cellEntries[i][j] = row[j];
+	            		System.out.print(row[j] + ",\t");
+	            	}
+	            	System.out.println();
+	            }
+	        } catch (IOException e) {
+	            System.err.println("There was a problem trying to load the file.");
+	        } catch (AssertionError e) {
+	        	System.err.println("The file could not be loaded because of its "
+	        			+ "formatting. It may be corrupted.");
+	        }
+		}
+		saved = true;
+    }
+    
+    private boolean checkSaved(){
+    	if (saved)
+    		return true;
+    	int n = JOptionPane.showConfirmDialog(new JFrame(),
+    			"You have unsaved changes. Are you sure you want to continue?",
+    			"Warning",
+    			JOptionPane.WARNING_MESSAGE);
+    	if (n==0)
+    		return true;
+    	return false;
+    }
 	private void numericInput(String cellName, String equation){
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
