@@ -104,30 +104,43 @@ public class MainTest {
 	}
 	/*=====================================================================
 	 * Tester: Carmelo
+	 * Note: In order for the JUnits to function, the while loop in main
+	 * must be commented out.
 	 *=====================================================================
 	 */
 	@Test
 	public final void testGetCellRow() {
-		fail("Not yet implemented"); // TODO
+		Main main = new Main();
+		assertEquals("Get Cell Row", 5, main.getCellRow("B6"));
 	}
 
 	@Test
 	public final void testGetCellColumn() {
-		fail("Not yet implemented"); // TODO
+		Main main = new Main();
+		assertEquals("Get Cell Row", 3, main.getCellColumn("D9"));
 	}
 
 	@Test
 	public final void testGetCellName() {
-		fail("Not yet implemented"); // TODO
+		Main main = new Main();
+		assertEquals("Get Cell Row", "E3", main.getCellName(2, 4));
 	}
-
+	
 	@Test
 	public final void testGetNumEquation() {
-		fail("Not yet implemented"); // TODO
+		Main main = new Main();
+		String pattern = "[A-J]\\d{1,2}";
+		
+		JTable table = new JTable(10, 10);
+		table.getModel().setValueAt(20.0, 0, 1);
+		table.getModel().setValueAt(87.0, 0, 2);
+		
+		assertEquals("Get Num Equation", "20.0 + 35 - 87.0", main.getNumEquation(pattern, "B1 + 35 - C1", table));
 	}
 
 	@Test
 	public final void testUpdateTable() {
 		fail("Not yet implemented"); // TODO
+		//Unable to test, no returnable data by method is testable.
 	}
 }
