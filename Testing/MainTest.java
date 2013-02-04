@@ -199,13 +199,13 @@ public class MainTest {
 	@Test
 	public final void testGetCellColumn() {
 		Main main = new Main();
-		assertEquals("Get Cell Row", 3, main.getCellColumn("D9"));
+		assertEquals("Get Cell Column", 3, main.getCellColumn("D9"));
 	}
 
 	@Test
 	public final void testGetCellName() {
 		Main main = new Main();
-		assertEquals("Get Cell Row", "E3", main.getCellName(2, 4));
+		assertEquals("Get Cell Name", "E3", main.getCellName(2, 4));
 	}
 	
 	@Test
