@@ -8,6 +8,7 @@ Addison Rodomista - 1967568
 Dragos Dinulescu - 6304826
 Adrian Max McCrea - 9239057
 Ghazal Zamani - 1971158
+Carmelo Fragapane - 6298265
 
 Documenter
 Kevin Cameron - kevin.2008.cameron@gmail.com
