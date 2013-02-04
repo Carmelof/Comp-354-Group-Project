@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.19)  3 FEB 2013 23:58
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.19)  4 FEB 2013 11:37
 entering extended mode
 **C:/Comp-354-Group-Project/Documentation/HelpDocument.tex
 (C:/Comp-354-Group-Project/Documentation/HelpDocument.tex
@@ -188,6 +188,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 285--291
 [9
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 313--313
+[]\OT1/cmr/m/n/12 Traces to use
+ []
+
+
 Underfull \hbox (badness 8189) in paragraph at lines 314--314
 []\OT1/cmr/m/n/12 User must be
  []
@@ -203,8 +208,23 @@ Underfull \hbox (badness 2376) in paragraph at lines 314--314
  []
 
 
-Overfull \hbox (59.45871pt too wide) in paragraph at lines 311--317
+Underfull \hbox (badness 3623) in paragraph at lines 314--314
+[]\OT1/cmr/m/n/12 Register, lo-gin,
+ []
+
+
+Overfull \hbox (52.25403pt too wide) in paragraph at lines 311--317
 [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--333
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--333
+
  []
 
 [10
@@ -213,15 +233,15 @@ Overfull \hbox (59.45871pt too wide) in paragraph at lines 311--317
 Here is how much of TeX's memory you used:
  1146 strings out of 494045
  15293 string characters out of 3145969
- 65899 words of memory out of 3000000
+ 66899 words of memory out of 3000000
  4479 multiletter control sequences out of 15000+200000
  7894 words of font info for 28 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 27i,9n,19p,281b,258s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,9n,19p,440b,258s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on HelpDocument.pdf (10 pages, 170708 bytes).
+Output written on HelpDocument.pdf (10 pages, 171379 bytes).
 PDF statistics:
  45 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
