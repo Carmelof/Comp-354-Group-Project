@@ -1,0 +1,133 @@
+/*How to see the tests:
+ * 
+ * For those of you not familiar with JUnit, it comes already installed if using eclipse
+ * to see the tests right click on the Testing_it1.java then "Run As"-> JUnit Test
+ * 
+ */
+ 
+package Testing;
+
+import static org.junit.Assert.*;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.omg.PortableInterceptor.SUCCESSFUL;
+
+import com.sun.net.httpserver.Authenticator.Success;
+
+import dev.Cell;
+import dev.Main;
+
+public class MainTest {
+	// Acceptable error for comparing doubles
+	public final double ACCEPTED_ERROR = 1E-10;
+	/*=====================================================================
+	 * Tester: DRAGOS
+	 *=====================================================================
+	 */
+
+	@Test
+	public final void testMain() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public final void testExecuteCommand() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public final void testSaveFile() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public final void testLoadFile() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	/*=====================================================================
+	 * Tester: Karim
+	 * the save checks halt the automatic testing
+	 * im not sure how to make the main's window close so they keep going
+	 *=====================================================================
+	 */
+	@Test
+	public final void testCheckSaved0() {
+		Main a= new Main();
+		assertEquals("File Saved?", true, a.checkSaved());
+	}
+	@Test
+	public final void testCheckSaved1() {
+		Main a= new Main();
+		a.executeCommand("a1=23");
+		assertEquals("File Saved?", false, a.checkSaved());
+	}
+	@Test
+	public final void testCheckSaved2() {
+		Main a= new Main();
+		a.executeCommand("a1=23");
+		a.executeCommand("save");
+		assertEquals("File Saved?", true, a.checkSaved());
+	}
+	@Test
+	public final void testCheckSaved3() {
+		Main a= new Main();
+		a.executeCommand("not legal input");
+		assertEquals("File Saved?", true, a.checkSaved());
+	}
+
+	@Test
+	public final void testNumericInput() {
+		Main a= new Main();
+		a.executeCommand("");
+		a.numericInput("a1", "3");
+		assertEquals("File Saved?", (double)3,(double)((a.table).getModel().getValueAt(0,0)),ACCEPTED_ERROR);
+	}
+
+	@Test
+	public final void testAlphanumericInput() {
+		Main a= new Main();
+		a.executeCommand("b2=3");
+		a.alphanumericInput("a1", "3+b2");
+		assertEquals("File Saved?", (double)6,(double)((a.table).getModel().getValueAt(0,0)),ACCEPTED_ERROR);
+	}
+
+	@Test //Not really testable just to see if it crashes or not.
+	public final void testPrepareVars() {
+		Main a= new Main();
+		a.executeCommand("b2=3");
+		a.alphanumericInput("a1", "3+b2");
+		a.prepareVars();
+		return;
+	}
+	/*=====================================================================
+	 * Tester: Carmelo
+	 *=====================================================================
+	 */
+	@Test
+	public final void testGetCellRow() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public final void testGetCellColumn() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public final void testGetCellName() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public final void testGetNumEquation() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public final void testUpdateTable() {
+		fail("Not yet implemented"); // TODO
+	}
+}
