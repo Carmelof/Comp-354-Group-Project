@@ -71,6 +71,8 @@ FunSheets will allow the user to create, open or modify a spread sheet and evalu
 \label{fig:Domain-model-diagram}
 \end{figure}
 
+\clearpage
+
 \section{Actors}
 A list of actors (primary/secondary), and use cases are mentioned in this section.
 
@@ -92,10 +94,10 @@ A list of actors (primary/secondary), and use cases are mentioned in this sectio
 Use Case model provides an understanding of the interaction between the user and the software
 system. It consists of one or more actors and one or more use cases where actors represent particular
 role and use cases represent actions performed by the system. 
-
-
+\clearpage
+\subsection{Use Case Diagram}
 \begin{figure}[htbp]
-\includegraphics{USE_CASE_DIAGRAM.jpg}
+\includegraphics[scale=0.7]{USE_CASE_DIAGRAM.jpg}
 \caption{Use Case Diagram}
 \label{fig:use-case-diagram}
 \end{figure}
@@ -120,7 +122,7 @@ A user will select a cell that can be used for various operations
 \noindent
 {\bf Precondition}\\
 The user has opened the program, and opened or created a spread sheet\\
-\noindent
+\noindent\\
 {\bf Main Scenario}\\
 \vspace*{-0.2in}
 \begin{enumerate}
@@ -134,6 +136,8 @@ The cell is outside an acceptable range
 \noindent
 {\bf Postcondition}\\
 Selecting a cell will trigger an event in the system to evaluate the input
+
+\clearpage
 
 \subsubsection{Use Case 2} \label{uc:2}
 
@@ -157,7 +161,8 @@ arithmetic expressions.
 \noindent
 {\bf Precondition}\\
 The user has selected a cell\\
-\noindent
+\noindent\\
+
 {\bf Main Scenario}\\
 \vspace*{-0.2in}
 \begin{enumerate}
@@ -175,7 +180,7 @@ Data stored in the selected cell of the spread sheet
 
 \clearpage
 
-\subsubsection{Use Case 3} \label{uc:2}
+\subsubsection{Use Case 3} \label{uc:3}
 
 \noindent
 {\bf Name}\\
@@ -192,7 +197,7 @@ When a cell contains an expression the system will parse the string and evaluate
 \noindent
 {\bf Precondition}\\
 A cell contains an expression\\
-\noindent
+\noindent\\
 {\bf Main Scenario}\\
 \vspace*{-0.2in}
 \begin{enumerate}
@@ -211,7 +216,7 @@ The cell that contains the expression will display the results of the evaluation
 
 \clearpage
 
-\subsubsection{Use Case 4} \label{uc:2}
+\subsubsection{Use Case 4} \label{uc:4}
 
 \noindent
 {\bf Name}\\
@@ -221,7 +226,7 @@ Display On Screen
 {\bf Summary}\\
 Output the spreadsheet as a grid of cells with values and evaluated expressions.
 
-\noindent
+\noindent\\
 {\bf Actors}\\
 1. System\\
 
@@ -229,7 +234,7 @@ Output the spreadsheet as a grid of cells with values and evaluated expressions.
 {\bf Precondition}\\
 Program is open\\
 A spreadsheet has been created or loaded\\
-\noindent
+\noindent\\
 {\bf Main Scenario}\\
 \vspace*{-0.2in}
 \begin{enumerate}
@@ -242,14 +247,14 @@ A spreadsheet has been created or loaded\\
 {\bf Exceptions}\\
 None
 
-\noindent
+\noindent\\
 {\bf Postcondition}\\
 A GUI representation of the grid is displayed with evalutated cells in a row / column grid.
 
 \clearpage
 
 
-\subsubsection{Use Case 5} \label{uc:2}
+\subsubsection{Use Case 5} \label{uc:5}
 
 \noindent
 {\bf Name}\\
@@ -267,7 +272,7 @@ Allow the user to load or save an existing spreadsheet to disk
 \noindent
 {\bf Precondition}\\
 Program is open\\
-\noindent
+\noindent\\
 {\bf Main Scenario}\\
 \vspace*{-0.2in}
 \begin{enumerate}
