@@ -27,7 +27,7 @@ public class Main {
 
     private JFrame frame = new JFrame("Comp 354-Excel Document");
     private JScrollPane scrollPane;
-    public JTable table;
+    private JTable table;
     private DefaultTableModel model;
     private TableRowSorter<TableModel> sorter;
     private JTable headerTable;
@@ -87,31 +87,35 @@ public class Main {
         
     }
     	
-    public void executeCommand(String inputStr) {
+    private void executeCommand(String inputStr) {
     	String noSpaceCommand = inputStr.replaceAll("\\s", ""); //take out any whitespace chars
     	noSpaceCommand = noSpaceCommand.toUpperCase(); //put the char in the cell name to uppercase i.e b1 => B1
     	
     	if(noSpaceCommand.matches(startPattern)) {//if the command starts correctly i.e "A1=" continue
-    	    String[] splitCommand = new String[2];
-	    	//split the equation in two halves i.e A1 = 4.5 + 30 => part1: A1, part2: 4.5 + 30
-	    	splitCommand = noSpaceCommand.split("=");
-	    	String cellName = splitCommand[0]; //name of cell that will be modified
-	    	String equation = splitCommand[1]; //equation associated with the cell, also stored in cell.setFormula(formula)
+    	    
+	    	String cellName = getEquationElement(noSpaceCommand, "cellname");
+	    	String equation = getEquationElement(noSpaceCommand, "equation");
 	    	
 	    	//if the equation only contains numbers
     		if(noSpaceCommand.matches(numericPattern)) {
         		numericInput(cellName, equation);
+        		storeEntries(cellEntries, cellName, noSpaceCommand);        		
+            	printTable(table);            	
         		saved = false;
         	}
     		//if the equation contains cell names
         	else if(equation.matches(alphaNumPattern)) {
         		alphanumericInput(cellName, equation);
+        		storeEntries(cellEntries, cellName, noSpaceCommand);
+        		printTable(table);
         		saved = false;
         	} else {
         		System.out.println("The command is not valid");
         	}
     	} else {
     		 if(noSpaceCommand.equals("QUIT")) {
+    			 frame.setVisible(true);	
+    		        frame.toFront();
     			 if (checkSaved()){
 	    			 System.out.println("Quitting...");
 	                 // if unsaved, prompt to save
@@ -119,20 +123,23 @@ public class Main {
     			 }
     		 }            		 	
     		 else if(noSpaceCommand.equals("LOAD")) {
+    			 frame.setVisible(true);	
+    		        frame.toFront();
     			 if (checkSaved()){
 	    			 loadFile();
     			 }
     		 }
     		 else if(noSpaceCommand.equals("SAVE")) {
-    			 String[][] saveTest = {{"1", "2"}, {"3", "4"}};
-    			 saveFile(saveTest);
+    			 //String[][] saveTest = {{"1", "2"}, {"3", "4"}};
+    			 //saveFile(saveTest);
+    			 saveFile(cellEntries);
     		 }
     		 else {
     			 System.out.println("The command is not valid!");
     		 }
     	}
 	}
-    public void saveFile(String[][] entries){
+    private void saveFile(String[][] entries){
     	System.out.println(
     			"Enter a filename to save to "
     			+ "\n(the .csv extension will be automatically appended.");
@@ -154,7 +161,7 @@ public class Main {
     	System.out.println("File successfully saved as " + filename + ".csv");
     	saved = true;
     }
-    public void loadFile(){
+    private void loadFile(){
 		JFileChooser fileopen = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv files", "csv");
 		fileopen.addChoosableFileFilter(filter);
@@ -179,9 +186,30 @@ public class Main {
 	            		assert row.length == cellArray.get(i+1).length;
 	            	for (int j=0; j<row.length; j++){
 	            		cellEntries[i][j] = row[j];
-	            		System.out.print(row[j] + ",\t");
+	            		
+	            		/*if(row[j].equals("0.0"))
+	            			System.out.print(row[j] + ",\t");
+	            		else {
+		            			String cellname = getEquationElement(row[j], "cellname");
+		            			String equation = getEquationElement(row[j], "equation");
+		            			ScriptEngineManager manager = new ScriptEngineManager();
+		            		    ScriptEngine engine = manager.getEngineByName("JavaScript");
+		            		    
+		            			if(row[j].matches(alphaNumPattern)) {
+		            				try {
+										System.out.print(engine.eval(equation) + ",\t");
+									} catch (ScriptException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+		            			}
+		            			else {
+		            				System.out.print("test,\t");
+		            			}
+		            			
+	            		}*/
 	            	}
-	            	System.out.println();
+	            	//System.out.println();
 	            }
 	        } catch (IOException e) {
 	            System.err.println("There was a problem trying to load the file.");
@@ -190,10 +218,13 @@ public class Main {
 	        			+ "formatting. It may be corrupted.");
 	        }
 		}
+		restoreEntries(cellEntries);
+		printTable(table);
+		//model.fireTableDataChanged();
 		saved = true;
     }
     
-    public boolean checkSaved(){
+    private boolean checkSaved(){
     	if (saved)
     		return true;
     	int n = JOptionPane.showConfirmDialog(new JFrame(),
@@ -204,7 +235,7 @@ public class Main {
     		return true;
     	return false;
     }
-    public void numericInput(String cellName, String equation){
+	private void numericInput(String cellName, String equation){
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 		int row = getCellRow(cellName);
@@ -226,7 +257,7 @@ public class Main {
 			e.printStackTrace();
 		}//end catch
 	}
-    public void alphanumericInput(String cellName, String equation){
+	private void alphanumericInput(String cellName, String equation){
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 		//check if there are cell names after the "=" sign i.e check for C4 & F7 in "A1 = C4 + 5 - F7"
@@ -264,13 +295,14 @@ public class Main {
 		}//end catch
 	}
 
-    public void prepareVars(){
+	private void prepareVars(){
 		table = new JTable(10, 10);
         //Fill the table with empty values
         for (int i = 0; i < table.getRowCount(); i++) {
         	for (int j = 0; j < table.getColumnCount(); j++) {        		
         		table.setValueAt(0.0, i, j); //************** NEEDED TO BE CHANGED TO WORK (from "cell" to 0.0 ***********/
         		formulas[i][j] = "";
+        		cellEntries[i][j] = "0.0";
         		//cell[i][j].setValue(0.0);
         	}
         }
@@ -356,7 +388,7 @@ public class Main {
             	TableModel model = (TableModel)e.getSource();
             	Object data = model.getValueAt(e.getFirstRow(), e.getColumn());
             	
-            	System.out.println("Changing cell " + getCellName(e.getFirstRow(), e.getColumn()) + " to " + model.getValueAt(e.getFirstRow(), e.getColumn()));
+            	//System.out.println("Changing cell " + getCellName(e.getFirstRow(), e.getColumn()) + " to " + model.getValueAt(e.getFirstRow(), e.getColumn()));
             	//System.out.println("Changing cell (" + (e.getFirstRow()+1) + ", " + (e.getColumn()+1) +") to " + model.getValueAt(e.getFirstRow(), e.getColumn()));
             	//cell[e.getFirstRow()][e.getColumn()].validateInput(model.getValueAt(e.getFirstRow(), e.getColumn()));
         	}
@@ -365,7 +397,9 @@ public class Main {
         frame.add(scrollPane);
         frame.pack();
         frame.setLocation(150, 150);
-        frame.setVisible(true);	
+       // frame.setVisible(true);	
+       
+        
 	}
     
     //retrieves the cell row index from the cell name i.e. A1 => row index is 0 (1 - 1)
@@ -399,6 +433,24 @@ public class Main {
     		return "The index is out of bound";
     }
     
+    //Returns either the first or second portion of an equation, if A1 = 34 + 5, it returns either "A1" or "34 + 5"
+    //depending on the element that is asked
+    public String getEquationElement(String fullEquation, String element) {
+    	
+    	String[] splitCommand = new String[2];    	
+    	splitCommand = fullEquation.split("=");
+    	String cellName = splitCommand[0]; //name of cell that will be modified
+    	String equation = splitCommand[1]; //equation associated with the cell, also stored in cell.setFormula(formula)
+    	
+    	if(element.equals("cellname"))
+    		return cellName;
+    	else if(element.equals("equation"))
+    		return equation;
+    	else
+    		return "Bad argument";
+    	    	
+    }
+    
     //converts an alphanumeric equation to a numerical equation, "B1 + 35 - C1" where B1=20 & C1=87 becomes "20 + 35 - 87"
     public String getNumEquation(String pattern, String equation, JTable table) {
     	
@@ -417,6 +469,51 @@ public class Main {
 		}
 		myMatch.reset();
     	return numEquation;
+    }
+    
+   
+    //store the command in a 2D array, use the array to save entries, to load them
+    public void storeEntries(String[][] entries, String cellname, String fullEquation) {
+    	
+    	int row = getCellRow(cellname);
+    	int column = getCellColumn(cellname);
+    	
+    	entries[row][column] = fullEquation;
+    	
+    }
+    
+    public void restoreEntries(String[][] entries) {
+    	
+    	//String pattern = "^[A-Ja-j]\\d{1,2}=.+$";
+    	String equation = "";
+    	String cellname = "";
+    	
+    	for(int i = 0; i < entries.length; i++) {
+			for(int j = 0; j < entries[0].length; j++) {
+				
+				if(entries[i][j].matches(startPattern)) {
+					cellname = getEquationElement(entries[i][j], "cellname");
+					equation = getEquationElement(entries[i][j], "equation");
+					
+					if(entries[i][j].matches(numericPattern)) {
+						numericInput(cellname, equation);
+					}
+					else if(entries[i][j].matches(alphaNumPattern)) {
+						alphanumericInput(cellname, equation);
+					}
+					else {
+						System.out.println("The command is not valid.");
+					}
+				}
+				else {
+					if(entries[i][j].equals("0.0")){
+						table.setValueAt(0.0, i, j);
+					}
+					else
+						System.out.println("The command is not valid (2).");
+				}
+			}
+		}
     }
     
     //check the table after each command to see if other cells are affected by the latest command
@@ -449,6 +546,42 @@ public class Main {
     			}
     			
     		}
+    	}
+    }
+    
+    //Print the cell values as a formatted table
+    public void printTable(JTable table) {
+    	int counter = 0;
+    	char header = ' ';
+    	String padding = "%8s";
+    	
+    	System.out.println();
+    	
+    	while(counter < 11) {
+    		
+    		if(counter != 0) {
+    			header = (char)((65 + counter)-1);
+    			System.out.format(padding, header);
+    		}
+    		else
+    			System.out.format("%6s", " ");
+    		counter++;
+    	}
+    	    	
+    	System.out.println();
+    	String entry = "";
+    	for(int i = 0; i < table.getRowCount(); i++) {
+    		for(int j = 0; j < table.getColumnCount(); j++) {
+    			
+    			if(j == 0){
+    				entry = (i+1) + "";
+					System.out.format(padding, entry);    					
+    			}
+    			
+    			System.out.format(padding, table.getValueAt(i, j));
+    			
+    		}
+    		System.out.println();
     	}
     }
   //****************************************************my code (Simone)*****************************************************//
