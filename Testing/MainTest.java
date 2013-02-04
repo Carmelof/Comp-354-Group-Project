@@ -81,7 +81,8 @@ public class MainTest {
 	
 	/*=====================================================================
 	 * Tester: Dragos
-	 * Note: due to the application's design, these tests cannot be fully automated.
+	 * Note: due to the application's design, these tests cannot be fully
+	 * automated.
 	 *=====================================================================
 	 */
     	@Rule
