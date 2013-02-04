@@ -1,0 +1,9 @@
+comp 354
+Long Wang diary, id 9547967
+role- developper
+
+
+my code by itself takes an input, sets and then returns the appropriate value when the input asks for a cell, or an addition/subtraction/multiplcation of 2 cells.  This is pattern matching, and also uses splitting, so that the string becomes an array and checks for cases.  I did leave behind plenty of tryout versions of prior experimentation, and left some useful ideas to Simon, which she looked at and merged some of my code with javascript and main.java.
+
+Kevin and Max are the saints to merging and factoring and correcting thy codes altogether, adding the finished touches.
+
