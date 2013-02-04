@@ -31,21 +31,21 @@ public class Main {
     private DefaultTableModel model;
     private TableRowSorter<TableModel> sorter;
     private JTable headerTable;
-    //private Cell cell[][] = new Cell[10][11];
+    //private Cell cell[][] = new Cell[10][10];
     //contains the formula for each cell if there are any
-    private String[][] formulas = new String[10][11];
-    private String[][] cellEntries = new String[10][11];
+    private String[][] formulas = new String[10][10];
+    private String[][] cellEntries = new String[10][10];
     private boolean quit;
     private boolean saved;
     Scanner inputCommand;
     
     
 	//Equation starts with a cell name followed by "=" i.e "A1="
-	String startPattern = "^[A-Ka-k]\\d{1,2}=.+$";
+	String startPattern = "^[A-Ja-j]\\d{1,2}=.+$";
 	//Equation with numbers only i.e. (A1= 4.5), (A1= 5 + 6.7 - 8); NOT VALID => (A1= B1), (A1=B1*C4), (A1= B5 - 3.4)
-	String numericPattern = "^[A-Ka-k]\\d{1,2}=[^A-Za-z=]*$";
+	String numericPattern = "^[A-Ja-j]\\d{1,2}=[^A-Za-z=]*$";
 	//Equation contains cell names i.e A1 = B1 + 4 - C1; DOESN'T APPLY TO => A1 = 4.7 + 90 (no cell names after "=");
-	String alphaNumPattern = "^.*[A-K]\\d{1,2}.*$"; 
+	String alphaNumPattern = "^.*[A-J]\\d{1,2}.*$"; 
     
     public Main() {
         prepareVars();
@@ -66,7 +66,7 @@ public class Main {
     					+ "( i.e. A1 = B1; A1 = -4 * B1)"
                         + "\nload:\tLoad the spreadsheet"
                         + "\nsave:\tSave the spreadsheet"
-                        + "\nquit:\tQuit the spreadsheet program"
+                        + "\nquit:\tQuit the spreadsheet"
     					+ "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
  
     	System.out.println(greeting);
@@ -219,6 +219,7 @@ public class Main {
 			//cell[row][column].setFormula(equation);
 			//store the formula of the cell in an array i.e formula of A1=> "4.5 - 8 * 2"
 			formulas[row][column] = equation;
+			updateTable(table, formulas, cellName); //||||||******** ADDED CODE *********||||||//
 		} catch (ScriptException e) {
 		// TODO Auto-generated catch block
 			System.out.println("The arithmetic equation is not valid");
@@ -229,7 +230,7 @@ public class Main {
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 		//check if there are cell names after the "=" sign i.e check for C4 & F7 in "A1 = C4 + 5 - F7"
-		Pattern MY_PATTERN = Pattern.compile("[A-K]\\d{1,2}");
+		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		Matcher myMatch = MY_PATTERN.matcher(equation);
 		                		
 		String otherCells = "";
@@ -255,6 +256,7 @@ public class Main {
 			//cell[getCellRow(cellName)][getCellColumn(cellName)].setFormula(equation);
 			//store the formula of the cell in an array i.e formula of A1=> "4.5 - B1 * 2 - E5"
 			formulas[getCellRow(cellName)][getCellColumn(cellName)] = equation;
+			updateTable(table, formulas, cellName); //||||||******** ADDED CODE *********||||||//
 		} catch (ScriptException e) {
 		// TODO Auto-generated catch block
 			System.out.println("The arithmetic equation is not valid");
@@ -263,11 +265,12 @@ public class Main {
 	}
 
 	private void prepareVars(){
-		table = new JTable(10, 11);
+		table = new JTable(10, 10);
         //Fill the table with empty values
         for (int i = 0; i < table.getRowCount(); i++) {
         	for (int j = 0; j < table.getColumnCount(); j++) {        		
         		table.setValueAt(0.0, i, j); //************** NEEDED TO BE CHANGED TO WORK (from "cell" to 0.0 ***********/
+        		formulas[i][j] = "";
         		//cell[i][j].setValue(0.0);
         	}
         }
@@ -353,7 +356,8 @@ public class Main {
             	TableModel model = (TableModel)e.getSource();
             	Object data = model.getValueAt(e.getFirstRow(), e.getColumn());
             	
-            	System.out.println("Changing cell (" + (e.getFirstRow()+1) + ", " + (e.getColumn()+1) +") to " + model.getValueAt(e.getFirstRow(), e.getColumn()));
+            	System.out.println("Changing cell " + getCellName(e.getFirstRow(), e.getColumn()) + " to " + model.getValueAt(e.getFirstRow(), e.getColumn()));
+            	//System.out.println("Changing cell (" + (e.getFirstRow()+1) + ", " + (e.getColumn()+1) +") to " + model.getValueAt(e.getFirstRow(), e.getColumn()));
             	//cell[e.getFirstRow()][e.getColumn()].validateInput(model.getValueAt(e.getFirstRow(), e.getColumn()));
         	}
         });
@@ -370,7 +374,7 @@ public class Main {
     	int row = 0;
     	String[] tempArray = new String[2];
     	
-    	tempArray = cellName.split("[A-K]");
+    	tempArray = cellName.split("[A-J]");
     	row = Integer.parseInt(tempArray[1]) - 1;
     	
     	return row;
@@ -386,6 +390,67 @@ public class Main {
     	return column;
     }
     
+    //get the cell name by providing its index, getCellName(0,0) returns A1
+    public String getCellName(int row, int column) {
+    	
+    	if(row >= 0 && column <= 9)
+    		return (char)(65 + column) + "" + (row + 1);
+    	else
+    		return "The index is out of bound";
+    }
+    
+    //converts an alphanumeric equation to a numerical equation, "B1 + 35 - C1" where B1=20 & C1=87 becomes "20 + 35 - 87"
+    public String getNumEquation(String pattern, String equation, JTable table) {
+    	
+    	Pattern MY_PATTERN = Pattern.compile(pattern);
+		Matcher myMatch = MY_PATTERN.matcher(equation);
+		String numEquation = equation;
+		String otherCells = "";
+		double cellValue = 0;
+		
+		while(myMatch.find()) {
+			
+			otherCells = myMatch.group();
+			
+			cellValue = (double) table.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
+			numEquation = numEquation.replace(otherCells, Double.toString(cellValue));
+		}
+		myMatch.reset();
+    	return numEquation;
+    }
+    
+    //check the table after each command to see if other cells are affected by the latest command
+    public void updateTable(JTable table, String[][] formulas, String cellname) {
+    	
+    	ScriptEngineManager manager = new ScriptEngineManager();
+	    ScriptEngine engine = manager.getEngineByName("JavaScript");
+    	String newEquation = "";
+    	String pattern = "[A-J]\\d{1,2}";
+    	
+    	for(int i = 0; i < formulas.length; i++) {
+    		
+    		for(int j = 0; j < formulas[0].length; j++) {
+    			
+    			if(!formulas[i][j].equals("")) {
+    				if(formulas[i][j].contains(cellname)) {
+    					
+    					newEquation = getNumEquation(pattern, formulas[i][j], table);
+    					
+    					try {
+							Object result = engine.eval(newEquation);
+							table.getModel().setValueAt(result, i, j);
+	        				
+						} catch (ScriptException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+        				
+        			}
+    			}
+    			
+    		}
+    	}
+    }
   //****************************************************my code (Simone)*****************************************************//
     
     public static void main(String[] args) {
