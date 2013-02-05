@@ -3,20 +3,23 @@
  * For those of you not familiar with JUnit, it comes already installed if using eclipse
  * to see the tests right click on the Testing_it1.java then "Run As"-> JUnit Test
  * 
+ * These tests are not automatic and need some edits to get them working (for all our parts)
+ * 1st all the tested classes in the main methods ( and some variables) need their visibility
+ * changed to public so we can access them
+ * 2nd the while loop in the main needs to be commented out so the tests will run without
+ * interruption 
+ * 
+ * This is due to the application's design
  */
  
 package Testing;
 
 import static org.junit.Assert.*;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.omg.PortableInterceptor.SUCCESSFUL;
-
 import com.sun.net.httpserver.Authenticator.Success;
-
-import dev.Cell;
 import dev.Main;
 
 public class MainTest {
@@ -25,8 +28,6 @@ public class MainTest {
 	
 	/*=====================================================================
 	 * Tester: Karim
-	 * the save checks halt the automatic testing
-	 * im not sure how to make the main's window close so they keep going
 	 *=====================================================================
 	 */
 	@Test
@@ -81,8 +82,6 @@ public class MainTest {
 	
 	/*=====================================================================
 	 * Tester: Dragos
-	 * Note: due to the application's design, these tests cannot be fully
-	 * automated.
 	 *=====================================================================
 	 */
     	@Rule
@@ -186,8 +185,6 @@ public class MainTest {
 	
 	/*=====================================================================
 	 * Tester: Carmelo
-	 * Note: In order for the JUnits to function, the while loop in main
-	 * must be commented out.
 	 *=====================================================================
 	 */
 	@Test
