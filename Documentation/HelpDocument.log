@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.19)  4 FEB 2013 20:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.19)  4 FEB 2013 21:19
 entering extended mode
 **C:/Comp-354-Group-Project/Documentation/HelpDocument.tex
 (C:/Comp-354-Group-Project/Documentation/HelpDocument.tex
@@ -228,157 +228,159 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 37.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<DomainModel.jpg, id=99, 789.95125pt x 557.08125pt>
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
+
+]
+<DomainModel.jpg, id=103, 789.95125pt x 557.08125pt>
 File: DomainModel.jpg Graphic file (type jpg)
  <use DomainModel.jpg>
-Package pdftex.def Info: DomainModel.jpg used on input line 69.
-(pdftex.def)             Requested size: 789.94931pt x 557.0799pt.
+Package pdftex.def Info: DomainModel.jpg used on input line 70.
+(pdftex.def)             Requested size: 473.9744pt x 334.25133pt.
 
-Overfull \hbox (334.70523pt too wide) in paragraph at lines 69--70
+Overfull \hbox (18.73032pt too wide) in paragraph at lines 70--71
 [][] 
  []
 
-[2
+[3
 
-] [3 <C:/Comp-354-Group-Project/Documentation/DomainModel.jpg>] [4
+ <C:/Comp-354-Group-Project/Documentation/DomainModel.jpg>] [4
 
 ]
 <USE_CASE_DIAGRAM.jpg, id=118, 761.84625pt x 433.62pt>
 File: USE_CASE_DIAGRAM.jpg Graphic file (type jpg)
 
 <use USE_CASE_DIAGRAM.jpg>
-Package pdftex.def Info: USE_CASE_DIAGRAM.jpg used on input line 113.
+Package pdftex.def Info: USE_CASE_DIAGRAM.jpg used on input line 114.
 (pdftex.def)             Requested size: 533.28874pt x 303.53192pt.
 
-Overfull \hbox (78.04466pt too wide) in paragraph at lines 113--114
+Overfull \hbox (78.04466pt too wide) in paragraph at lines 114--115
 [][] 
  []
 
 [5
 
  <C:/Comp-354-Group-Project/Documentation/USE_CASE_DIAGRAM.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 130--134
+Underfull \hbox (badness 10000) in paragraph at lines 131--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--141
+Underfull \hbox (badness 10000) in paragraph at lines 136--142
 
  []
 
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 169--173
+Underfull \hbox (badness 10000) in paragraph at lines 170--174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--178
+Underfull \hbox (badness 10000) in paragraph at lines 175--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--178
+Underfull \hbox (badness 10000) in paragraph at lines 175--179
 
  []
 
 [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 206--209
+Underfull \hbox (badness 10000) in paragraph at lines 207--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
+Underfull \hbox (badness 10000) in paragraph at lines 211--217
 
  []
 
 [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 242--245
+Underfull \hbox (badness 10000) in paragraph at lines 243--246
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--253
+Underfull \hbox (badness 10000) in paragraph at lines 247--254
 
  []
 
 [9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 280--284
+Underfull \hbox (badness 10000) in paragraph at lines 281--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--291
+Underfull \hbox (badness 10000) in paragraph at lines 286--292
 
  []
 
 [10
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 313--313
+Underfull \hbox (badness 10000) in paragraph at lines 314--314
 []\OT1/cmr/m/n/12 Traces to use
  []
 
 
-Underfull \hbox (badness 8189) in paragraph at lines 314--314
+Underfull \hbox (badness 8189) in paragraph at lines 315--315
 []\OT1/cmr/m/n/12 User must be
  []
 
 
-Underfull \hbox (badness 5008) in paragraph at lines 314--314
+Underfull \hbox (badness 5008) in paragraph at lines 315--315
 []\OT1/cmr/m/n/12 access in-for-ma-
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 314--314
+Underfull \hbox (badness 2376) in paragraph at lines 315--315
 \OT1/cmr/m/n/12 tion about the
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 314--314
+Underfull \hbox (badness 3623) in paragraph at lines 315--315
 []\OT1/cmr/m/n/12 Register, lo-gin,
  []
 
 
-Overfull \hbox (52.25403pt too wide) in paragraph at lines 311--317
+Overfull \hbox (52.25403pt too wide) in paragraph at lines 312--318
 [] 
  []
 
 
-Overfull \hbox (52.70343pt too wide) in paragraph at lines 321--324
+Overfull \hbox (52.70343pt too wide) in paragraph at lines 322--325
 \OT1/cmr/m/n/12 More in-for-ma-tion about jTable []http://docs.oracle.com/javas
 e/6/docs/api/javax/swing/JTable.html[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--336
+Underfull \hbox (badness 10000) in paragraph at lines 333--337
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--336
+Underfull \hbox (badness 10000) in paragraph at lines 333--337
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 337.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 338.
 [11
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 337.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 338.
  (C:\Comp-354-Group-Project\Documentation\HelpDocument.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 337.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 337.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 338.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 338.
 Package rerunfilecheck Info: File `HelpDocument.out' has not changed.
 (rerunfilecheck)             Checksum: 17E143B9317C9ED9D4489A1D4E185A91;1316.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 337.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 338.
  ) 
 Here is how much of TeX's memory you used:
  4932 strings out of 494045
@@ -387,10 +389,10 @@ Here is how much of TeX's memory you used:
  8166 multiletter control sequences out of 15000+200000
  7894 words of font info for 28 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 29i,9n,28p,440b,315s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,9n,28p,440b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on HelpDocument.pdf (11 pages, 239472 bytes).
+Output written on HelpDocument.pdf (11 pages, 239520 bytes).
 PDF statistics:
  188 PDF objects out of 1000 (max. 8388607)
  56 named destinations out of 1000 (max. 500000)
