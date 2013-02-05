@@ -1,9 +1,57 @@
-comp 354
-Long Wang diary, id 9547967
-role- developper
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pagestyle{empty}
+\setcounter{secnumdepth}{2}
 
+\topmargin=0cm
+\oddsidemargin=0cm
+\textheight=22.0cm
+\textwidth=16cm
+\parindent=0cm
+\parskip=0.15cm
+\topskip=0truecm
+\raggedbottom
+\abovedisplayskip=3mm
+\belowdisplayskip=3mm
+\abovedisplayshortskip=0mm
+\belowdisplayshortskip=2mm
+\normalbaselineskip=12pt
+\normalbaselines
 
-my code by itself takes an input, sets and then returns the appropriate value when the input asks for a cell, or an addition/subtraction/multiplcation of 2 cells.  This is pattern matching, and also uses splitting, so that the string becomes an array and checks for cases.  I did leave behind plenty of tryout versions of prior experimentation, and left some useful ideas to Simon, which she looked at and merged some of my code with javascript and main.java.
+\begin{document}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Diary for iteration 1}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Long Wang - 9547967}
+
+\vspace*{0.5in}
+\centerline{\bf\Large 4 Feburary 2013}
+
+\clearpage
+
+\section{Overall description}
+We used a program GitHub to store our files and coding, so the entire group can share and edit and work upon.
+\subsection{Challenges}
+Starting off the project as a team took quite a lot of tinkering, who gets which role or class or structure to work on, deadlines had to be met, ideas restructured.  A lot of reading, coding and testing was poured, and hopefully it all works out in the end.  
+\subsection{Notes} 
+my code by itself takes an input, sets and then returns the appropriate value when the input asks for a cell, or an addition/subtraction/multiplcation of 2 cells. This is pattern matching, and also uses splitting, so that the string becomes an array and checks for cases. I did leave behind plenty of tryout versions of prior experimentation, and left some useful ideas to Simon, which she looked at and merged some of my code with javascript and main.java.  We had 2 get-together-DEV meetings, which I don't remmeber the dates, but it was on Tuesdays at 4 pm.  
 
 Kevin and Max are the saints to merging and factoring and correcting thy codes altogether, adding the finished touches.
+\begin{table}[htbp]
+\caption{Diary Log}
+\begin{tabular}{|l|l | p{12cm}|}
+\hline
+Date & Description \\\hline\hline
+Jan 24th & 42m &After reading some GitHub tutorials, got my name added. \\\hline\hline
+Jan 25th& 12m & pulled requests and edited a bit on GitHub, posting comments. \\\hline\hline
+Jan 27th& 18m & Started working on the coding, as tryout1 and 2 .java, namely coding process formulas from command inputs \\\hline\hline
+Jan 28th& 07m & Forgot to Sync my coding \\\hline\hline
+Feb4th & 20m & Finished my diary \\\hline\hline
 
+\end{tabular}
+\end{table}
+
+\end{document}
