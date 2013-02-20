@@ -6,15 +6,27 @@ public class Cell {
     private String formula;
     private int row;
     private int column;
+    boolean isPrimitive = true;
     //constructors
     public Cell() {
-        value=0.0;
-        formula="";
+    	isPrimitive = true;
+    	newCell(0.0, "", -1, -1);
     }
     public Cell(double value, int row, int column) {
+    	isPrimitive = true;
+    	newCell(value, "", row, column);
+    }
+    public Cell(String Formula, int row, int column){
+    	isPrimitive = false;
+    	newCell(1.0, Formula, row, column);
+    }
+    
+    private void newCell(double value, String Formula, int row, int column){
+    	/*Assumes that the formula is already validated*/
     	this.value = value;
     	this.row = row;
     	this.column = column; 
+    	this.formula = Formula;
     }
     public int getRow() {
     	return row;
@@ -28,60 +40,45 @@ public class Cell {
     public void setColumn(int i) {
     	column = i; 
     }
-    public Cell(double value, String formula) {
-        super();
-        this.value = value;
-        this.formula = formula;
-    }
     
-    public void validateInput(Object o) {
-    	//Need code here to validate the input
-    	/*if (o instanceof Double)
-    		value = (Double) o;
-    	if (o instanceof String)
-    		formula = o.toString();*/
-    	//System.out.println("Value: " + value + "\nFormula: " + formula);
-    	return;
-    }
     public double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    private void setPrimitive(double value) {
         this.value = value;
     }
     
-    public void setFormula(String equation) {
+    private void setFormula(String equation) {
+    	isPrimitive = false;
     	formula = equation;
     }
     
     public String getFormula() {
         return formula;
     }
+    public void setValue(String equation)
+    {
+    	setFormula(equation);
+    }
+    public void setValue(double primitive)
+    {
+    	setPrimitive(primitive);
+    }
     
     public boolean hasFormula()
     {
-        if(formula.equals(""))
+        if(isPrimitive)
             return false;
         return true;
     }
     
     public boolean hasValue()
     {
-        if(value==0.0)
+        if(!isPrimitive)
             return false;
         return true;
     }
-    @Override
-    public String toString() {
-        /*This method should determine whether or not there is a formula associated with the given cell
-         * If there is a formula, determine the value
-         * Then set the "value" and output it here
-         */
-    	//return "Cell [value=" + value + ", formula=" + formula + "]";
-    	return ""+value;
-    }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -101,7 +98,5 @@ public class Cell {
                 .doubleToLongBits(other.value))
             return false;
         return true;
-    }
-
-    
+    } 
 }
