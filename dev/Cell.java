@@ -1,5 +1,9 @@
 package dev;
 public class Cell {
+	
+	/*************************************************************
+	 * This class is done.  Kcameron
+	/*********************************************************** */
     
     //Attributes
     private double value;
@@ -18,7 +22,7 @@ public class Cell {
     }
     public Cell(String Formula, int row, int column){
     	isPrimitive = false;
-    	newCell(1.0, Formula, row, column);
+    	newCell(0.0, Formula, row, column);
     }
     
     private void newCell(double value, String Formula, int row, int column){
@@ -41,43 +45,47 @@ public class Cell {
     	column = i; 
     }
     
+    
+/******************************************************************
+* Get Overloads for the values
+******************************************************************/
+    
     public double getValue() {
         return value;
     }
-
+    public String getFormula() {
+        return formula;
+    }
+    
+/******************************************************************
+ * Set overload
+******************************************************************/
+    
     private void setPrimitive(double value) {
+    	this.formula = "";
         this.value = value;
     }
     
     private void setFormula(String equation) {
-    	isPrimitive = false;
-    	formula = equation;
+    	this.value = -1;
+    	this.formula = equation;
     }
-    
-    public String getFormula() {
-        return formula;
-    }
+        
+    /*setValue Overloads for String and double*/
     public void setValue(String equation)
     {
+    	isPrimitive = false;
     	setFormula(equation);
     }
     public void setValue(double primitive)
     {
+    	isPrimitive = true;
     	setPrimitive(primitive);
     }
     
-    public boolean hasFormula()
+    public boolean isPrimitive()
     {
-        if(isPrimitive)
-            return false;
-        return true;
-    }
-    
-    public boolean hasValue()
-    {
-        if(!isPrimitive)
-            return false;
-        return true;
+        return isPrimitive;
     }
 
     @Override

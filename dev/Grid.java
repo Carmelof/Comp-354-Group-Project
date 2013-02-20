@@ -68,5 +68,20 @@ public class Grid{
 		 * */
 		return results;
 	}
+	
+	/*
+	 * Should really use the generic object for these overloads
+	 * meh.
+	 * */
+	public void insertValue(double value, int x, int y){
+		Cell tempCell = getCell(x, y);
+		tempCell.setValue(value);
+		TGrid.setValueAt(tempCell, x, y);
+	}
+	public void insertValue(String formula, int x, int y){
+		Cell tempCell = getCell(x, y);
+		tempCell.setValue(formula);
+		TGrid.setValueAt(tempCell, x, y);
+	}
 
 }
