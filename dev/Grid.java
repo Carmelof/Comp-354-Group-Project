@@ -5,31 +5,27 @@ import java.util.regex.Pattern;
 
 import javax.swing.JTable;
 
-public class Grid{
-	int DefaultTableSize = 10;
-	JTable TGrid;
+public class Grid extends JTable {
+	static int DefaultTableSize = 10;
 
 	public Grid(){
 		/**********************
 		 * Default grid size 10
 		 * *********************/
-		MakeGrid(DefaultTableSize, DefaultTableSize);
+		this(DefaultTableSize, DefaultTableSize);
 		
 	}
-	public Grid(int x, int y){
-		MakeGrid(x,y);
-	}
-	private void MakeGrid(int x, int y) {
+	public Grid(int x, int y) {
 		/*TODO Auto-generated method stub
 		 * 
 		 * Create a grid (jTable of size X, Y using the Cell class )
 		 * */
-		TGrid = new JTable(x,y);
+		super(x,y);
 		
-		 for (int i = 0; i < TGrid.getRowCount(); i++) {
-	        	for (int j = 0; j < TGrid.getColumnCount(); j++) {  
+		 for (int i = 0; i < this.getRowCount(); i++) {
+	        	for (int j = 0; j < this.getColumnCount(); j++) {  
 	        		Cell tempCell = new Cell();
-	        		TGrid.setValueAt(tempCell, i, j);
+	        		this.setValueAt(tempCell, i, j);
 	        		
 	        	}
 		 }
@@ -53,7 +49,7 @@ public class Grid{
 	}
 	
 	public void insertCell(Cell myCell){
-		TGrid.setValueAt(myCell, myCell.getRow(), myCell.getColumn());
+		this.setValueAt(myCell, myCell.getRow(), myCell.getColumn());
 	}
 	
 	public Cell getCell(int x, int y)
@@ -62,7 +58,7 @@ public class Grid{
 		/*
 		 * return the the Cell at the x,y position
 		 * */
-		tempCell = (Cell) TGrid.getValueAt(x, y);
+		tempCell = (Cell) this.getValueAt(x, y);
 		
 		return tempCell;
 	}
@@ -91,7 +87,7 @@ public class Grid{
 				
 				otherCells = myMatch.group();
 				
-				nextCell = (Cell) TGrid.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
+				nextCell = (Cell) this.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
 				
 				//iCell.getFormula() = iCell.getFormula().replace(otherCells, Double.toString(cellValue));
 			}
@@ -108,12 +104,12 @@ public class Grid{
 	public void insertValue(double value, int x, int y){
 		Cell tempCell = getCell(x, y);
 		tempCell.setValue(value);
-		TGrid.setValueAt(tempCell, x, y);
+		this.setValueAt(tempCell, x, y);
 	}
 	public void insertValue(String formula, int x, int y){
 		Cell tempCell = getCell(x, y);
 		tempCell.setValue(formula);
-		TGrid.setValueAt(tempCell, x, y);
+		this.setValueAt(tempCell, x, y);
 	}
 	
 	public void sortGrid(int col, boolean decending){
