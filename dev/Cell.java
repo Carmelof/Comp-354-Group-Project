@@ -69,6 +69,7 @@ public class Cell {
     private void setFormula(String equation) {
     	this.value = -1;
     	this.formula = equation;
+    	equation.t
     }
         
     /*setValue Overloads for String and double*/

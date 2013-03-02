@@ -23,8 +23,10 @@ import java.io.*;
 // Source code acquired from 
 // http://stackoverflow.com/questions/8002445/trying-to-create-jtable-with-proper-row-header
 //-------------------------------
-public class Main {
 
+public class Main {
+	main2()
+	retrun;
     private JFrame frame = new JFrame("Comp 354-Excel Document");
     private JScrollPane scrollPane;
     private JTable table;
@@ -70,13 +72,15 @@ public class Main {
     					+ "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
  
     	System.out.println(greeting);
-    	
+    	Command cmd = new Command;
     	while(!quit) {
     	    		
     		while(true) {// As long as the input from the console isn't "quit" do...
     			System.out.println("\nEnter a command: ");
     			inputStr = inputCommand.nextLine();
-    			executeCommand(inputStr);
+    			
+    			
+    			//executeCommand(inputStr);
             	
     			if (quit)
     				break;
@@ -243,12 +247,9 @@ public class Main {
 		try {
 			Object result = engine.eval(equation); //evaluate the arithmetic expression
 			double cellValue = (double) result;
-			//store the value in the correct cell of the JTable
+			
 			table.getModel().setValueAt(cellValue, row, column);
-			//set the value of the cell and its formula i.e A1= 4.5 & formula of A1=> "4.5 - 8 * 2"
-			//cell[row][column].setValue(cellValue);
-			//cell[row][column].setFormula(equation);
-			//store the formula of the cell in an array i.e formula of A1=> "4.5 - 8 * 2"
+			
 			formulas[row][column] = equation;
 			updateTable(table, formulas, cellName); //||||||******** ADDED CODE *********||||||//
 		} catch (ScriptException e) {
@@ -522,7 +523,8 @@ public class Main {
     	ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
     	String newEquation = "";
-    	String pattern = "[A-J]\\d{1,2}";
+    	char n = 'J';
+    	String pattern = "[A-" + n +"]\\d{1,2}";
     	
     	for(int i = 0; i < formulas.length; i++) {
     		

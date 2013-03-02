@@ -1,5 +1,8 @@
 package dev;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.swing.JTable;
 
 public class Grid{
@@ -27,6 +30,7 @@ public class Grid{
 	        	for (int j = 0; j < TGrid.getColumnCount(); j++) {  
 	        		Cell tempCell = new Cell();
 	        		TGrid.setValueAt(tempCell, i, j);
+	        		
 	        	}
 		 }
 	}
@@ -48,6 +52,12 @@ public class Grid{
 		 * */
 	}
 	
+	public void insertCell(Cell){
+		
+		
+		
+	};
+	
 	public Cell getCell(int x, int y)
 	{
 		Cell tempCell = new Cell();
@@ -66,7 +76,29 @@ public class Grid{
 		 * Elseif Cell contains a formual, evaluate the formula and retrun
 		 * the evaluated double
 		 * */
+		
+		
+		// public String getNumEquation(String pattern, String equation, JTable table) {
+		    	
+			 Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
+			
+				Matcher myMatch = MY_PATTERN.matcher(equation);
+				String numEquation = equation;
+				String otherCells = "";
+				double cellValue = 0;
+				
+				while(myMatch.find()) {
+					
+					otherCells = myMatch.group();
+					
+					cellValue = (double) table.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
+					numEquation = numEquation.replace(otherCells, Double.toString(cellValue));
+				}
+				myMatch.reset();
+		    	return numEquation;
+		    }
 		return results;
+		
 	}
 	
 	/*
@@ -83,5 +115,11 @@ public class Grid{
 		tempCell.setValue(formula);
 		TGrid.setValueAt(tempCell, x, y);
 	}
+	
+	public void sortGrid(int col, boolean decending){
+		/* Some sorting logic should go here. */
+	}
+	
+	
 
 }
