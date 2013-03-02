@@ -51,8 +51,10 @@ public class Main {
     
     public Main() {
         prepareVars();
+        //printTable(table);
+
         
-      //*******************************************************my code (Simone)**************************************************//
+        //*******************************************************my code (Simone)**************************************************//
     	inputCommand = new Scanner(System.in);
     	String inputStr = "";
     	quit = false;
@@ -72,8 +74,13 @@ public class Main {
     					+ "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
  
     	System.out.println(greeting);
+<<<<<<< HEAD
     	Command cmd = new Command;
     	while(!quit) {
+=======
+    	
+
+>>>>>>> 99c14796d29e55c871d8cdb31e0f4b0a50353eeb
     	    		
     		while(true) {// As long as the input from the console isn't "quit" do...
     			System.out.println("\nEnter a command: ");
@@ -85,10 +92,7 @@ public class Main {
     			if (quit)
     				break;
     		}
-    		
-    	} //end while(!quit)
-    	
-        
+    		 //end while(!quit)
     }
     	
     private void executeCommand(String inputStr) {
@@ -246,8 +250,13 @@ public class Main {
 		int column = getCellColumn(cellName);
 		try {
 			Object result = engine.eval(equation); //evaluate the arithmetic expression
+<<<<<<< HEAD
 			double cellValue = (double) result;
 			
+=======
+			double cellValue = (Double) result;
+			//store the value in the correct cell of the JTable
+>>>>>>> 99c14796d29e55c871d8cdb31e0f4b0a50353eeb
 			table.getModel().setValueAt(cellValue, row, column);
 			
 			formulas[row][column] = equation;
@@ -276,7 +285,7 @@ public class Main {
 			otherCells = myMatch.group();                			
 			int row = getCellRow(otherCells);
 			int column = getCellColumn(otherCells);
-			double cellValue = (double) table.getValueAt(row, column);
+			double cellValue = (Double) table.getValueAt(row, column);
 
 			newEquation = newEquation.replace(otherCells, Double.toString(cellValue));
 		}  		
@@ -295,7 +304,7 @@ public class Main {
 			e.printStackTrace();
 		}//end catch
 	}
-
+	// HERE ON IS GUI ---------------------------------------------------------------------- !!
 	private void prepareVars(){
 		table = new JTable(10, 10);
         //Fill the table with empty values
@@ -343,7 +352,7 @@ public class Main {
         for (int i = 0; i < table.getRowCount(); i++) {
             headerTable.setValueAt((i + 1), i, 0);
         }
-        headerTable.setShowGrid(false);
+        headerTable.setShowGrid(true);
         headerTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         headerTable.setPreferredScrollableViewportSize(new Dimension(50, 0));
         headerTable.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -351,7 +360,6 @@ public class Main {
 
             @Override
             public Component getTableCellRendererComponent(JTable x, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-
                 boolean selected = table.getSelectionModel().isSelectedIndex(row);
                 Component component = table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value, false, false, -1, -2);
                 ((JLabel) component).setHorizontalAlignment(SwingConstants.CENTER);
@@ -398,11 +406,12 @@ public class Main {
         frame.add(scrollPane);
         frame.pack();
         frame.setLocation(150, 150);
-       // frame.setVisible(true);	
-       
+        frame.setVisible(true);	
+        frame.toFront();
         
 	}
-    
+    // END OF HANDLING GUI 
+	
     //retrieves the cell row index from the cell name i.e. A1 => row index is 0 (1 - 1)
     public int getCellRow (String cellName) {
     	
@@ -465,7 +474,7 @@ public class Main {
 			
 			otherCells = myMatch.group();
 			
-			cellValue = (double) table.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
+			cellValue = (Double) table.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
 			numEquation = numEquation.replace(otherCells, Double.toString(cellValue));
 		}
 		myMatch.reset();
@@ -589,7 +598,7 @@ public class Main {
   //****************************************************my code (Simone)*****************************************************//
     
     public static void main(String[] args) {
-    	try {// UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    	try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if (info.getName().equals("Nimbus")) {
                     UIManager.setLookAndFeel(info.getClassName());
@@ -600,14 +609,6 @@ public class Main {
             //e.printStackTrace();
         }
     	
-    	
-    	
-        EventQueue.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                Main TestTableRowHeader = new Main();
-            }
-        });
+    	Main TestTableRowHeader = new Main();
     }
 }
