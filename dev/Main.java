@@ -50,7 +50,7 @@ public class Main {
     public Main() {
     	//main2();
     	//return;
-        prepareVars();
+        //prepareVars();
         //printTable(table);
 
         
@@ -296,13 +296,14 @@ public class Main {
 			e.printStackTrace();
 		}//end catch
 	}
+	/*
 	// HERE ON IS GUI ---------------------------------------------------------------------- !!
 	private void prepareVars(){
 		table = new JTable(10, 10);
         //Fill the table with empty values
         for (int i = 0; i < table.getRowCount(); i++) {
         	for (int j = 0; j < table.getColumnCount(); j++) {        		
-        		table.setValueAt(0.0, i, j); //************** NEEDED TO BE CHANGED TO WORK (from "cell" to 0.0 ***********/
+        		table.setValueAt(0.0, i, j);
         		formulas[i][j] = "";
         		cellEntries[i][j] = "0.0";
         		//cell[i][j].setValue(0.0);
@@ -400,7 +401,7 @@ public class Main {
         
 	}
     // END OF HANDLING GUI 
-	
+	*/
     //retrieves the cell row index from the cell name i.e. A1 => row index is 0 (1 - 1)
     public int getCellRow (String cellName) {
     	
