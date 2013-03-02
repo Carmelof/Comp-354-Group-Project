@@ -74,13 +74,15 @@ public class Main {
     					+ "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
  
     	System.out.println(greeting);
-    	Command cmd = new Command;
+    	Grid grid = new Grid();  //ADDED (02/03/2013) by Simone 
+    	Command cmd = new Command(); //ADDED (02/03/2013) by Simone
     	while(!quit) {
     	    		
     		while(true) {// As long as the input from the console isn't "quit" do...
     			System.out.println("\nEnter a command: ");
     			inputStr = inputCommand.nextLine();
-    			
+    			cmd.setCommand(inputStr); //ADDED (02/03/2013) by Simone
+    			cmd.executeCommand(grid); //ADDED (02/03/2013) by Simone
     			
     			//executeCommand(inputStr);
             	
