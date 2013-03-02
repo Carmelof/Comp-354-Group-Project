@@ -25,9 +25,7 @@ import java.io.*;
 //-------------------------------
 
 public class Main {
-	main2()
-	retrun;
-    private JFrame frame = new JFrame("Comp 354-Excel Document");
+    private MainFrame frame = new MainFrame("Comp 354-Excel Document");
     private JScrollPane scrollPane;
     private JTable table;
     private DefaultTableModel model;
@@ -50,6 +48,8 @@ public class Main {
 	String alphaNumPattern = "^.*[A-J]\\d{1,2}.*$"; 
     
     public Main() {
+    	//main2();
+    	//return;
         prepareVars();
         //printTable(table);
 
@@ -78,7 +78,7 @@ public class Main {
     	Command cmd = new Command(); //ADDED (02/03/2013) by Simone
     	while(!quit) {
     	    		
-    		while(true) {// As long as the input from the console isn't "quit" do...
+    		//while(true) {// As long as the input from the console isn't "quit" do...
     			System.out.println("\nEnter a command: ");
     			inputStr = inputCommand.nextLine();
     			cmd.setCommand(inputStr); //ADDED (02/03/2013) by Simone
@@ -247,13 +247,8 @@ public class Main {
 		int column = getCellColumn(cellName);
 		try {
 			Object result = engine.eval(equation); //evaluate the arithmetic expression
-<<<<<<< HEAD
 			double cellValue = (double) result;
-			
-=======
-			double cellValue = (Double) result;
 			//store the value in the correct cell of the JTable
->>>>>>> 99c14796d29e55c871d8cdb31e0f4b0a50353eeb
 			table.getModel().setValueAt(cellValue, row, column);
 			
 			formulas[row][column] = equation;
@@ -399,12 +394,9 @@ public class Main {
             	//cell[e.getFirstRow()][e.getColumn()].validateInput(model.getValueAt(e.getFirstRow(), e.getColumn()));
         	}
         });
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
         frame.add(scrollPane);
         frame.pack();
-        frame.setLocation(150, 150);
-        frame.setVisible(true);	
-        frame.toFront();
         
 	}
     // END OF HANDLING GUI 

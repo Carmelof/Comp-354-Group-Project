@@ -93,7 +93,7 @@ public class Grid{
 				
 				nextCell = (Cell) TGrid.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
 				
-				iCell.getFormula() = iCell.getFormula().replace(otherCells, Double.toString(cellValue));
+				//iCell.getFormula() = iCell.getFormula().replace(otherCells, Double.toString(cellValue));
 			}
 			myMatch.reset();
 		}
