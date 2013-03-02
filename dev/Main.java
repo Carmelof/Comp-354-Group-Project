@@ -74,13 +74,8 @@ public class Main {
     					+ "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
  
     	System.out.println(greeting);
-<<<<<<< HEAD
     	Command cmd = new Command;
     	while(!quit) {
-=======
-    	
-
->>>>>>> 99c14796d29e55c871d8cdb31e0f4b0a50353eeb
     	    		
     		while(true) {// As long as the input from the console isn't "quit" do...
     			System.out.println("\nEnter a command: ");

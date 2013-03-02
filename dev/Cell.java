@@ -62,14 +62,14 @@ public class Cell {
 ******************************************************************/
     
     private void setPrimitive(double value) {
-    	this.formula = "";
+    	//this.formula = "";
         this.value = value;
     }
     
     private void setFormula(String equation) {
+    	this.isPrimitive = false;
     	this.value = -1;
     	this.formula = equation;
-    	equation.t
     }
         
     /*setValue Overloads for String and double*/
@@ -108,4 +108,9 @@ public class Cell {
             return false;
         return true;
     } 
+    @Override
+    public String toString()
+    {
+    	return Double.toString(value);
+    }
 }

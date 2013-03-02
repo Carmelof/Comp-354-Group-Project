@@ -52,11 +52,9 @@ public class Grid{
 		 * */
 	}
 	
-	public void insertCell(Cell){
-		
-		
-		
-	};
+	public void insertCell(Cell myCell){
+		TGrid.setValueAt(myCell, myCell.getRow(), myCell.getColumn());
+	}
 	
 	public Cell getCell(int x, int y)
 	{
@@ -71,32 +69,34 @@ public class Grid{
 	
 	private double evaluteCell(Cell iCell){
 		double results = 0.0;
+		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		/*
 		 * If Cell contains a primitive value return the double. 
 		 * Elseif Cell contains a formual, evaluate the formula and retrun
 		 * the evaluated double
 		 * */
 		
-		
-		// public String getNumEquation(String pattern, String equation, JTable table) {
-		    	
-			 Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
+		if(iCell.isPrimitive())
+		{
+			return iCell.getValue();
+		}
+		else
+		{
+			Matcher myMatch = MY_PATTERN.matcher(iCell.getFormula());
+			String otherCells = "";
+			Cell nextCell;
+			// A1+32+c3-2
 			
-				Matcher myMatch = MY_PATTERN.matcher(equation);
-				String numEquation = equation;
-				String otherCells = "";
-				double cellValue = 0;
+			while(myMatch.find()) {
 				
-				while(myMatch.find()) {
-					
-					otherCells = myMatch.group();
-					
-					cellValue = (double) table.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
-					numEquation = numEquation.replace(otherCells, Double.toString(cellValue));
-				}
-				myMatch.reset();
-		    	return numEquation;
-		    }
+				otherCells = myMatch.group();
+				
+				nextCell = (Cell) TGrid.getValueAt(getCellRow(otherCells), getCellColumn(otherCells));			                			
+				
+				iCell.getFormula() = iCell.getFormula().replace(otherCells, Double.toString(cellValue));
+			}
+			myMatch.reset();
+		}
 		return results;
 		
 	}
@@ -119,7 +119,26 @@ public class Grid{
 	public void sortGrid(int col, boolean decending){
 		/* Some sorting logic should go here. */
 	}
-	
+    private int getCellRow (String cellName) {
+    	
+    	int row = 0;
+    	String[] tempArray = new String[2];
+    	
+    	tempArray = cellName.split("[A-J]");
+    	row = Integer.parseInt(tempArray[1]) - 1;
+    	
+    	return row;
+    }
+    
+    //retrieves the cell row index from the cell name i.e. A1 => column index is 0 (65 - 65); ASCII(A) = 65
+    private int getCellColumn (String cellName) {
+    	
+    	int column = 0;
+    	
+    	column = ( ((int) cellName.charAt(0)) - 65 );
+    	
+    	return column;
+    }
 	
 
 }
