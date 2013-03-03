@@ -67,9 +67,16 @@ public class Cell {
     }
     
     private void setFormula(String equation) {
+    	
+    	if (equation=="")
+    	{
+    		isPrimitive=true;
+    		value = 0;
+    	}
+    	else{
     	this.isPrimitive = false;
-    	this.value = -1;
     	this.formula = equation;
+    	}
     }
         
     /*setValue Overloads for String and double*/

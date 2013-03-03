@@ -3,6 +3,9 @@ package dev;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.swing.JTable;
 
 public class Grid extends JTable {
@@ -66,12 +69,21 @@ public class Grid extends JTable {
 	private double evaluteCell(Cell iCell){
 		double results = 0.0;
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
+		
+		if(iCell.isPrimitive())
+		{
+			return iCell.getValue();
+		}
+		else
+		{
+			return numericInput(alphanumericInput(iCell.getFormula()));
+		}
 		/*
 		 * If Cell contains a primitive value return the double. 
 		 * Elseif Cell contains a formual, evaluate the formula and retrun
 		 * the evaluated double
 		 * */
-		
+		/*
 		if(iCell.isPrimitive())
 		{
 			return iCell.getValue();
@@ -94,7 +106,7 @@ public class Grid extends JTable {
 			myMatch.reset();
 		}
 		return results;
-		
+		*/
 	}
 	
 	/*
@@ -135,6 +147,46 @@ public class Grid extends JTable {
     	
     	return column;
     }
+	private double numericInput(String expression){
+		ScriptEngineManager manager = new ScriptEngineManager();
+	    ScriptEngine engine = manager.getEngineByName("JavaScript");
+
+		try {
+			return (Double) engine.eval(expression); //evaluate the arithmetic expression
+			
+		} catch (ScriptException e) {
+		// TODO Auto-generated catch block
+			System.out.println("The arithmetic equation is not valid");
+			e.printStackTrace();
+		}//end catch
+		return -1;
+	}
+	private String alphanumericInput(String equation){
+		ScriptEngineManager manager = new ScriptEngineManager();
+	    ScriptEngine engine = manager.getEngineByName("JavaScript");
+		//check if there are cell names after the "=" sign i.e check for C4 & F7 in "A1 = C4 + 5 - F7"
+		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
+		Matcher myMatch = MY_PATTERN.matcher(equation);
+		                		
+		String otherCells = "";
+		String newEquation = equation;                 	
+		
+		//every time you find a cell name i.e A1, retrieve its index by using getCellRow & getCellColumn
+		//if you find C4 its index is row = 4 & column = 3
+		//once you find the index of the cell, retrieve its value and replace the name of the cell by its value
+		//in the newEquation string i.e if newEquation = "B1 + 4 + C2" and B1=7, C2=9; then newEquation becomes "7 + 4 + 9"
+		while(myMatch.find()) {
+			otherCells = myMatch.group();                			
+			int row = getCellRow(otherCells);
+			int column = getCellColumn(otherCells);
+			Cell iCell = (Cell) this.getValueAt(row, column);
+			double cellValue = iCell.getValue();
+
+			newEquation = newEquation.replace(otherCells, Double.toString(cellValue));
+			
+		}  
+		return newEquation;
+	}
 	
 
 }
