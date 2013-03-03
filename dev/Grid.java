@@ -66,7 +66,7 @@ public class Grid extends JTable {
 		return tempCell;
 	}
 	
-	private double evaluteCell(Cell iCell){
+	public double evaluteCell(Cell iCell){
 		double results = 0.0;
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		
@@ -76,7 +76,10 @@ public class Grid extends JTable {
 		}
 		else
 		{
-			return numericInput(alphanumericInput(iCell.getFormula()));
+			results = numericInput(alphanumericInput(iCell.getFormula()));
+			iCell.setValue(results);
+			
+			return results;
 		}
 		/*
 		 * If Cell contains a primitive value return the double. 
