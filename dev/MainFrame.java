@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -32,22 +33,33 @@ public class MainFrame extends JFrame {
 	private JTextField textField;
 	private Grid grid;
 	private DefaultTableModel model;
+	private JLabel statusBar;
 	
 	public MainFrame(String title) {
 		super(title);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		// if the program should not quit when the window is closed, revert to DISPOSE_ON_CLOSE
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(150, 150);
-        setVisible(true);	
-        toFront();
 	    
 	    initMenu();
 	    
-	    textField = new JTextField();
+	    setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+	    
+	    textField = new JTextField("test");
+	    textField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
+	    add(textField);
 	    
 	    initTable();
+	    
+	    statusBar = new JLabel("status", JLabel.LEADING);
+	    statusBar.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
+	    add(statusBar);
         
         pack();
-	    
+
+        setVisible(true);	
+        //setResizable(false);
+        toFront();
 	}
 	
 	private void initMenu() {
@@ -168,6 +180,9 @@ public class MainFrame extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 model.fireTableRowsUpdated(0, model.getRowCount() - 1);
+                int x = grid.getSelectedRow();
+                int y = grid.getSelectedColumn();
+                textField.setText((char)('A' + y) + "" + (x + 1) + " = " + grid.getCell(x, y).getFormula());
             }
         });
         JScrollPane scrollPane = new JScrollPane(grid);
