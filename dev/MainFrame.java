@@ -39,6 +39,7 @@ public class MainFrame extends JFrame {
 	private Grid grid;
 	private DefaultTableModel model;
 	private JLabel statusBar;
+	private Command cmd;
 	
 	public MainFrame(String title) {
 		super(title);
@@ -64,10 +65,26 @@ public class MainFrame extends JFrame {
 	    textField.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                int x = grid.getSelectedRow();
-                int y = grid.getSelectedColumn();
-                grid.insertValue(textField.getText(), x, y);
-                grid.evaluteCell(grid.getCell(x, y));
+				cmd = new Command(textField.getText());
+				if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+					statusBar.setText("You must select a cell before entering a command.");
+				}
+				else {
+					if(cmd.isValid()) {
+						int x = grid.getSelectedRow();
+		                int y = grid.getSelectedColumn();
+		                cmd.trim();
+		                grid.insertValue(cmd.getCommand(), x, y);
+		                grid.evaluteCell(grid.getCell(x, y));
+		                textField.setText(cmd.getCommand());
+		                String cellName = (char)(('A') + y) + "" + (x + 1) + "";
+		                statusBar.setText("Cell " + cellName + " has been updated successfully.");
+					}
+					else {
+						statusBar.setText("The command is invalid, please try again.");
+					}
+				}				
+                
                 fileHandler.setSaved(false);
 			}
 	    });

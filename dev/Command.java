@@ -6,170 +6,109 @@
 
 package dev;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 public class Command {
 	
-	/*************************************
-	 * Attributes						  
-	 *************************************/
-	private String command;
-	private final String START_PATTERN = "^[A-Ja-j]\\d{1,2}=.+$";			
-	private final String NUMERIC_PATTERN = "^[A-Ja-j]\\d{1,2}=[^A-Za-z=]*$";			
-	private final String ALPHANUM_PATTERN = "^.*[A-Ja-j]\\d{1,2}.*$";	
+/*******************************************************
+ * Attributes						  
+ *******************************************************/
+	private String command;				
+	private final String ALPHANUM_PATTERN = "^.*[A-Ja-j]\\d{1,2}.*$";
 	
 	
-	/*************************************
-	 * Constructors						 
-	 *************************************/
-	public Command() {		
+	
+/*******************************************************
+ * Constructors						 
+ *******************************************************/
+	public Command() {	
+		
 		command = "";	
 	}
 	
 	public Command(String inputStr) {
-		command = inputStr.replaceAll("\\s", "").toUpperCase();
+		
+		command = inputStr.toUpperCase();		
 	}
 	
 	
-	/*************************************
-	 * Public methods						 
-	 *************************************/
-	public void setCommand(String command) {
-		this.command = command.replaceAll("\\s", "").toUpperCase();		
-	}
-	
-	public boolean isEquation() {
-		if(command.matches(START_PATTERN)) {
-			if(isNumeric() || isAlphaNumeric())
-				return true;
-			else
-				return false;
-		}		
-		return false;
-	}
-	
-	public boolean isValid() {		
-		if(isEquation())
-			return true;
-		else {
-			if(isLoad() || isSave() || isQuit())
-				return true;
-			else
-				return false;
-		}		
-	}
-	
-	public void executeCommand(Grid grid) {		
-		if(isValid()) {
+/*******************************************************
+ * Public methods						 
+ *******************************************************/
+	public void setCommand(String command) {		
 			
-			if(isEquation()) {				
-				int x = getCellRow();
-				int y = getCellColumn();				
-				Cell cell;
+		this.command = command.toUpperCase();				
+	}
+	
+	public String getCommand() {
+		
+		return command;
+	}
+	
+	public void trim() {
+		
+		command = command.replaceAll("\\s+", " ");
+		command = command.replaceAll("^\\s+|\\s+$", "");
+	}
+		
+	public boolean isValid() {
+		return isValidEquation();
+	}
 			
-				if(isNumeric()) {
-					double value = calculateNumericFormula();
-					cell = new Cell(value, x, y);
-				}			
-				else {					
-					String formula = getFormula();
-					cell = new Cell(formula, x, y);
-				}
-				
-				grid.insertCell(cell);
-				
-			}
-			else {
-				
-				if(isLoad()) {
-					//call load function here and/or in the GUI File menu					
-				}
-				else if(isSave()) {
-					//call save function here and/or in the GUI File menu
-				}
-				else {
-					//call quit function here and/or in the GUI File menu 												
-				}	
-			}			
-		}		
-		else {
-			System.out.println("The command is not valid!");
-		}
-	}
 	
-	
-	/*************************************
-	 * Private methods						 
-	 *************************************/
-	private boolean isNumeric() {
-		return command.matches(NUMERIC_PATTERN);
-	}
-	
+/*******************************************************
+ * Private methods						 
+ *******************************************************/
 	private boolean isAlphaNumeric() {
 		
-		return getFormula().matches(ALPHANUM_PATTERN);
+		return (command.matches(ALPHANUM_PATTERN));
 	}
 	
-	private boolean isLoad() {
-		return command.equalsIgnoreCase("load");
-	}
+	/*
+	 * if equation = "A1 + 4 - 8 * C3", then replaceCellNamesByValue(equation, 1.0)
+	 * returns "1.0 + 4 - 8 * 1.0"
+	 */
+	private String replaceCellNamesByValue(String equation, double value) {
 	
-	private boolean isSave() {
-		return command.equalsIgnoreCase("save");
-	}
-	
-	private boolean isQuit() {
-		return command.equalsIgnoreCase("quit"); 
-	}
-					
-	private String getCellName() {		
-		String[] splitCommand = new String[2];
-		splitCommand = command.split("=");
-    	String cellName = splitCommand[0];
-    	
-    	return cellName;
-	}
-
-	private String getFormula() {		
-		String[] splitCommand = new String[2];
-		splitCommand = command.split("=");
-    	String formula = splitCommand[1];
-    	
-    	return formula;				
-	}
-	
-	private int getCellRow() {		
-		int row = 0;
-		String[] tmp = new String[2];
-		String cellName = getCellName();
-		tmp = cellName.split("[A-J]");
-		row = Integer.parseInt(tmp[1]) - 1;
+		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
+		Matcher myMatch = MY_PATTERN.matcher(equation);
+		String myEquation = equation;
 		
-		return row;
-	}
-	
-	private int getCellColumn() {		
-		int column = 0;
-		String cellName = getCellName();
-    	column = ( ((int) cellName.charAt(0)) - 65 );
+		while(myMatch.find()) {
+			String cellName = myMatch.group();   
+			myEquation = myEquation.replace(cellName, "" + value);			
+		}  
 		
-		return column;
+		return myEquation;
 	}
 	
-	private double calculateNumericFormula() {		
+	/*
+	 * Check if the command is a valid equation by calling engine.eval
+	 * if it's alphanumeric i.e. "E3 - 7 + C5" replace E3 and C5 by an arbitrary value
+	 * if engine.eval catches an exception, then it means that it wasn't able to evaluate the expression,
+	 * therefore the command is invalid
+	 */
+	private boolean isValidEquation() {
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
-	    double value = 0.0;
+	    String numericEquation = command;
+	    
+	    if(isAlphaNumeric())
+	    	numericEquation = replaceCellNamesByValue(command, 1.0);
 	    
 	    try {
-			value = (Double) (engine.eval(getFormula()));			
+			engine.eval(numericEquation);			
 		} 	    
 	    catch (ScriptException e) {		
-			e.printStackTrace();
+			//e.printStackTrace();
+	    	return false;
 		}
-	    
-		return value;
-	}		
+	    		
+		return true;				
+	}
 }
