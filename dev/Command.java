@@ -57,7 +57,7 @@ public class Command {
 	}
 		
 	public boolean isValid() {
-		return isValidEquation();
+		return (isValidEquation() && isInRange());
 	}
 			
 	
@@ -85,6 +85,22 @@ public class Command {
 		}  
 		
 		return myEquation;
+	}
+	
+	private boolean isInRange(){
+		
+		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
+		Matcher myMatch = MY_PATTERN.matcher(command);		
+		
+		while(myMatch.find()) {
+			String cellName = myMatch.group();   
+			int index = Integer.parseInt(cellName.substring(1));
+			
+			if(index > 10)
+				return false;
+		}  
+				
+		return true;
 	}
 	
 	/*
