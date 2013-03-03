@@ -146,6 +146,8 @@ public class MainFrame extends JFrame {
 		// http://stackoverflow.com/questions/8002445/trying-to-create-jtable-with-proper-row-header
 		//-------------------------------
 		grid = new Grid();
+		grid.setColumnSelectionAllowed(true);
+	    grid.setRowSelectionAllowed(true);
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(grid.getModel());
         grid.setRowSorter(sorter);
         model = new DefaultTableModel() {
