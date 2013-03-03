@@ -145,11 +145,16 @@ public class MainFrame extends JFrame {
 		// Source code acquired from 
 		// http://stackoverflow.com/questions/8002445/trying-to-create-jtable-with-proper-row-header
 		//-------------------------------
-		grid = new Grid();
+		grid = new Grid(){
+		    public boolean isCellEditable(int rowIndex, int colIndex) {
+		        return false;   //Disallow the editing of any cell
+		    }
+		};
 		grid.setColumnSelectionAllowed(true);
 	    grid.setRowSelectionAllowed(true);
-        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(grid.getModel());
-        grid.setRowSorter(sorter);
+	    
+        //TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(grid.getModel());
+        //grid.setRowSorter(sorter);
         model = new DefaultTableModel() {
 
             private static final long serialVersionUID = 1L;
@@ -205,13 +210,13 @@ public class MainFrame extends JFrame {
             }
         });
         
-        grid.getRowSorter().addRowSorterListener(new RowSorterListener() {
+        /*grid.getRowSorter().addRowSorterListener(new RowSorterListener() {
 
             @Override
             public void sorterChanged(RowSorterEvent e) {
                 model.fireTableDataChanged();
             }
-        });
+        });*/
         grid.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
             @Override
