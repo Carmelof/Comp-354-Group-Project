@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -29,7 +30,11 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class MainFrame extends JFrame {
-	
+
+	private FileHandler fileHandler;
+	private ActionListener menuListener;
+	private JMenuItem load, save, quit;
+	private JLabel selectedCellLabel;
 	private JTextField textField;
 	private Grid grid;
 	private DefaultTableModel model;
@@ -40,14 +45,35 @@ public class MainFrame extends JFrame {
 		// if the program should not quit when the window is closed, revert to DISPOSE_ON_CLOSE
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(150, 150);
+        
+        fileHandler = new FileHandler(this);
 	    
 	    initMenu();
 	    
 	    setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 	    
-	    textField = new JTextField("test");
+	    JPanel panel = new JPanel();
+	    panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+	    
+	    selectedCellLabel = new JLabel("", JLabel.LEADING);
+	    selectedCellLabel.setMaximumSize(new Dimension(100, 30));
+	    panel.add(selectedCellLabel);
+	    
+	    textField = new JTextField("");
 	    textField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
-	    add(textField);
+	    textField.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                int x = grid.getSelectedRow();
+                int y = grid.getSelectedColumn();
+                grid.insertValue(textField.getText(), x, y);
+                grid.evaluteCell(grid.getCell(x, y));
+                fileHandler.setSaved(false);
+			}
+	    });
+	    panel.add(textField);
+	    
+	    add(panel);
 	    
 	    initTable();
 	    
@@ -69,47 +95,39 @@ public class MainFrame extends JFrame {
 	    JMenu file = new JMenu("File");
 	    jmb.add(file);
 	    
-	    JMenuItem load = new JMenuItem ("Load");
-	    load.addMouseListener(new MouseListener() {
-			@Override public void mouseClicked(MouseEvent e) {
-				// insert load command here
-			}
-			// these other events need to be overridden but can remain empty
-	    	@Override public void mouseReleased(MouseEvent e) { }
-			@Override public void mouseEntered(MouseEvent e) { }
-			@Override public void mouseExited(MouseEvent e) { }
-			@Override public void mousePressed(MouseEvent e) { }
-	    });
+	    load = new JMenuItem ("Load");
 	    file.add(load);
 	    
-	    JMenuItem save = new JMenuItem ("Save");
-	    save.addMouseListener(new MouseListener() {
-			@Override public void mouseClicked(MouseEvent e) {
-				// insert save command here
-			}
-			// these other events need to be overridden but can remain empty
-	    	@Override public void mouseReleased(MouseEvent e) { }
-			@Override public void mouseEntered(MouseEvent e) { }
-			@Override public void mouseExited(MouseEvent e) { }
-			@Override public void mousePressed(MouseEvent e) { }
-	    });
+	    save = new JMenuItem ("Save");
 	    file.add(save);
 	    
-	    JMenuItem quit = new JMenuItem ("Quit");
-	    quit.addMouseListener(new MouseListener() {
-			@Override public void mouseClicked(MouseEvent e) {
-				// insert quit command here
-			}
-			// these other events need to be overridden but can remain empty
-	    	@Override public void mouseReleased(MouseEvent e) { }
-			@Override public void mouseEntered(MouseEvent e) { }
-			@Override public void mouseExited(MouseEvent e) { }
-			@Override public void mousePressed(MouseEvent e) { }
-	    });
+	    quit = new JMenuItem ("Quit");
 	    file.add(quit);
+
+	    menuListener = new ActionListener(){
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+			    if (e.getSource() == load) {
+			    	if (fileHandler.checkSaved())
+			                  fileHandler.loadFile(grid);
+			    } else if(e.getSource() == save) {
+			             fileHandler.saveFile(grid);
+			    } else if(e.getSource() == quit) {
+			        	 System.exit(0);
+			    }
+		    }
+		};
+
+	    load.addActionListener(menuListener);
+	    save.addActionListener(menuListener);
+	    quit.addActionListener(menuListener);
 	}
 	
 	private void initTable(){
+		//-------------------------------
+		// Source code acquired from 
+		// http://stackoverflow.com/questions/8002445/trying-to-create-jtable-with-proper-row-header
+		//-------------------------------
 		grid = new Grid();
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(grid.getModel());
         grid.setRowSorter(sorter);
@@ -182,7 +200,9 @@ public class MainFrame extends JFrame {
                 model.fireTableRowsUpdated(0, model.getRowCount() - 1);
                 int x = grid.getSelectedRow();
                 int y = grid.getSelectedColumn();
-                textField.setText((char)('A' + y) + "" + (x + 1) + " = " + grid.getCell(x, y).getFormula());
+                selectedCellLabel.setText("  " + (char)('A' + y) + "" + (x + 1) + " = ");
+                String formula = grid.getCell(x, y).getFormula();
+                textField.setText(formula.length() > 0 ? formula : Double.toString(grid.getCell(x, y).getValue()));
             }
         });
         JScrollPane scrollPane = new JScrollPane(grid);
