@@ -187,6 +187,7 @@ public class MainTest {
 	 * Tester: Carmelo
 	 *=====================================================================
 	 */
+	/* MOVED TO GRIDTEST - Addison
 	@Test
 	public final void testGetCellRow() {
 		Main main = new Main();
@@ -204,7 +205,7 @@ public class MainTest {
 		Main main = new Main();
 		assertEquals("Get Cell Name", "E3", main.getCellName(2, 4));
 	}
-	
+	*/
 	@Test
 	public final void testGetNumEquation() {
 		Main main = new Main();

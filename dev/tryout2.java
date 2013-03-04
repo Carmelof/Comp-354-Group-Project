@@ -12,7 +12,7 @@ package dev;
 // 	public static void main(String[] args)throws IOException {
 // 		// TODO Auto-generated method stub
 		
-// 		String CC;    
+// 		String C;    
 // 		 int CCLen;
 // 		   char c;
 // 	      Scanner na = new Scanner(System.in);

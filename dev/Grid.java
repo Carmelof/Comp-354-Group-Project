@@ -120,6 +120,11 @@ public class Grid extends JTable {
 		tempCell.setValue(value);
 		this.setValueAt(tempCell, x, y);
 	}
+	public double getValue(int x, int y) {
+		Cell tempCell = getCell(x, y);
+		return tempCell.getValue();
+	
+	}
 	public void insertValue(String formula, int x, int y){
 		Cell tempCell = getCell(x, y);
 		tempCell.setValue(formula);
@@ -129,7 +134,7 @@ public class Grid extends JTable {
 	public void sortGrid(int col, boolean decending){
 		/* Some sorting logic should go here. */
 	}
-    private int getCellRow (String cellName) {
+    public int getCellRow (String cellName) {
     	
     	int row = 0;
     	String[] tempArray = new String[2];
@@ -141,7 +146,7 @@ public class Grid extends JTable {
     }
     
     //retrieves the cell row index from the cell name i.e. A1 => column index is 0 (65 - 65); ASCII(A) = 65
-    private int getCellColumn (String cellName) {
+    public int getCellColumn (String cellName) {
     	
     	int column = 0;
     	
