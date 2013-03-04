@@ -2,8 +2,17 @@
 \BOOKMARK [1][-]{section.2}{Architectural Design}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Architecture Diagram}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Subsystem Interfaces Specifications}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Detailed Design}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{Subsystem <X>}{section.3}% 6
-\BOOKMARK [3][-]{section*.1}{Detailed Design Diagram}{subsection.3.1}% 7
-\BOOKMARK [3][-]{section*.2}{Units Description}{subsection.3.1}% 8
-\BOOKMARK [1][-]{section.4}{Dynamic Design Scenarios}{}% 9
+\BOOKMARK [3][-]{section*.1}{UI Subsystem Interface}{subsection.2.2}% 5
+\BOOKMARK [3][-]{section*.2}{Business Logic Subsystem Interface}{subsection.2.2}% 6
+\BOOKMARK [3][-]{section*.3}{Utilities Subsystem Interface}{subsection.2.2}% 7
+\BOOKMARK [1][-]{section.3}{Detailed Design}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Subsystem <Spreadsheet Logic>}{section.3}% 9
+\BOOKMARK [3][-]{section*.4}{Detailed Design Diagram}{subsection.3.1}% 10
+\BOOKMARK [3][-]{section*.5}{Units Description}{subsection.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Subsystem <Graphic User Interface>}{section.3}% 12
+\BOOKMARK [3][-]{section*.6}{Detailed Design Diagram}{subsection.3.2}% 13
+\BOOKMARK [3][-]{section*.7}{Units Description}{subsection.3.2}% 14
+\BOOKMARK [2][-]{subsection.3.3}{Subsystem <Save \046 Load>}{section.3}% 15
+\BOOKMARK [3][-]{section*.8}{Detailed Design Diagram}{subsection.3.3}% 16
+\BOOKMARK [3][-]{section*.9}{Units Description}{subsection.3.3}% 17
+\BOOKMARK [1][-]{section.4}{Dynamic Design Scenarios}{}% 18
