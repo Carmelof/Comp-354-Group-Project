@@ -18,7 +18,7 @@ public class CellTest {
 	// Acceptable error for comparing doubles
 	public final double ACCEPTED_ERROR = 1E-10;
 	/*=====================================================================
-	 * Tester: DRAGOS
+	 * Tester: DRAGOS, ADDISON 
 	 *=====================================================================
 	 */
     @Rule
@@ -247,7 +247,7 @@ public class CellTest {
 	 */
 	@Test
 	public void testCellDoubleString() {
-		Cell cell = new Cell(24.2123, "A1=2*9");
+		Cell cell = new Cell("A1=2*9", 0, 0);
 		assertEquals("Cell Get Value", 24.2123, cell.getValue(), ACCEPTED_ERROR);
 		assertEquals("Cell Get Formula", "A1=2*9", cell.getFormula());
 	}
@@ -302,7 +302,7 @@ public class CellTest {
 	 */
 	@Test
 	public void testGetFormula1() {
-		Cell a=new Cell(0,"testing");
+		Cell a=new Cell("testing", 0, 0);
 		assertEquals("Equal Formula", "testing", a.getFormula());
 	}
 	/**
@@ -327,7 +327,7 @@ public class CellTest {
 	 */
 	@Test
 	public void testHasFormula1() {
-		Cell a=new Cell(0,"testing");
+		Cell a=new Cell("testing", 0, 0);
 		assertEquals("Equal Formula", true, a.hasFormula());
 	}
 	/**
@@ -352,8 +352,8 @@ public class CellTest {
 	 */
 	@Test
 	public void testHasValue1() {
-		Cell a=new Cell(0,"");
-		assertEquals("Value",true,a.hasValue());
+		Cell a=new Cell("", 0, 0);
+		assertEquals("Value", true, a.hasValue());
 	}
 	/**
 	 * Test method for {@link dev.Cell#hasValue()}.
@@ -376,7 +376,7 @@ public class CellTest {
 	 */
 	@Test
 	public void testToString1() {
-		Cell a=new Cell(0,"");
+		Cell a= new Cell("", 0, 0);
 		assertEquals("Value String",""+((double)0),a.toString());
 	}
 	/**
@@ -411,7 +411,7 @@ public class CellTest {
 	@Test
 	public void testEquals2() {
 		Cell a=new Cell();
-		Cell b=new Cell(0,"");
+		Cell b=new Cell("",0, 0);
 		assertEquals("Cell Object",true,a.equals(b));
 	}
 	/**
@@ -420,7 +420,7 @@ public class CellTest {
 	@Test
 	public void testEquals3() {
 		Cell a=new Cell();
-		Cell b=new Cell(1,"");
+		Cell b=new Cell("", 0, 0);
 		assertEquals("Cell Object",false,a.equals(b));
 	}
 	/**
@@ -428,7 +428,7 @@ public class CellTest {
 	 */
 	@Test
 	public void testEquals4() {
-		Cell a=new Cell(0,"test");
+		Cell a=new Cell("test",0, 0);
 		Cell b=new Cell();
 		assertEquals("Cell Object",false,a.equals(b));
 	}
@@ -455,7 +455,7 @@ public class CellTest {
 	 */
 	@Test
 	public void testEquals7() {
-		Cell a=new Cell(0,"");
+		Cell a=new Cell("",0, 0);
 		Cell b=new Cell(0,1,2);
 		assertEquals("Cell Object",true,a.equals(b));
 	}

@@ -96,6 +96,15 @@ public class Cell {
         return isPrimitive;
     }
 
+    /*Functions used for Test cases*/
+    public boolean hasFormula()
+    {
+    	return !isPrimitive;
+    }
+    public boolean hasValue()
+    {
+    	return isPrimitive;
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

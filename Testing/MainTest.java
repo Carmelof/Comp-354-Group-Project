@@ -27,7 +27,7 @@ public class MainTest {
 	public final double ACCEPTED_ERROR = 1E-10;
 	
 	/*=====================================================================
-	 * Tester: Karim
+	 * Tester: Karim, ADDISON
 	 *=====================================================================
 	 */
 	@Test
