@@ -224,10 +224,17 @@ public class MainFrame extends JFrame {
                 model.fireTableRowsUpdated(0, model.getRowCount() - 1);
                 int x = grid.getSelectedRow();
                 int y = grid.getSelectedColumn();
-                selectedCellLabel.setText("  " + (char)('A' + y) + "" + (x + 1) + " = ");
                 String formula = grid.getCell(x, y).getFormula();
                 textField.setText(formula.length() > 0 ? formula : Double.toString(grid.getCell(x, y).getValue()));
             }
+        });
+        grid.addMouseListener(new java.awt.event.MouseAdapter() {        	
+        	@Override
+        	public void mouseClicked(java.awt.event.MouseEvent e){
+            	int x = grid.rowAtPoint(e.getPoint());
+                int y = grid.columnAtPoint(e.getPoint());
+                selectedCellLabel.setText("  " + (char)('A' + y) + "" + (x + 1) + " = ");
+            }        	
         });
         JScrollPane scrollPane = new JScrollPane(grid);
         scrollPane.setRowHeaderView(headerTable);
