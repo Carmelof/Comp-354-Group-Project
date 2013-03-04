@@ -67,13 +67,13 @@ This section gives a high-level description of the deliverable 2 system in terms
 \end{figure}
 The rationale behind this design was to create a separation between the model and the view. By separating the model and view we are decoupling these objects so that changes to one can affect any number of others without requiring the changed object to know details of the others.\\\\
 This iteration's design is drastically different from that in deliverable 1. In the deliverable 1 design the team focused solely on a functioning simple application that got the job done. In this deliverable we designed it with functionality, reusability, and cleanliness in mind.\\\\
-In this deliverable the system consists of three separate subsystems. These subsystems are the UI or view, the business logic or model, and then finally the utilities. The UI represents what the user sees and how they interact with the system. The model is the behind the scenes operations of the system. This means handling the inputted formulas passed by the view, performing some validation on the formula, formulating the proper result, and then giving the result to the view to be displayed. The utilities includes the necessary miscellaneous functions required by the system. In this case the only current function is the loading and saving of the spreadsheets.
+In this deliverable the system consists of three separate subsystems. These subsystems are the GUI or view, the spreadsheet logic or model, and then finally the utilities. The GUI represents what the user sees and how they interact with the system. The model is the behind the scenes operations of the system. This means handling the inputted formulas passed by the view, performing some validation on the formula, formulating the proper result, and then giving the result to the view to be displayed. The utilities includes the necessary miscellaneous functions required by the system. In this case the only current function is the loading and saving of the spreadsheets.
 
 \subsection{Subsystem Interfaces Specifications}
-The following subsections describe the interfaces between the subsystems. This includes the function call, the service of the function, the parameters that are passed in order to have a service fullfilled, and finally the valid ranged of values accepted by the functions.
-\subsubsection{UI Subsystem Interface}
-The UI Subsystem never gets called open for any services, it does however use the other subsystem interfaces.
-\subsubsection{Business Logic Subsystem Interface}
+The following subsections describe the interfaces between the subsystems. This includes the function call, the service of the function, the parameters that are passed in order to have a service fulfilled, and finally the valid ranged of values accepted by the functions.
+\subsubsection{GUI Subsystem Interface}
+The GUI Subsystem never gets called open for any services, it does however use the other subsystem interfaces.
+\subsubsection{Spreadsheet Logic Subsystem Interface}
 
 \begin{tabular}{|p{4.75cm}|p{11.25cm}|}
 \hline
@@ -230,7 +230,7 @@ The rational behind designing the subsystem this way was to keep the whole graph
 \subsubsection{Units Description}
 Basically this creates a window with a menu bar that contains commands to save load and quit. Under the menu it has an input line for the a 10 by 10 grid below it. At the bottom of the window there is a status bar that is used to communicate with a user. 
 
-\subsection{Subsystem \textless Save \& Load\textgreater}
+\subsection{Subsystem \textless Utilities\textgreater}
 \subsubsection{Detailed Design Diagram}
 This Subsystem was designed by keeping the function simple to program for the developer. This is achieve though the use of already existing classes from Java swing, most notably JFileChooser.
 \begin{figure}[ht!]
