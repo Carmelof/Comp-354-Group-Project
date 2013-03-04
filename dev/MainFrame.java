@@ -67,6 +67,7 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cmd = new Command(textField.getText());
 				if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+					statusBar.setForeground(Color.red);
 					statusBar.setText("You must select a cell before entering a command.");
 				}
 				else {
@@ -79,9 +80,11 @@ public class MainFrame extends JFrame {
 		                textField.setText(cmd.getCommand());
 		                String cellName = (char)(('A') + y) + "" + (x + 1) + "";
 		                cmd.updateGrid(grid, cellName);
+		                statusBar.setForeground(Color.black);
 		                statusBar.setText("Cell " + cellName + " has been updated successfully.");
 					}
 					else {
+						statusBar.setForeground(Color.red);
 						statusBar.setText("The command is invalid, please try again.");
 					}
 				}				
@@ -126,10 +129,16 @@ public class MainFrame extends JFrame {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 			    if (e.getSource() == load) {
-			    	if (fileHandler.checkSaved())
-			                  fileHandler.loadFile(grid);
+			    	if (fileHandler.checkSaved()) {
+			    		fileHandler.loadFile(grid);
+			    		statusBar.setForeground(Color.black);
+			    		statusBar.setText("The file has been loaded successfully.");
+			    	}
+			                  
 			    } else if(e.getSource() == save) {
 			             fileHandler.saveFile(grid);
+			             statusBar.setForeground(Color.black);
+				    	 statusBar.setText("The file has been saved successfully.");
 			    } else if(e.getSource() == quit) {
 			        	 System.exit(0);
 			    }

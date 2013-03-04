@@ -68,7 +68,6 @@ public class Grid extends JTable {
 	
 	public double evaluteCell(Cell iCell){
 		double results = 0.0;
-		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		
 		if(iCell.isPrimitive())
 		{
@@ -165,8 +164,6 @@ public class Grid extends JTable {
 		return -1;
 	}
 	private String alphanumericInput(String equation){
-		ScriptEngineManager manager = new ScriptEngineManager();
-	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 		//check if there are cell names after the "=" sign i.e check for C4 & F7 in "A1 = C4 + 5 - F7"
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		Matcher myMatch = MY_PATTERN.matcher(equation);
