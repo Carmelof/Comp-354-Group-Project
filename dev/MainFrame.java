@@ -78,6 +78,7 @@ public class MainFrame extends JFrame {
 		                grid.evaluteCell(grid.getCell(x, y));
 		                textField.setText(cmd.getCommand());
 		                String cellName = (char)(('A') + y) + "" + (x + 1) + "";
+		                cmd.updateGrid(grid, cellName);
 		                statusBar.setText("Cell " + cellName + " has been updated successfully.");
 					}
 					else {
@@ -217,7 +218,7 @@ public class MainFrame extends JFrame {
                 model.fireTableDataChanged();
             }
         });*/
-        grid.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        /*grid.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -227,13 +228,15 @@ public class MainFrame extends JFrame {
                 String formula = grid.getCell(x, y).getFormula();
                 textField.setText(formula.length() > 0 ? formula : Double.toString(grid.getCell(x, y).getValue()));
             }
-        });
+        });*/
         grid.addMouseListener(new java.awt.event.MouseAdapter() {        	
         	@Override
         	public void mouseClicked(java.awt.event.MouseEvent e){
             	int x = grid.rowAtPoint(e.getPoint());
                 int y = grid.columnAtPoint(e.getPoint());
                 selectedCellLabel.setText("  " + (char)('A' + y) + "" + (x + 1) + " = ");
+                String formula = grid.getCell(x, y).getFormula();
+                textField.setText(formula.length() > 0 ? formula : Double.toString(grid.getCell(x, y).getValue()));
             }        	
         });
         JScrollPane scrollPane = new JScrollPane(grid);

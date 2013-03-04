@@ -59,6 +59,22 @@ public class Command {
 	public boolean isValid() {
 		return (isValidEquation() && isInRange());
 	}
+	
+	public void updateGrid(Grid grid, String cellName) {
+		Cell tmpCell;;
+		double tmpValue =  0.0;
+		
+		for(int i = 0; i < grid.getRowCount(); i++) {
+			for(int j = 0; j < grid.getColumnCount(); j++) {
+				if(grid.getCell(i, j).getFormula().contains(cellName)) {
+					tmpCell = new Cell(grid.getCell(i, j).getFormula(), i, j);
+					tmpValue = grid.evaluteCell(tmpCell);
+					tmpCell.setValue(tmpValue);
+					grid.insertCell(tmpCell);					
+				}
+			}
+		}
+	}
 			
 	
 /*******************************************************
