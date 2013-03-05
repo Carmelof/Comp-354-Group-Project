@@ -78,9 +78,9 @@ public class Command {
 			
 	
 /*******************************************************
- * Private methods						 
+ * Private methods	 -- Changed to public for test case use					 
  *******************************************************/
-	private boolean isAlphaNumeric() {
+	public boolean isAlphaNumeric() {
 		
 		return (command.matches(ALPHANUM_PATTERN));
 	}
@@ -89,7 +89,7 @@ public class Command {
 	 * if equation = "A1 + 4 - 8 * C3", then replaceCellNamesByValue(equation, 1.0)
 	 * returns "1.0 + 4 - 8 * 1.0"
 	 */
-	private String replaceCellNamesByValue(String equation, double value) {
+	public String replaceCellNamesByValue(String equation, double value) {
 	
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		Matcher myMatch = MY_PATTERN.matcher(equation);
@@ -103,7 +103,7 @@ public class Command {
 		return myEquation;
 	}
 	
-	private boolean isInRange(){
+	public boolean isInRange(){
 		
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		Matcher myMatch = MY_PATTERN.matcher(command);		
@@ -125,7 +125,7 @@ public class Command {
 	 * if engine.eval catches an exception, then it means that it wasn't able to evaluate the expression,
 	 * therefore the command is invalid
 	 */
-	private boolean isValidEquation() {
+	public boolean isValidEquation() {
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 	    String numericEquation = command;
