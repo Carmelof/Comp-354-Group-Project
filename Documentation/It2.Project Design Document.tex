@@ -241,7 +241,26 @@ This Subsystem was designed by keeping the function simple to program for the de
 \subsubsection{Units Description}
 This subsection allows for a user to browse through their file system to select a location to save the currently opened grid or load an existing grid. Files are saved in .cvs format, the advantage of this is that it is a recognized format and can be opened with other programs such as excel or even a standard text editor but the disadvantage is that the currently working grid will not save the formula of cells but rather only their values. 
 
+\clearpage
+
 \section{Dynamic Design Scenarios}
-[Describe some (at least two) important execution scenarios of the system using UML sequence diagrams. These scenarios must demonstrate how the various subsystems and units are interacting to achieve a system-level service. Units and subsystems depicted here must be compatible with the descriptions provided in section 2 and 3.]  
+These two UML sequence diagrams show important execution scenarios of the system. These scenarios demonstrate how the various subsystems and units are interacting to achieve a system-level service.
+
+\subsubsection{UML Sequence Diagram 1}
+UML diagram showing a scenario where user selects a cell, then enters a
+command which is then validated and the cell contents get updated.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=170mm]{SequenceDiagram1.jpg}
+\end{figure}
+
+\clearpage
+
+\subsubsection{UML Sequence Diagram 2}
+UML diagram showing a scenario where user selects the "Load" menu option, then selects a file to be loaded, which is then processed and the cell contents get updated.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=180mm]{SequenceDiagram2.jpg}
+\end{figure}
 
 \end{document}
