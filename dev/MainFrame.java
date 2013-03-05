@@ -59,10 +59,10 @@ public class MainFrame extends JFrame {
 	    selectedCellLabel = new JLabel("", JLabel.LEADING);
 	    selectedCellLabel.setMaximumSize(new Dimension(100, 30));
 	    panel.add(selectedCellLabel);
-	    
 	    textField = new JTextField("");
 	    textField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
 	    textField.addActionListener(new ActionListener(){
+	    	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				cmd = new Command(textField.getText());

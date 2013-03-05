@@ -154,7 +154,7 @@ public class Grid extends JTable {
     	
     	return column;
     }
-	private double numericInput(String expression){
+	public double numericInput(String expression){
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 
@@ -168,7 +168,7 @@ public class Grid extends JTable {
 		}//end catch
 		return -1;
 	}
-	private String alphanumericInput(String equation){
+	public String alphanumericInput(String equation){
 		//check if there are cell names after the "=" sign i.e check for C4 & F7 in "A1 = C4 + 5 - F7"
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		Matcher myMatch = MY_PATTERN.matcher(equation);

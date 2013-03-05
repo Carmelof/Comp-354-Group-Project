@@ -30,6 +30,8 @@ public class MainTest {
 	 * Tester: Karim, ADDISON
 	 *=====================================================================
 	 */
+	//Majority of test cases have been moved to respective classes. 
+	/*
 	@Test
 	public final void testCheckSaved0() {
 		Main a= new Main();
@@ -54,7 +56,7 @@ public class MainTest {
 		a.executeCommand("not legal input");
 		assertEquals("File Saved?", true, a.checkSaved());
 	}
-
+	
 	@Test
 	public final void testNumericInput() {
 		Main a= new Main();
@@ -62,7 +64,7 @@ public class MainTest {
 		a.numericInput("a1", "3");
 		assertEquals("File Saved?", (double)3,(double)((a.table).getModel().getValueAt(0,0)),ACCEPTED_ERROR);
 	}
-
+	
 	@Test
 	public final void testAlphanumericInput() {
 		Main a= new Main();
@@ -79,7 +81,7 @@ public class MainTest {
 		a.prepareVars();
 		return;
 	}
-	
+	*/
 	/*=====================================================================
 	 * Tester: Dragos
 	 *=====================================================================
@@ -93,7 +95,7 @@ public class MainTest {
 		// No errors expected
 	}
 
-	@Test
+/*	@Test
 	public final void testExecuteCommandCellNameNumExpr() {
 		Main application = new Main();
 		application.executeCommand("A1 = 35 + 4 * (9 / 3 - 4)");
@@ -182,7 +184,7 @@ public class MainTest {
 		Main application = new Main();
 		application.loadFile();
 	}
-	
+	*/
 	/*=====================================================================
 	 * Tester: Carmelo
 	 *=====================================================================
@@ -206,7 +208,7 @@ public class MainTest {
 		assertEquals("Get Cell Name", "E3", main.getCellName(2, 4));
 	}
 	*/
-	@Test
+	/*@Test
 	public final void testGetNumEquation() {
 		Main main = new Main();
 		String pattern = "[A-J]\\d{1,2}";
@@ -217,7 +219,7 @@ public class MainTest {
 		
 		assertEquals("Get Num Equation", "20.0 + 35 - 87.0", main.getNumEquation(pattern, "B1 + 35 - C1", table));
 	}
-
+	 */
 	@Test
 	public final void testUpdateTable() {
 		fail("Not yet implemented"); // TODO
