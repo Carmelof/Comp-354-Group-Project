@@ -24,67 +24,77 @@ public class FileHandler {
     	fileChooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv files", "csv");
 		fileChooser.addChoosableFileFilter(filter);
+		fileChooser.setName("chooser");
 		saved = true;
     }
 
     public void saveFile(Grid grid){
-    	String[][] entries = new String[10][10];
-    	storeEntries(grid, entries);
     	int ret = fileChooser.showSaveDialog(component);
     	if (ret == JFileChooser.APPROVE_OPTION) {
-        	try {
-        		FileWriter fstream = new FileWriter(fileChooser.getSelectedFile().getAbsolutePath());
-        		BufferedWriter out = new BufferedWriter(fstream);
-        		for (String[] row : entries){
-        			String line = "";
-        			for (String col : row)
-        				line += col + ",";
-        			out.write(line + "\n");
-        		}
-        		out.close();
-        	} catch (Exception e) {
-        		System.err.println("There was an error trying to write to file:");
-        		e.printStackTrace();
-        	}
-        	System.out.println("File successfully saved as " + fileChooser.getSelectedFile().getName() + ".csv");
-        	saved = true;
+        	saveFile(grid, fileChooser.getSelectedFile().getAbsolutePath());
     	}
     }
+    
+    // this version of the function is used for testing purposes only
+    public void saveFile(Grid grid, String filename){
+    	String[][] entries = new String[10][10];
+    	storeEntries(grid, entries);
+    	try {
+    		FileWriter fstream = new FileWriter(filename);
+    		BufferedWriter out = new BufferedWriter(fstream);
+    		for (String[] row : entries){
+    			String line = "";
+    			for (String col : row)
+    				line += col + ",";
+    			out.write(line + "\n");
+    		}
+    		out.close();
+    	} catch (Exception e) {
+    		System.err.println("There was an error trying to write to file:");
+    		e.printStackTrace();
+    	}
+    	System.out.println("File successfully saved as " + filename);
+    	saved = true;
+    }
+    
     public void loadFile(Grid grid){
 		int ret = fileChooser.showOpenDialog(component);
 		if (ret == JFileChooser.APPROVE_OPTION) {
 		    File file = fileChooser.getSelectedFile();
-	        try {
-	            Scanner in = new Scanner(file).useDelimiter(",\n");
-	            ArrayList<String[]> cellArray = new ArrayList<String[]>();
-	            while (in.hasNext()){
-	            	cellArray.add(in.next().split(","));
-	            }
-	            in.close();
-	            assert cellArray.size() > 0;
-	            int rows = cellArray.size();
-	            int cols = cellArray.get(0).length;
-	            String[][] cellEntries = new String[rows][cols];
-	    		System.out.println("Data successfully loaded from file:\n\t" + file);
-	            for (int i = 0; i < cellArray.size(); ++i){
-	            	String[] row = cellArray.get(i);
-	            	if (i < cellArray.size()-1)
-	            		assert row.length == cellArray.get(i+1).length;
-	            	for (int j=0; j<row.length; j++){
-	            		cellEntries[i][j] = row[j];
-	            	}
-	            }
-        		restoreEntries(grid, cellEntries);
-        		saved = true;
-	        } catch (IOException e) {
-	            System.err.println("There was a problem trying to load the file.");
-	        } catch (AssertionError e) {
-	        	System.err.println("The file could not be loaded because of its "
-	        			+ "formatting. It may be corrupted.");
-	        }
+		    loadFile(grid, file);
 		}
     }
-    
+
+    public void loadFile(Grid grid, File file){
+        try {
+            Scanner in = new Scanner(file).useDelimiter(",\n");
+            ArrayList<String[]> cellArray = new ArrayList<String[]>();
+            while (in.hasNext()){
+            	cellArray.add(in.next().split(","));
+            }
+            in.close();
+            assert cellArray.size() > 0;
+            int rows = cellArray.size();
+            int cols = cellArray.get(0).length;
+            String[][] cellEntries = new String[rows][cols];
+    		System.out.println("Data successfully loaded from file:\n\t" + file);
+            for (int i = 0; i < cellArray.size(); ++i){
+            	String[] row = cellArray.get(i);
+            	if (i < cellArray.size()-1)
+            		assert row.length == cellArray.get(i+1).length;
+            	for (int j=0; j<row.length; j++){
+            		cellEntries[i][j] = row[j];
+            	}
+            }
+    		restoreEntries(grid, cellEntries);
+    		saved = true;
+        } catch (IOException e) {
+            System.err.println("There was a problem trying to load the file.");
+        } catch (AssertionError e) {
+        	System.err.println("The file could not be loaded because of its "
+        			+ "formatting. It may be corrupted.");
+        }
+    }    
     public boolean checkSaved(){
     	if (saved)
     		return true;

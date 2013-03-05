@@ -19,10 +19,6 @@ public class Grid extends JTable {
 		
 	}
 	public Grid(int x, int y) {
-		/*TODO Auto-generated method stub
-		 * 
-		 * Create a grid (jTable of size X, Y using the Cell class )
-		 * */
 		super(x,y);
 		
 		 for (int i = 0; i < this.getRowCount(); i++) {
@@ -132,6 +128,7 @@ public class Grid extends JTable {
 	}
 	
 	public void sortGrid(int col, boolean decending){
+		// TODO
 		/* Some sorting logic should go here. */
 	}
     public int getCellRow (String cellName) {
