@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setcounter{secnumdepth}{2}
+
+\topmargin=0cm
+\oddsidemargin=0cm
+\textheight=22.0cm
+\textwidth=16cm
+\parindent=0cm
+\parskip=0.15cm
+\topskip=0truecm
+\raggedbottom
+\abovedisplayskip=3mm
+\belowdisplayskip=3mm
+\abovedisplayshortskip=0mm
+\belowdisplayshortskip=2mm
+\normalbaselineskip=12pt
+\normalbaselines
+
+\begin{document}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Test Document}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Team X}
+
+\vspace*{0.5in}
+\centerline{\bf\Large 03 Feb 2013}
+
+\vspace*{1.5in}
+\begin{table}[htbp]
+\caption{Team}
+\begin{center}
+\begin{tabular}{|r | c|}
+\hline
+Name & ID Number \\
+\hline\hline
+X & Y \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\clearpage
+
+\section{Introduction}
+
+{\it
+An outline demonstrating Test cases and a few examples
+ 
+}
+
+\section{Test Plan}
+Testing for successes and failures, conditions and combinations, for 4 to 10 tests per unit.  A few examples shown below.
+  \subsection{Test Case   Unit Testing}
+
+{\it
+ Command/Range/Validation testing
+
+
+
+
+
+ Testing to see if the test method itself is valid by default
+}
+
+ Example:
+
+	public final void testIsValid()
+
+	Command command= new Command();
+
+	assertEquals("testIsValid", true, command.isValid());
+
+
+
+  \subsection{Test Case 1.2  Intergration Testing}
+
+ {\it Testing the Grid
+}
+
+{\it Upgrading/replacing a specific grid and checking if its coordinates matches.
+}
+
+Example:
+
+
+	public final void testReplaceCellNamesByValue3()
+
+	Command command= new Command();
+
+	command.replaceCellNamesByValue("B4", 0.0);
+
+	assertEquals("testIsAlphaNumeric","0.0",command.replaceCellNamesByValue("B4", 0.0));
+
+Example:
+
+{\it Checking if there exists the specific value within the specified cell row or column
+
+}		public final void testGetCellRow3() 
+
+		Grid grid = new Grid();
+
+		assertEquals("Get Cell Row", 0, grid.getCellRow("D1"));
+
+{\it 
+ Comparing if it matches of an inserted value of a specified coordinate with a new value }
+
+Example:
+
+
+	public final void testGetCell0() 
+
+	Grid grid = new Grid();
+
+	grid.insertValue(2.0, 1, 1);
+
+	assertEquals("Get Cell", 2.9, grid.getValueAt(1, 1));
+
+{\it Testing the input of 2 particular cells }
+
+  \subsection{Test Case 1.3  Intergration Testing}
+{\it A value is inputted to a specific cell, and comparing it to a string input, namely A1+B1 }
+
+Example:
+
+	public final void testAlphanumericInput0() 
+
+	Grid grid= new Grid();
+
+	grid.insertValue(1.0, 0, 0);
+
+	String equation = grid.alphanumericInput("A1 + B1");
+
+	assertEquals("Test Alpha", "1.0 + 0.0", equation);
+
+
+
+{\it Checking if the file is loaded }
+
+Example:
+
+	public void loadTest() 
+
+Grid a = new Grid();
+
+a.insertValue(79.1, 1, 2);
+
+a.insertValue("B1+9", 1, 1);
+
+Grid b = new Grid();
+
+FileHandler fh = new FileHandler(new MainFrame("test"));
+
+assertEquals("Load check", a, b);
+
+ \section{Schedule}
+After the duties of the developper were done, testing commenced, since 4 pm Feb 4 2013 until 11 pm.  Test cases are based on unit, intergration and system testing.
+
+
+
+\subsection{Indicate which qualities (from requirements) were tested and which qualities were not tested.}
+A grid of cells displaying the value of each cell has been tested.
+
+An input line where formulas and primitive values for the selected cell are entered has been tested.
+
+~~~~~A message line for displaying error messages has been tested, but not in test cases yet.~~~~~
+
+
+\section{Functionality}
+
+\subsection{Selecting a cell}
+\subsection{enter a primitive value or formula for the selected cell }
+\subsection{ automatic computation of cell values which are given by formulas} 
+\subsection{ output the spreadsheet as a grid of cells with values }
+\subsection{load and save spreadsheets to file} 
+\subsection{quit}
+
+\subsubsection{Unit X}
+
+\section{Test Results}
+
+{\it
+List the tests, indicating which passed and which did not pass.
+List requirements indicating the percentage of tests that passed for that requirement.
+}
+
+\section{References}
+
+\appendix
+
+\section{Description of Input Files}
+
+Describe/include test data from input files.
+
+\section{Description of Output Files}
+
+Describe/include test expected output that are output files.
+
+\end{document}
