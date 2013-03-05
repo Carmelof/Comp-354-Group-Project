@@ -37,6 +37,7 @@ public class FileHandler {
     
     // this version of the function is used for testing purposes only
     public void saveFile(Grid grid, String filename){
+    	// TODO: fix for variable grid size
     	String[][] entries = new String[10][10];
     	storeEntries(grid, entries);
     	try {

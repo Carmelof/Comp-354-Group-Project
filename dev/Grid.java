@@ -10,6 +10,7 @@ import javax.swing.JTable;
 
 public class Grid extends JTable {
 	static int DefaultTableSize = 10;
+	int poop=0;
 
 	public Grid(){
 		/**********************
@@ -188,6 +189,25 @@ public class Grid extends JTable {
 			
 		}  
 		return newEquation;
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Grid other = (Grid) obj;
+		if (other.getRowCount() != this.getRowCount() || other.getColumnCount() != this.getColumnCount())
+			return false;
+		for (int i=0; i<this.getRowCount(); ++i){
+			for (int j=0; j<this.getColumnCount(); ++j){
+				if (!this.getValueAt(i, j).equals(other.getValueAt(i, j)))
+					return false;
+			}
+		}
+		return true;
 	}
 	
 

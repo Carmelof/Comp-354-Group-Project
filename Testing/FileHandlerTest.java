@@ -27,6 +27,8 @@ public class FileHandlerTest {
 		Grid b = new Grid();
 		FileHandler fh = new FileHandler(new MainFrame("test"));
 		fh.saveFile(a, "test");
+		System.out.println(a);
+		System.out.println(b);
 		fh.loadFile(b, new File("test"));
 		assertEquals("Consistency check", a, b);
 	}
