@@ -15,8 +15,10 @@ public class FileHandlerTest {
 	public void control() {
 		Grid a = new Grid();
 		a.insertValue(79.1, 1, 2);
+		a.insertValue("A1+B1", 0, 3);
 		Grid b = new Grid();
 		b.insertValue(79.1, 1, 2);
+		b.insertValue("A1+B1", 0, 3);
 		assertEquals("Control check: grid", a, b);
 	}
 	
