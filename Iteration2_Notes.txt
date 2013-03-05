@@ -1,0 +1,8 @@
+Here are the main changes for iteration 2:
+
+1) Complet breakdown and re-structure of the code. Refactor into classes that control key parts of the project
+2) Testing is upscaled to Unit tests for specific methods, and system tests for the Cell / Grid / Command / File systems
+3) Documentations is overhauled to follow the changes made in the code. Testing cases have been outlined, and procedure outlines
+
+Overall:
+A major leap has been made in this iteration. The group has really come together as a team to help pull this together.
