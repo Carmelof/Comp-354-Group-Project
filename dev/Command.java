@@ -19,7 +19,9 @@ public class Command {
  * Attributes						  
  *******************************************************/
 	private String command;				
-	private final String ALPHANUM_PATTERN = "^.*[A-Ja-j]\\d{1,2}.*$";
+	private final String ALPHANUM_PATTERN = "^.*[A-Ja-j](?!0+[0-9]*)(?![1][1-9]+)(?![10][0-9][0-9]+)(?![1-9][1-9]+)(([1-9]{1})|(10)).*$";
+	//"^.*[A-Ja-j]\\d{1,2}.*$"
+	//private final String NOT_IN = "";
 	
 	
 	
@@ -55,42 +57,104 @@ public class Command {
 		command = command.replaceAll("\\s+", " ");
 		command = command.replaceAll("^\\s+|\\s+$", "");
 	}
-		
-	public boolean isValid() {
-		return (isValidEquation() && isInRange());
-	}
 	
-	public void updateGrid(Grid grid, String cellName) {
-		Cell tmpCell;;
-		double tmpValue =  0.0;
-		
-		for(int i = 0; i < grid.getRowCount(); i++) {
-			for(int j = 0; j < grid.getColumnCount(); j++) {
-				if(grid.getCell(i, j).getFormula().contains(cellName)) {
-					tmpCell = new Cell(grid.getCell(i, j).getFormula(), i, j);
-					tmpValue = grid.evaluteCell(tmpCell);
-					tmpCell.setValue(tmpValue);
-					grid.insertCell(tmpCell);					
+	public int evaluate(Grid grid, int x, int y, String itself) {
+		Cell newCell = new Cell(command, x, y, false, ' ');
+		if(containsFormat()) {
+			String original = command;
+			String tmp = command.replaceFirst("^.*([0-9]:(I|M|S))$", ""); //replace "formula:I" with "formula"
+			
+			command = tmp;
+			
+			if(isValidEquation()) {
+				if(isCircular(grid, x, y, itself)) {
+					command = original;
+					return 2; //circular
+				}
+				else {
+					command = original;
+					
+					if(isIntegerFormat())
+						grid.insertCell(newCell, true, 'I');
+					else if(isMonetaryFormat())
+						grid.insertCell(newCell, true, 'M');
+					else if(isScientificFormat())
+						grid.insertCell(newCell, true, 'S');
+					
+					grid.evaluteCell(grid.getCell(x, y));					
+	                updateGrid(grid, itself);	                
+	                return 0; //formatted equation
 				}
 			}
+			else
+				return 3; //invalid input
 		}
-	}
+		else if(isValidEquation()) {
+			if(isCircular(grid, x, y, itself))
+				return 2; //circular
+			else {
+				grid.insertCell(newCell, false, ' ');					
+				grid.evaluteCell(grid.getCell(x, y));					
+	            updateGrid(grid, itself);
+	            return 1; //regular equation
+			}
 			
+		}
+		else {
+			return 3; //invalid input
+		}
+		
+	}
+	
 	
 /*******************************************************
  * Private methods	 -- Changed to public for test case use					 
  *******************************************************/
-	public boolean isAlphaNumeric() {
+	private boolean isAlphaNumeric() {
 		
 		return (command.matches(ALPHANUM_PATTERN));
+	}
+		
+	private boolean containsFormat(){
+		return command.matches("^.*(:(I|M|S))$");
+	}
+	
+	private boolean isIntegerFormat() {
+		return command.contains(":I");
+	}
+	
+	private boolean isMonetaryFormat() {
+		return command.contains(":M");
+	}
+	
+	private boolean isScientificFormat() {
+		return command.contains(":S");
+	}
+	
+	private int getCellRow(String cellName) {		
+		int row = 0;
+		String[] tmp = new String[2];
+		
+		tmp = cellName.split("[A-J]");
+		row = Integer.parseInt(tmp[1]) - 1;
+		
+		return row;
+	}
+	
+	private int getCellColumn(String cellName) {		
+		int column = 0;	
+		
+    	column = ( ((int) cellName.charAt(0)) - 65 );
+		
+		return column;
 	}
 	
 	/*
 	 * if equation = "A1 + 4 - 8 * C3", then replaceCellNamesByValue(equation, 1.0)
 	 * returns "1.0 + 4 - 8 * 1.0"
 	 */
-	public String replaceCellNamesByValue(String equation, double value) {
-	
+	private String replaceCellNamesByValue(String equation, double value) {
+		
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		Matcher myMatch = MY_PATTERN.matcher(equation);
 		String myEquation = equation;
@@ -103,20 +167,20 @@ public class Command {
 		return myEquation;
 	}
 	
-	public boolean isInRange(){
+	private void updateGrid(Grid grid, String cellName) {
+		Cell tmpCell;;
+		double tmpValue =  0.0;
 		
-		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
-		Matcher myMatch = MY_PATTERN.matcher(command);		
-		
-		while(myMatch.find()) {
-			String cellName = myMatch.group();   
-			int index = Integer.parseInt(cellName.substring(1));
-			
-			if(index > 10)
-				return false;
-		}  
-				
-		return true;
+		for(int i = 0; i < grid.getRowCount(); i++) {
+			for(int j = 0; j < grid.getColumnCount(); j++) {
+				if(grid.getCell(i, j).getFormula().contains(cellName)) {
+					tmpCell = new Cell(grid.getCell(i, j).getFormula(), i, j, grid.getCell(i, j).isFormatted(), grid.getCell(i, j).getFormatType());
+					tmpValue = grid.evaluteCell(tmpCell);
+					tmpCell.setValue(tmpValue);
+					grid.insertCell(tmpCell, tmpCell.isFormatted(), tmpCell.getFormatType());					
+				}
+			}
+		}
 	}
 	
 	/*
@@ -125,7 +189,7 @@ public class Command {
 	 * if engine.eval catches an exception, then it means that it wasn't able to evaluate the expression,
 	 * therefore the command is invalid
 	 */
-	public boolean isValidEquation() {
+	private boolean isValidEquation() {
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 	    String numericEquation = command;
@@ -142,5 +206,24 @@ public class Command {
 		}
 	    		
 		return true;				
+	}
+	
+	private boolean isCircular(Grid grid, int x, int y, String itself) {
+		if(command.contains(itself))
+			return true;
+		else {
+			Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
+			Matcher myMatch = MY_PATTERN.matcher(command);		
+			
+			while(myMatch.find()) {
+				String cellName = myMatch.group();   
+				int row = getCellRow(cellName);
+				int col = getCellColumn(cellName);
+				
+				if(grid.getCell(row, col).getFormula().contains(itself))
+					return true;				
+			}
+		}
+		return false;
 	}
 }

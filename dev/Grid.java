@@ -48,7 +48,9 @@ public class Grid extends JTable {
 		 * */
 	}
 	
-	public void insertCell(Cell myCell){
+	public void insertCell(Cell myCell, boolean isFormatted, char formatType){
+		myCell.setIsFormatted(isFormatted);
+		myCell.setFormatType(formatType);
 		this.setValueAt(myCell, myCell.getRow(), myCell.getColumn());
 	}
 	
@@ -72,7 +74,14 @@ public class Grid extends JTable {
 		}
 		else
 		{
-			results = numericInput(alphanumericInput(iCell.getFormula()));
+			if(iCell.isFormatted()) {
+				String format = ":" + iCell.getFormatType();
+				String tmpFormula = iCell.getFormula().replace(format , ""); //remove the formatting from the formula
+				results = numericInput(alphanumericInput(tmpFormula)); //evaluate without format
+			}
+			else
+				results = numericInput(alphanumericInput(iCell.getFormula()));
+			
 			iCell.setValue(results);
 			
 			return results;

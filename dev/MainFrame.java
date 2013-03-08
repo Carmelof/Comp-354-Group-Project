@@ -71,22 +71,30 @@ public class MainFrame extends JFrame {
 					statusBar.setText("You must select a cell before entering a command.");
 				}
 				else {
-					if(cmd.isValid()) {
-						int x = grid.getSelectedRow();
-		                int y = grid.getSelectedColumn();
-		                cmd.trim();
-		                grid.insertValue(cmd.getCommand(), x, y);
-		                grid.evaluteCell(grid.getCell(x, y));
-		                textField.setText(cmd.getCommand());
-		                String cellName = (char)(('A') + y) + "" + (x + 1) + "";
-		                cmd.updateGrid(grid, cellName);
-		                statusBar.setForeground(Color.black);
-		                statusBar.setText("Cell " + cellName + " has been updated successfully.");
+					int x = grid.getSelectedRow();
+	                int y = grid.getSelectedColumn();
+	                String cellName = (char)(('A') + y) + "" + (x + 1) + "";
+					cmd.trim();
+					int typeOfCommand = cmd.evaluate(grid, x, y, cellName);
+										
+					if(typeOfCommand == 0){ //formatted formula
+						textField.setText(cmd.getCommand());
+						statusBar.setForeground(Color.black);
+						statusBar.setText("Cell " + cellName + " has been updated successfully with the " + grid.getCell(x, y).getFormatType() +" format");
 					}
-					else {
+					else if(typeOfCommand == 1) { //regular formula
+						textField.setText(cmd.getCommand());
+						statusBar.setForeground(Color.black);
+						statusBar.setText("Cell " + cellName + " has been updated successfully.");
+					}
+					else if(typeOfCommand == 2) { //circular reference, invalid input
+						statusBar.setForeground(Color.red);
+						statusBar.setText("Warning! Circular references are not permitted. Please try again.");
+					}
+					else { //typeOfCommand == 3, invalid input
 						statusBar.setForeground(Color.red);
 						statusBar.setText("The command is invalid, please try again.");
-					}
+					}				
 				}				
                 
                 fileHandler.setSaved(false);

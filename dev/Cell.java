@@ -1,4 +1,8 @@
 package dev;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Cell {
 	
 	/*************************************************************
@@ -11,26 +15,30 @@ public class Cell {
     private int row;
     private int column;
     boolean isPrimitive = true;
+    boolean isFormatted = false;
+    char formatType = ' ';
     //constructors
     public Cell() {
     	isPrimitive = true;
-    	newCell(0.0, "", -1, -1);
+    	newCell(0.0, "", -1, -1, false, ' ');
     }
-    public Cell(double value, int row, int column) {
+    public Cell(double value, int row, int column, boolean isFormatted, char formatType) {
     	isPrimitive = true;
-    	newCell(value, "", row, column);
+    	newCell(value, "", row, column, isFormatted, formatType);
     }
-    public Cell(String Formula, int row, int column){
+    public Cell(String Formula, int row, int column, boolean isFormatted, char formatType){
     	isPrimitive = false;
-    	newCell(0.0, Formula, row, column);
+    	newCell(0.0, Formula, row, column, isFormatted, formatType);
     }
     
-    private void newCell(double value, String Formula, int row, int column){
+    private void newCell(double value, String Formula, int row, int column, boolean isFormatted, char formatType){
     	/*Assumes that the formula is already validated*/
     	this.value = value;
     	this.row = row;
     	this.column = column; 
     	this.formula = Formula;
+    	this.isFormatted = isFormatted;
+    	this.formatType = formatType;
     }
     public int getRow() {
     	return row;
@@ -38,13 +46,24 @@ public class Cell {
     public int getColumn() {
     	return column;
     }
+    public boolean isFormatted() {
+    	return isFormatted;
+    }
+    public char getFormatType() {
+    	return formatType;
+    }
     public void setRow(int i) {
     	row = i;
     }
     public void setColumn(int i) {
     	column = i; 
     }
-    
+    public void setIsFormatted(boolean formatted) {
+    	isFormatted = formatted;
+    }
+    public void setFormatType(char format) {
+    	formatType = format;
+    }
     
 /******************************************************************
 * Get Overloads for the values
@@ -127,6 +146,19 @@ public class Cell {
     @Override
     public String toString()
     {
-    	return Double.toString(value);
+    	if(formatType == 'I') {
+    		int i = (int) value;
+    		return Integer.toString(i);
+    	}    		
+    	else if(formatType == 'M') {
+    		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+    		return formatter.format(value);
+    	}
+    	else if(formatType == 'S') {
+    		DecimalFormat df = new DecimalFormat("0.#####E0");    		
+    		return df.format(value);
+    	}
+    	else
+    		return Double.toString(value);
     }
 }
