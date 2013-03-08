@@ -79,8 +79,28 @@ public class Grid extends JTable {
 				String tmpFormula = iCell.getFormula().replace(format , ""); //remove the formatting from the formula
 				results = numericInput(alphanumericInput(tmpFormula)); //evaluate without format
 			}
-			else
-				results = numericInput(alphanumericInput(iCell.getFormula()));
+			else {
+				
+				String tmpFormula = iCell.getFormula();
+				
+				if(iCell.getFormula().contains(":I")) {
+					iCell.setIsFormatted(true);
+					iCell.setFormatType('I');
+					tmpFormula = tmpFormula.replace(":I", "");
+				}
+				else if(iCell.getFormula().contains(":M")) {
+					iCell.setIsFormatted(true);
+					iCell.setFormatType('M');
+					tmpFormula = tmpFormula.replace(":M", "");
+				}
+				else if(iCell.getFormula().contains(":S")) {
+					iCell.setIsFormatted(true);
+					iCell.setFormatType('S');
+					tmpFormula = tmpFormula.replace(":S", "");
+				}
+				
+				results = numericInput(alphanumericInput(tmpFormula));
+			}
 			
 			iCell.setValue(results);
 			

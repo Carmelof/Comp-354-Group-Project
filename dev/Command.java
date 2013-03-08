@@ -19,7 +19,7 @@ public class Command {
  * Attributes						  
  *******************************************************/
 	private String command;				
-	private final String ALPHANUM_PATTERN = "^.*[A-Ja-j](?!0+[0-9]*)(?![1][1-9]+)(?![10][0-9][0-9]+)(?![1-9][1-9]+)(([1-9]{1})|(10)).*$";
+	private final String ALPHANUM_PATTERN = "^.*(?<!\\w)[A-Ja-j](?!0+[0-9]*)(?![1][1-9]+)(?![10][0-9][0-9]+)(?![1-9][1-9]+)(([1-9]{1})+|(10)).*$";
 	//"^.*[A-Ja-j]\\d{1,2}.*$"
 	//private final String NOT_IN = "";
 	
@@ -60,9 +60,10 @@ public class Command {
 	
 	public int evaluate(Grid grid, int x, int y, String itself) {
 		Cell newCell = new Cell(command, x, y, false, ' ');
+		//int typeOfCommand = 3; //invalid input
 		if(containsFormat()) {
 			String original = command;
-			String tmp = command.replaceFirst("^.*([0-9]:(I|M|S))$", ""); //replace "formula:I" with "formula"
+			String tmp = command.replaceFirst("^.*(:(I|M|S))$", ""); //replace "formula:I" with "formula"
 			
 			command = tmp;
 			
@@ -71,6 +72,8 @@ public class Command {
 					command = original;
 					return 2; //circular
 				}
+				else if(containsDivisionByZero())
+					return 4; //division by zero
 				else {
 					command = original;
 					
@@ -92,6 +95,8 @@ public class Command {
 		else if(isValidEquation()) {
 			if(isCircular(grid, x, y, itself))
 				return 2; //circular
+			else if(containsDivisionByZero())
+				return 4; //division by zero
 			else {
 				grid.insertCell(newCell, false, ' ');					
 				grid.evaluteCell(grid.getCell(x, y));					
@@ -114,9 +119,17 @@ public class Command {
 		
 		return (command.matches(ALPHANUM_PATTERN));
 	}
-		
+	
+	private boolean containsSpecialChars() {
+		return command.matches("^(?![K-Z~`!@\\&#\\$\\{\\}])$");
+	}
+	
+	private boolean containsDivisionByZero() {
+		return command.matches("^.*(/\\s*0).*$");
+	}
+	
 	private boolean containsFormat(){
-		return command.matches("^.*(:(I|M|S))$");
+		return command.matches("^.*([0-9]:(I|M|S))$");
 	}
 	
 	private boolean isIntegerFormat() {
@@ -193,19 +206,26 @@ public class Command {
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 	    String numericEquation = command;
-	    
-	    if(isAlphaNumeric())
-	    	numericEquation = replaceCellNamesByValue(command, 1.0);
-	    
-	    try {
-			engine.eval(numericEquation);			
-		} 	    
-	    catch (ScriptException e) {		
-			//e.printStackTrace();
+	    	    
+	   /* if(containsSpecialChars())
 	    	return false;
-		}
-	    		
-		return true;				
+	    
+	    else {*/
+	    	if(isAlphaNumeric())
+		    	numericEquation = replaceCellNamesByValue(command, 1.0);
+		    
+		    
+		    try {
+				engine.eval(numericEquation);			
+			} 	    
+		    catch (ScriptException e) {		
+				//e.printStackTrace();
+		    	return false;
+			}
+		    		
+			return true;	
+	   // }
+	    			
 	}
 	
 	private boolean isCircular(Grid grid, int x, int y, String itself) {

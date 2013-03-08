@@ -68,7 +68,7 @@ public class MainFrame extends JFrame {
 				cmd = new Command(textField.getText());
 				if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
 					statusBar.setForeground(Color.red);
-					statusBar.setText("You must select a cell before entering a command.");
+					statusBar.setText("Warning! You must select a cell before entering a command.");
 				}
 				else {
 					int x = grid.getSelectedRow();
@@ -91,10 +91,14 @@ public class MainFrame extends JFrame {
 						statusBar.setForeground(Color.red);
 						statusBar.setText("Warning! Circular references are not permitted. Please try again.");
 					}
-					else { //typeOfCommand == 3, invalid input
+					else if(typeOfCommand == 3) { //invalid input
 						statusBar.setForeground(Color.red);
 						statusBar.setText("The command is invalid, please try again.");
-					}				
+					}
+					else if(typeOfCommand == 4) { //division by 0, invalid input
+						statusBar.setForeground(Color.red);
+						statusBar.setText("Error! Division by 0, please try again.");
+					}	
 				}				
                 
                 fileHandler.setSaved(false);
