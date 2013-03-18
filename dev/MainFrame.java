@@ -170,7 +170,17 @@ public class MainFrame extends JFrame {
 	    menuListener = new ActionListener(){
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-			    if (e.getSource() == load) {
+		    	 if (e.getSource() == new_f){
+				    	if (fileHandler.checkSaved()) {
+				    		grid.clearFuture();
+				    		grid.clearHistory();
+				    		grid.clearGrid();
+				    		grid.addToHistory();
+				    		statusBar.setForeground(Color.black);
+				    		statusBar.setText("New Grid Loaded.");
+				    	}
+				    }
+				    else if (e.getSource() == load) {
 			    	if (fileHandler.checkSaved()) {
 			    		fileHandler.loadFile(grid);
 			    		statusBar.setForeground(Color.black);

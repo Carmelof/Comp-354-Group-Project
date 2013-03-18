@@ -230,7 +230,7 @@ public class Grid extends JTable {
 	}
 	
 	public void undo(){
-		if(history.empty()){}
+		if(history.size()==1){}
 		else{
 			future.push(history.pop());//this will go to redo stack
 			Grid temp = history.peek();
@@ -244,6 +244,10 @@ public class Grid extends JTable {
 		future.removeAllElements();
 	}
 	
+	public void clearHistory(){
+		history.removeAllElements();
+	}
+	
 	public void redo(){
 		if(future.empty()){}
 		else{
@@ -253,6 +257,13 @@ public class Grid extends JTable {
 				for(int y=0;y<this.getColumnCount();y++)
 					this.setValueAt(temp.getCell(x, y), x, y);	
 		}
+	}
+	
+	public void clearGrid(){
+		Cell tempCell = new Cell();
+		for (int i = 0; i < this.getRowCount(); i++)
+        	for (int j = 0; j < this.getColumnCount(); j++)  
+        		this.setValueAt(tempCell, i, j);
 	}
 
 	public boolean equals(Object obj) {
