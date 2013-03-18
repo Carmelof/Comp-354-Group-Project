@@ -225,6 +225,8 @@ public class MainFrame extends JFrame {
 	    undo.addActionListener(menuListener);
 	    redo.addActionListener(menuListener);
 	    
+	    add_r.addActionListener(menuListener);
+	    add_c.addActionListener(menuListener);
 	    form_int.addActionListener(menuListener);
 	    form_mon.addActionListener(menuListener);
 	    form_sci.addActionListener(menuListener);
