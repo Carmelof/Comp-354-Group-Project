@@ -33,7 +33,10 @@ public class MainFrame extends JFrame {
 
 	private FileHandler fileHandler;
 	private ActionListener menuListener;
-	private JMenuItem load, save, quit;
+	private JMenuItem new_f, load, save, quit;
+	private JMenuItem cut, copy, paste, undo, redo;
+	private JMenuItem add_c, add_r, form_int, form_mon, form_sci;
+	private JMenuItem fun_help, about;
 	private JLabel selectedCellLabel;
 	private JTextField textField;
 	private Grid grid;
@@ -127,6 +130,9 @@ public class MainFrame extends JFrame {
 	    
 	    JMenu file = new JMenu("File");
 	    jmb.add(file);
+	    // Stub
+	    new_f = new JMenuItem ("New");
+	    file.add(new_f);
 	    
 	    load = new JMenuItem ("Load");
 	    file.add(load);
@@ -134,9 +140,61 @@ public class MainFrame extends JFrame {
 	    save = new JMenuItem ("Save");
 	    file.add(save);
 	    
+	    file.addSeparator();
+	    
 	    quit = new JMenuItem ("Quit");
 	    file.add(quit);
-
+	    
+	    JMenu edit = new JMenu("Edit");
+	    jmb.add(edit);
+	    
+	    cut = new JMenuItem ("Cut");
+	    edit.add(cut);
+	    
+	    copy = new JMenuItem ("Copy");
+	    edit.add(copy);
+	    
+	    paste = new JMenuItem ("Paste");
+	    edit.add(paste);
+	    
+	    edit.addSeparator();
+	    
+	    undo = new JMenuItem ("Undo");
+	    edit.add(undo);
+	    
+	    redo = new JMenuItem ("Redo");
+	    edit.add(redo);
+	    
+	    JMenu format = new JMenu("Format");
+	    jmb.add(format);
+	    
+	    add_r = new JMenuItem ("Add Row");
+	    format.add(add_r);
+	    
+	    add_c = new JMenuItem ("Add Column");
+	    format.add(add_c);
+	    
+	    format.addSeparator();
+	    
+	    form_int = new JMenuItem ("Integer Format");
+	    format.add(form_int);
+	    
+	    form_mon = new JMenuItem ("Monetary Format");
+	    format.add(form_mon);
+	    
+	    form_sci = new JMenuItem ("Scientific Format");
+	    format.add(form_sci);
+	    
+	    JMenu help = new JMenu("Help");
+	    jmb.add(help);
+	    
+	    fun_help = new JMenuItem ("View FunSheets Help");
+	    help.add(fun_help);
+	    
+	    about = new JMenuItem ("About FunSheets");
+	    help.add(about);
+	    
+	    
 	    menuListener = new ActionListener(){
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
@@ -156,10 +214,23 @@ public class MainFrame extends JFrame {
 			    }
 		    }
 		};
-
+		new_f.addActionListener(menuListener);	
 	    load.addActionListener(menuListener);
 	    save.addActionListener(menuListener);
 	    quit.addActionListener(menuListener);
+	    
+	    cut.addActionListener(menuListener);
+	    copy.addActionListener(menuListener);
+	    paste.addActionListener(menuListener);
+	    undo.addActionListener(menuListener);
+	    redo.addActionListener(menuListener);
+	    
+	    form_int.addActionListener(menuListener);
+	    form_mon.addActionListener(menuListener);
+	    form_sci.addActionListener(menuListener);
+	    
+	    fun_help.addActionListener(menuListener);
+	    about.addActionListener(menuListener);
 	}
 	
 	private void initTable(){

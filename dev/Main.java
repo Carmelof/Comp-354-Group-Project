@@ -18,6 +18,6 @@ public class Main {
             //e.printStackTrace();
         }
     	
-        frame = new MainFrame("Comp 354-Excel Document");
+        frame = new MainFrame("Comp 354 - FunSheets Document");
     }
 }
