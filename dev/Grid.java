@@ -24,7 +24,6 @@ public class Grid extends JTable {
 	}
 	public Grid(int x, int y) {
 		super(x,y);
-		
 		 for (int i = 0; i < this.getRowCount(); i++) {
 	        	for (int j = 0; j < this.getColumnCount(); j++) {  
 	        		Cell tempCell = new Cell();
@@ -32,7 +31,6 @@ public class Grid extends JTable {
 	        		
 	        	}
 		 }
-		 history.push(this);
 	}
 	
 	public void addRow(int CurrentRow, boolean Above){
