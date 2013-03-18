@@ -104,7 +104,7 @@ public class MainFrame extends JFrame {
 						statusBar.setText("Error! Division by 0, please try again.");
 					}	
 				}				
-                
+                grid.clearFuture();
                 fileHandler.setSaved(false);
 			}
 	    });
@@ -217,8 +217,9 @@ public class MainFrame extends JFrame {
 			    }
 			    else if(e.getSource() == undo){
 			    	grid.undo();
-			    	statusBar.setForeground(Color.black);
-			    	statusBar.setText("Undone!");
+			    }
+			    else if(e.getSource() == redo){
+			    	grid.redo();
 			    }
 		    }
 		};

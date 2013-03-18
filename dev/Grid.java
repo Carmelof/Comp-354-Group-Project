@@ -14,7 +14,7 @@ public class Grid extends JTable {
 	static int DefaultTableSize = 10;
 	int poop=0;//WTF?
 	Stack<Grid> history= new Stack<Grid>();
-
+	Stack<Grid> future= new Stack<Grid>();
 	public Grid(){
 		/**********************
 		 * Default grid size 10
@@ -228,11 +228,27 @@ public class Grid extends JTable {
 				temp.setValueAt(this.getCell(x, y), x, y);
 		history.push(temp);		
 	}
+	
 	public void undo(){
 		if(history.empty()){}
 		else{
-			history.pop();//this will go to redo stack
+			future.push(history.pop());//this will go to redo stack
 			Grid temp = history.peek();
+			for(int x=0;x<this.getRowCount();x++)
+				for(int y=0;y<this.getColumnCount();y++)
+					this.setValueAt(temp.getCell(x, y), x, y);	
+		}
+	}
+	
+	public void clearFuture(){
+		future.removeAllElements();
+	}
+	
+	public void redo(){
+		if(future.empty()){}
+		else{
+			Grid temp = future.pop();
+			history.push(temp);
 			for(int x=0;x<this.getRowCount();x++)
 				for(int y=0;y<this.getColumnCount();y++)
 					this.setValueAt(temp.getCell(x, y), x, y);	
