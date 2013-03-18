@@ -226,6 +226,27 @@ public class MainFrame extends JFrame {
 						performCommand(new Command(clipboard));
 					}
 			    }
+			    else if(e.getSource() == add_r){
+			    	//adds a row
+			    }
+			    else if(e.getSource() == add_c){
+			    	//adds a column 
+			    }
+			    else if(e.getSource() == form_int){
+			    	//formats selected cell to int form
+			    }
+			    else if(e.getSource() == form_mon){
+			    	//formats selected cell to monetary form
+			    }
+			    else if(e.getSource() == form_sci){
+			    	//formats selected cell to scientific form
+			    }
+			    else if(e.getSource() == fun_help){
+			    	//a mini tutorial for the program
+			    }
+			    else if(e.getSource() == about){
+			    	//makes a box that shows group members names and mini description of program
+			    }
 		    }
 		};
 		new_f.addActionListener(menuListener);	
