@@ -84,11 +84,13 @@ public class MainFrame extends JFrame {
 						textField.setText(cmd.getCommand());
 						statusBar.setForeground(Color.black);
 						statusBar.setText("Cell " + cellName + " has been updated successfully with the " + grid.getCell(x, y).getFormatType() +" format");
+						grid.addToHistory();
 					}
 					else if(typeOfCommand == 1) { //regular formula
 						textField.setText(cmd.getCommand());
 						statusBar.setForeground(Color.black);
 						statusBar.setText("Cell " + cellName + " has been updated successfully.");
+						grid.addToHistory();
 					}
 					else if(typeOfCommand == 2) { //circular reference, invalid input
 						statusBar.setForeground(Color.red);
@@ -209,8 +211,14 @@ public class MainFrame extends JFrame {
 			             fileHandler.saveFile(grid);
 			             statusBar.setForeground(Color.black);
 				    	 statusBar.setText("The file has been saved successfully.");
-			    } else if(e.getSource() == quit) {
+			    }
+			    else if(e.getSource() == quit) {
 			        	 System.exit(0);
+			    }
+			    else if(e.getSource() == undo){
+			    	grid.undo();
+			    	statusBar.setForeground(Color.black);
+			    	statusBar.setText("Undone!");
 			    }
 		    }
 		};

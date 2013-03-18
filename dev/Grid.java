@@ -3,6 +3,8 @@ package dev;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.util.Stack;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -10,7 +12,8 @@ import javax.swing.JTable;
 
 public class Grid extends JTable {
 	static int DefaultTableSize = 10;
-	int poop=0;
+	int poop=0;//WTF?
+	Stack<Grid> history= new Stack<Grid>();
 
 	public Grid(){
 		/**********************
@@ -29,6 +32,7 @@ public class Grid extends JTable {
 	        		
 	        	}
 		 }
+		 history.push(this);
 	}
 	
 	public void addRow(int CurrentRow, boolean Above){
@@ -149,7 +153,6 @@ public class Grid extends JTable {
 	public double getValue(int x, int y) {
 		Cell tempCell = getCell(x, y);
 		return tempCell.getValue();
-	
 	}
 	public void insertValue(String formula, int x, int y){
 		Cell tempCell = getCell(x, y);
@@ -218,6 +221,24 @@ public class Grid extends JTable {
 			
 		}  
 		return newEquation;
+	}
+	
+	public void addToHistory(){//Saves the current grid into history stack
+		Grid temp = new Grid(this.getRowCount(),this.getColumnCount());
+		for(int x=0;x<this.getRowCount();x++)
+			for(int y=0;y<this.getColumnCount();y++)
+				temp.setValueAt(this.getCell(x, y), x, y);
+		history.push(temp);		
+	}
+	public void undo(){
+		if(history.empty()){}
+		else{
+			history.pop();//this will go to redo stack
+			Grid temp = history.peek();
+			for(int x=0;x<this.getRowCount();x++)
+				for(int y=0;y<this.getColumnCount();y++)
+					this.setValueAt(temp.getCell(x, y), x, y);	
+		}
 	}
 
 	public boolean equals(Object obj) {
