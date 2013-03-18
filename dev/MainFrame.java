@@ -42,7 +42,7 @@ public class MainFrame extends JFrame {
 	private Grid grid;
 	private DefaultTableModel model;
 	private JLabel statusBar;
-	private Command cmd;
+	private String clipboard;
 	
 	public MainFrame(String title) {
 		super(title);
@@ -67,42 +67,12 @@ public class MainFrame extends JFrame {
 	    textField.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cmd = new Command(textField.getText());
 				if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
 					statusBar.setForeground(Color.red);
 					statusBar.setText("Warning! You must select a cell before entering a command.");
 				}
 				else {
-					int x = grid.getSelectedRow();
-	                int y = grid.getSelectedColumn();
-	                String cellName = (char)(('A') + y) + "" + (x + 1) + "";
-					cmd.trim();
-					int typeOfCommand = cmd.evaluate(grid, x, y, cellName);
-										
-					if(typeOfCommand == 0){ //formatted formula
-						textField.setText(cmd.getCommand());
-						statusBar.setForeground(Color.black);
-						statusBar.setText("Cell " + cellName + " has been updated successfully with the " + grid.getCell(x, y).getFormatType() +" format");
-						grid.addToHistory();
-					}
-					else if(typeOfCommand == 1) { //regular formula
-						textField.setText(cmd.getCommand());
-						statusBar.setForeground(Color.black);
-						statusBar.setText("Cell " + cellName + " has been updated successfully.");
-						grid.addToHistory();
-					}
-					else if(typeOfCommand == 2) { //circular reference, invalid input
-						statusBar.setForeground(Color.red);
-						statusBar.setText("Warning! Circular references are not permitted. Please try again.");
-					}
-					else if(typeOfCommand == 3) { //invalid input
-						statusBar.setForeground(Color.red);
-						statusBar.setText("The command is invalid, please try again.");
-					}
-					else if(typeOfCommand == 4) { //division by 0, invalid input
-						statusBar.setForeground(Color.red);
-						statusBar.setText("Error! Division by 0, please try again.");
-					}	
+					performCommand(new Command(textField.getText()));
 				}				
                 grid.clearFuture();
                 fileHandler.setSaved(false);
@@ -220,6 +190,31 @@ public class MainFrame extends JFrame {
 			    }
 			    else if(e.getSource() == redo){
 			    	grid.redo();
+			    }
+			    else if(e.getSource() == cut) {
+			    	if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+						statusBar.setForeground(Color.red);
+						statusBar.setText("Warning! You must select a cell before cutting.");
+					} else {
+						clipboard = textField.getText();
+						performCommand(new Command("0.0"));
+					}
+			    }
+			    else if(e.getSource() == copy) {
+			    	if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+						statusBar.setForeground(Color.red);
+						statusBar.setText("Warning! You must select a cell before copying.");
+					} else {
+						clipboard = textField.getText();
+					}
+			    }
+			    else if(e.getSource() == paste) {
+			    	if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+						statusBar.setForeground(Color.red);
+						statusBar.setText("Warning! You must select a cell before pasting.");
+					} else {
+						performCommand(new Command(clipboard));
+					}
 			    }
 		    }
 		};
@@ -358,5 +353,38 @@ public class MainFrame extends JFrame {
         	}
         });  
         add(scrollPane);      
+	}
+	
+	private void performCommand(Command command) {
+		int x = grid.getSelectedRow();
+        int y = grid.getSelectedColumn();
+        String cellName = (char)(('A') + y) + "" + (x + 1) + "";
+		command.trim();
+		int typeOfCommand = command.evaluate(grid, x, y, cellName);
+							
+		if(typeOfCommand == 0){ //formatted formula
+			textField.setText(command.getCommand());
+			statusBar.setForeground(Color.black);
+			statusBar.setText("Cell " + cellName + " has been updated successfully with the " + grid.getCell(x, y).getFormatType() +" format");
+			grid.addToHistory();
+		}
+		else if(typeOfCommand == 1) { //regular formula
+			textField.setText(command.getCommand());
+			statusBar.setForeground(Color.black);
+			statusBar.setText("Cell " + cellName + " has been updated successfully.");
+			grid.addToHistory();
+		}
+		else if(typeOfCommand == 2) { //circular reference, invalid input
+			statusBar.setForeground(Color.red);
+			statusBar.setText("Warning! Circular references are not permitted. Please try again.");
+		}
+		else if(typeOfCommand == 3) { //invalid input
+			statusBar.setForeground(Color.red);
+			statusBar.setText("The command is invalid, please try again.");
+		}
+		else if(typeOfCommand == 4) { //division by 0, invalid input
+			statusBar.setForeground(Color.red);
+			statusBar.setText("Error! Division by 0, please try again.");
+		}	
 	}
 }
