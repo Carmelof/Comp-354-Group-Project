@@ -9,7 +9,11 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.BoxLayout;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -20,6 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -110,11 +115,12 @@ public class MainFrame extends JFrame {
         int w = getSize().width;
         int h = getSize().height;
         setMinimumSize(new Dimension(w/2, h/2));
-
+        grid.addToHistory();
+        hotkeys();
+        
         setVisible(true);	
         //setResizable(false);
         toFront();
-        grid.addToHistory();
 	}
 	
 	private void initMenu() {
@@ -460,6 +466,56 @@ public class MainFrame extends JFrame {
         	}
         });  
         add(scrollPane);      
+	}
+	
+	private void hotkeys() {
+	    String new_f = "New key", save = "Save key";
+	    String undo = "Undo key", redo = "Redo key";
+	    
+	    Action newAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+		    	if (fileHandler.checkSaved()) {
+		    		grid.clearFuture();
+		    		grid.clearHistory();
+		    		grid.clearGrid();
+		    		grid.addToHistory();
+		    		statusBar.setForeground(Color.black);
+		    		statusBar.setText("New Grid Loaded.");
+		    	}
+	        }
+	    };
+	    Action saveAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+	             fileHandler.saveFile(grid);
+	             statusBar.setForeground(Color.black);
+		    	 statusBar.setText("The file has been saved successfully.");
+	        }
+	    };
+	    Action undoAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e){grid.undo();}
+	    };
+	    
+	    Action redoAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {grid.redo();}
+	    };
+	    
+	    grid.getActionMap().put(new_f, newAct);
+	    grid.getActionMap().put(save, saveAct);
+	    grid.getActionMap().put(undo, undoAct);
+	    grid.getActionMap().put(redo, redoAct);
+
+	    InputMap[] inputMaps = new InputMap[] {
+	        grid.getInputMap(JComponent.WHEN_FOCUSED),
+	        grid.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT),
+	        grid.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW),
+	    };
+	    
+	    for(InputMap i : inputMaps) {
+	        i.put(KeyStroke.getKeyStroke("control N"), new_f);
+	        i.put(KeyStroke.getKeyStroke("control S"), save);
+	        i.put(KeyStroke.getKeyStroke("control Z"), undo);
+	        i.put(KeyStroke.getKeyStroke("control Y"), redo);
+	    }
 	}
 	
 	private void performCommand(Command command) {
