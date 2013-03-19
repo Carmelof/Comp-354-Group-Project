@@ -54,18 +54,18 @@ public class MainFrame extends JFrame {
 	private DefaultTableModel model;
 	private JLabel statusBar;
 	private String clipboard;
-	private static final String TEAM_MEMBERS = "Kevin Cameron (9801448)\n" +
-												"Addison Rodomista (1967568)\n" +
-												"Dragos Dinulescu (6304826)\n" +
-												"Adrian Max McCrea (9801448)\n" +
-												"Ghazal Zamani (1971158)\n" +
-												"Karim Kaidbey (9654726)\n" +
-												"Carmelo Fragapane (6298265)\n" +
-												"Long Wang (9547967)\n" +
-												"Simone Ovilma (9112510)\n" +
-												"Nicholas Constantinidis (6330746)\n" +
-												"Asmaa Alshaibi (9738231)";
-	
+	private static final String TEAM_MEMBERS = "<b>Kevin Cameron</b> (9801448)<br/>" +
+											"<b>Addison Rodomista</b> (1967568)<br/>" +
+											"<b>Dragos Dinulescu</b> (6304826)<br/>" +
+											"<b>Adrian Max McCrea</b> (9801448)<br/>" +
+											"<b>Ghazal Zamani</b> (1971158)<br/>" +
+											"<b>Karim Kaidbey</b> (9654726)<br/>" +
+											"<b>Carmelo Fragapane</b> (6298265)<br/>" +
+											"<b>Long Wang</b> (9547967)<br/>" +
+											"<b>Simone Ovilma</b> (9112510)<br/>" +
+											"<b>Nicholas Constantinidis</b> (6330746)<br/>" +
+											"<b>Asmaa Alshaibi</b> (9738231)";
+
 	public MainFrame(String title) {
 		super(title);
 		// if the program should not quit when the window is closed, revert to DISPOSE_ON_CLOSE
@@ -195,10 +195,10 @@ public class MainFrame extends JFrame {
 	    JMenu help = new JMenu("Help");
 	    jmb.add(help);
 	    
-	    fun_help = new JMenuItem ("View FunSheets Help");
+	    fun_help = new JMenuItem ("Program Description");
 	    help.add(fun_help);
 	    
-	    about = new JMenuItem ("About FunSheets");
+	    about = new JMenuItem ("About");
 	    help.add(about);
 	    final JFrame thisFrame = this;
 	    
@@ -321,11 +321,28 @@ public class MainFrame extends JFrame {
 			    }
 			    else if(e.getSource() == fun_help){
 			    	//a mini tutorial for the program
+			    	String labelMsg = "<html>"
+			    		+ "<h1>FunSheets 3.0 Description:</h1>"
+		    			+ "<br/><ul><li>"
+		    			+ "A spreadsheet consists of a rectangular array of cells, where the columns<br/>"
+		    			+ "are indexed by letters A..K, and rows are indexed by integers 1..10."
+		    			+ "</li><br/><li>"
+		    			+ "Each cell contains a <b>formula</b> or a <b>primitive value</b>."
+		    			+ "</li><br/><li>"
+		    			+ "A cell which contains a formula also has an associated <b>computed value</b>."
+		    			+ "</li><br/><li>"
+		    			+ "The features of the simple spreadsheet utility are limited: <br/>"
+		    			+ "select a cell, enter a primitive value or formula, automatic computation<br/>"
+		    			+ "of cell values, load and save spreadsheets to file, and quit."
+		    			+ "</li><ul>"
+		    			+ "</html>";
+			    	JOptionPane.showMessageDialog(thisFrame, labelMsg,"Program Description", JOptionPane.QUESTION_MESSAGE);
 			    }
 			    else if(e.getSource() == about){
 			    	//makes a box that shows group members names and mini description of program
-			    	JOptionPane.showMessageDialog(thisFrame, "FunSheets 3.0 has been brought to you\n" +
-			    			"by the following hard working team:\n\n" + TEAM_MEMBERS);
+			    	String labelMsg = "<html><h1>FunSheets 3.0</h1>Has been brought to you by the<br/>" +
+	    			"following <b><i>hard working</i></b> team:<br/><br/>" + TEAM_MEMBERS + "</html>";
+			    	JOptionPane.showMessageDialog(thisFrame, labelMsg, "About", JOptionPane.INFORMATION_MESSAGE);
 			    }
 		    }
 		};
