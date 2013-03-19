@@ -1,5 +1,7 @@
 package dev;
 
+import java.util.ArrayList;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -13,11 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.RowSorterEvent;
@@ -36,6 +41,7 @@ public class MainFrame extends JFrame {
 	private JMenuItem new_f, load, save, quit;
 	private JMenuItem cut, copy, paste, undo, redo;
 	private JMenuItem add_c, add_r, form_int, form_mon, form_sci;
+	private JMenuItem theme_select;
 	private JMenuItem fun_help, about;
 	private JLabel selectedCellLabel;
 	private JTextField textField;
@@ -43,6 +49,17 @@ public class MainFrame extends JFrame {
 	private DefaultTableModel model;
 	private JLabel statusBar;
 	private String clipboard;
+	private static final String TEAM_MEMBERS = "Kevin Cameron (9801448)\n" +
+												"Addison Rodomista (1967568)\n" +
+												"Dragos Dinulescu (6304826)\n" +
+												"Adrian Max McCrea (9801448)\n" +
+												"Ghazal Zamani (1971158)\n" +
+												"Karim Kaidbey (9654726)\n" +
+												"Carmelo Fragapane (6298265)\n" +
+												"Long Wang (9547967)\n" +
+												"Simone Ovilma (9112510)\n" +
+												"Nicholas Constantinidis (6330746)\n" +
+												"Asmaa Alshaibi (9738231)";
 	
 	public MainFrame(String title) {
 		super(title);
@@ -89,6 +106,10 @@ public class MainFrame extends JFrame {
 	    add(statusBar);
         
         pack();
+
+        int w = getSize().width;
+        int h = getSize().height;
+        setMinimumSize(new Dimension(w/2, h/2));
 
         setVisible(true);	
         //setResizable(false);
@@ -157,6 +178,14 @@ public class MainFrame extends JFrame {
 	    form_sci = new JMenuItem ("Scientific Format");
 	    format.add(form_sci);
 	    
+
+	    JMenu theme = new JMenu("Theme");
+	    jmb.add(theme);
+	    
+	    theme_select = new JMenuItem ("Select Theme...");
+	    theme.add(theme_select);
+	    
+	    
 	    JMenu help = new JMenu("Help");
 	    jmb.add(help);
 	    
@@ -165,6 +194,7 @@ public class MainFrame extends JFrame {
 	    
 	    about = new JMenuItem ("About FunSheets");
 	    help.add(about);
+	    final JFrame thisFrame = this;
 	    
 	    
 	    menuListener = new ActionListener(){
@@ -241,11 +271,55 @@ public class MainFrame extends JFrame {
 			    else if(e.getSource() == form_sci){
 			    	//formats selected cell to scientific form
 			    }
+			    else if(e.getSource() == theme_select){
+			    	//changes the look and feel
+			    	UIManager.LookAndFeelInfo[] themes = UIManager.getInstalledLookAndFeels();
+			    	ArrayList<String> possibilities = new ArrayList<String>(themes.length);
+			    	
+			    	for (UIManager.LookAndFeelInfo theme : themes) {
+		                possibilities.add(theme.getName());
+		            }
+			    	
+			    	String s = (String)JOptionPane.showInputDialog(
+			    			thisFrame,
+			    	                    "Select one of the following themes:\n",
+			    	                    "Customized Dialog",
+			    	                    JOptionPane.PLAIN_MESSAGE,
+			    	                    null,
+			    	                    possibilities.toArray(),
+			    	                    UIManager.getLookAndFeel().getName());
+
+			    	//If a theme was selected, enable it
+			    	if ((s != null) && (s.length() > 0)) {
+				    	for (UIManager.LookAndFeelInfo theme : themes) {
+			                if(theme.getName().equals(s.toString())) {
+			                	int index = possibilities.indexOf(s.toString());
+			                	if(index >= 0 || index < themes.length) {
+			                		try {
+			                			UIManager.setLookAndFeel(themes[index].getClassName());
+			                			SwingUtilities.updateComponentTreeUI(thisFrame);
+			                			thisFrame.pack();
+			                		} catch(Exception ulafe) {
+			        		    	    ulafe.printStackTrace();
+			                		}
+			                        break;
+			                	}
+			                }
+			            }
+
+			    	    return;
+			    	}
+
+			    	//If you're here, the return value was null/empty.
+			    	//do nothing
+			    }
 			    else if(e.getSource() == fun_help){
 			    	//a mini tutorial for the program
 			    }
 			    else if(e.getSource() == about){
 			    	//makes a box that shows group members names and mini description of program
+			    	JOptionPane.showMessageDialog(thisFrame, "FunSheets 3.0 has been brought to you\n" +
+			    			"by the following hard working team:\n\n" + TEAM_MEMBERS);
 			    }
 		    }
 		};
@@ -265,6 +339,8 @@ public class MainFrame extends JFrame {
 	    form_int.addActionListener(menuListener);
 	    form_mon.addActionListener(menuListener);
 	    form_sci.addActionListener(menuListener);
+
+	    theme_select.addActionListener(menuListener);
 	    
 	    fun_help.addActionListener(menuListener);
 	    about.addActionListener(menuListener);
