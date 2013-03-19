@@ -283,7 +283,7 @@ public class MainFrame extends JFrame {
 			    	String s = (String)JOptionPane.showInputDialog(
 			    			thisFrame,
 			    	                    "Select one of the following themes:\n",
-			    	                    "Customized Dialog",
+			    	                    "Select Theme",
 			    	                    JOptionPane.PLAIN_MESSAGE,
 			    	                    null,
 			    	                    possibilities.toArray(),
