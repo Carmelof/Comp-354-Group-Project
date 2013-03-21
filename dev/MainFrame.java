@@ -488,6 +488,7 @@ public class MainFrame extends JFrame {
 	private void hotkeys() {
 	    String new_f = "New key", save = "Save key";
 	    String undo = "Undo key", redo = "Redo key";
+	    String cut = "Cut key",copy = "Copy key",paste = "Paste key";
 	    
 	    Action newAct = new AbstractAction() {
 	        public void actionPerformed(ActionEvent e) {
@@ -515,11 +516,45 @@ public class MainFrame extends JFrame {
 	    Action redoAct = new AbstractAction() {
 	        public void actionPerformed(ActionEvent e) {grid.redo();}
 	    };
+	    Action cutAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+		    	if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+					statusBar.setForeground(Color.red);
+					statusBar.setText("Warning! You must select a cell before cutting.");
+				} else {
+					clipboard = textField.getText();
+					performCommand(new Command("0.0"));
+				}
+	        }
+	    };
+	    Action copyAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+		    	if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+					statusBar.setForeground(Color.red);
+					statusBar.setText("Warning! You must select a cell before copying.");
+				} else {
+					clipboard = textField.getText();
+				}
+	        }
+	    };
+	    Action pasteAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+		    	if(grid.getSelectedRow() == -1 || grid.getSelectedColumn() == -1) {
+					statusBar.setForeground(Color.red);
+					statusBar.setText("Warning! You must select a cell before pasting.");
+				} else {
+					performCommand(new Command(clipboard));
+				}
+	        }
+	    };
 	    
 	    grid.getActionMap().put(new_f, newAct);
 	    grid.getActionMap().put(save, saveAct);
 	    grid.getActionMap().put(undo, undoAct);
 	    grid.getActionMap().put(redo, redoAct);
+	    grid.getActionMap().put(cut, cutAct);
+	    grid.getActionMap().put(copy, copyAct);
+	    grid.getActionMap().put(paste, pasteAct);
 
 	    InputMap[] inputMaps = new InputMap[] {
 	        grid.getInputMap(JComponent.WHEN_FOCUSED),
@@ -532,6 +567,9 @@ public class MainFrame extends JFrame {
 	        i.put(KeyStroke.getKeyStroke("control S"), save);
 	        i.put(KeyStroke.getKeyStroke("control Z"), undo);
 	        i.put(KeyStroke.getKeyStroke("control Y"), redo);
+	        i.put(KeyStroke.getKeyStroke("control X"), cut);
+	        i.put(KeyStroke.getKeyStroke("control C"), copy);
+	        i.put(KeyStroke.getKeyStroke("control V"), paste);
 	    }
 	}
 	
