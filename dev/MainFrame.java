@@ -131,13 +131,13 @@ public class MainFrame extends JFrame {
 	    JMenu file = new JMenu("File");
 	    jmb.add(file);
 	    // Stub
-	    new_f = new JMenuItem ("New");
+	    new_f = new JMenuItem ("New (Ctrl+N)");
 	    file.add(new_f);
 	    
 	    load = new JMenuItem ("Load");
 	    file.add(load);
 	    
-	    save = new JMenuItem ("Save");
+	    save = new JMenuItem ("Save (Ctrl+S)");
 	    file.add(save);
 	    
 	    file.addSeparator();
@@ -148,26 +148,27 @@ public class MainFrame extends JFrame {
 	    JMenu edit = new JMenu("Edit");
 	    jmb.add(edit);
 	    
-	    cut = new JMenuItem ("Cut");
+	    cut = new JMenuItem ("Cut (Ctrl+X)");
 	    edit.add(cut);
 	    
-	    copy = new JMenuItem ("Copy");
+	    copy = new JMenuItem ("Copy (Ctrl+C)");
 	    edit.add(copy);
 	    
-	    paste = new JMenuItem ("Paste");
+	    paste = new JMenuItem ("Paste (Ctrl+V)");
 	    edit.add(paste);
 	    
 	    edit.addSeparator();
 	    
-	    undo = new JMenuItem ("Undo");
+	    undo = new JMenuItem ("Undo (Ctrl+Z)");
 	    edit.add(undo);
 	    
-	    redo = new JMenuItem ("Redo");
+	    redo = new JMenuItem ("Redo (Ctrl+Y)");
 	    edit.add(redo);
 	    
 	    JMenu format = new JMenu("Format");
 	    jmb.add(format);
 	    
+	    /*
 	    add_r = new JMenuItem ("Add Row");
 	    format.add(add_r);
 	    
@@ -175,14 +176,15 @@ public class MainFrame extends JFrame {
 	    format.add(add_c);
 	    
 	    format.addSeparator();
+	    */
 	    
-	    form_int = new JMenuItem ("Integer Format");
+	    form_int = new JMenuItem ("Integer Format (Ctrl+I)");
 	    format.add(form_int);
 	    
-	    form_mon = new JMenuItem ("Monetary Format");
+	    form_mon = new JMenuItem ("Monetary Format (Ctrl+M)");
 	    format.add(form_mon);
 	    
-	    form_sci = new JMenuItem ("Scientific Format");
+	    form_sci = new JMenuItem ("Scientific Format (Ctrl+E)");
 	    format.add(form_sci);
 	    
 
@@ -263,20 +265,34 @@ public class MainFrame extends JFrame {
 						performCommand(new Command(clipboard));
 					}
 			    }
+			    /*
 			    else if(e.getSource() == add_r){
 			    	//adds a row
 			    }
 			    else if(e.getSource() == add_c){
 			    	//adds a column 
 			    }
+			    */
 			    else if(e.getSource() == form_int){
 			    	//formats selected cell to int form
+			    	Command temp;
+			    	clearFormat();
+			    	temp=new Command(textField.getText()+":I");
+			    	performCommand(temp);
 			    }
 			    else if(e.getSource() == form_mon){
 			    	//formats selected cell to monetary form
+			    	Command temp;
+			    	clearFormat();
+			    	temp=new Command(textField.getText()+":M");
+			    	performCommand(temp);
 			    }
 			    else if(e.getSource() == form_sci){
 			    	//formats selected cell to scientific form
+			    	Command temp;
+			    	clearFormat();
+			    	temp=new Command(textField.getText()+":S");
+			    	performCommand(temp);
 			    }
 			    else if(e.getSource() == theme_select){
 			    	//changes the look and feel
@@ -358,8 +374,8 @@ public class MainFrame extends JFrame {
 	    undo.addActionListener(menuListener);
 	    redo.addActionListener(menuListener);
 	    
-	    add_r.addActionListener(menuListener);
-	    add_c.addActionListener(menuListener);
+	    //add_r.addActionListener(menuListener);
+	    //add_c.addActionListener(menuListener);
 	    form_int.addActionListener(menuListener);
 	    form_mon.addActionListener(menuListener);
 	    form_sci.addActionListener(menuListener);
@@ -490,7 +506,7 @@ public class MainFrame extends JFrame {
 	    String new_f = "New key", save = "Save key";
 	    String undo = "Undo key", redo = "Redo key";
 	    String cut = "Cut key",copy = "Copy key",paste = "Paste key";
-	    
+	    String fint = "Format Int key",fmon = "Format Monetary key",fsci = "Format Scientific key";
 	    Action newAct = new AbstractAction() {
 	        public void actionPerformed(ActionEvent e) {
 		    	if (fileHandler.checkSaved()) {
@@ -548,6 +564,30 @@ public class MainFrame extends JFrame {
 				}
 	        }
 	    };
+	    Action fintAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+	    	    Command temp;
+	    	    clearFormat();
+	        	temp=new Command(textField.getText()+":I");
+	        	performCommand(temp);
+	        }
+	    };
+	    Action fmonAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+	        	Command temp;
+	        	clearFormat();
+	        	temp=new Command(textField.getText()+":M");
+	        	performCommand(temp);
+	        }
+	    };
+	    Action fsciAct = new AbstractAction() {
+	        public void actionPerformed(ActionEvent e) {
+	        	Command temp;
+	        	clearFormat();
+	        	temp=new Command(textField.getText()+":S");
+	        	performCommand(temp);
+	        }
+	    };
 	    
 	    grid.getActionMap().put(new_f, newAct);
 	    grid.getActionMap().put(save, saveAct);
@@ -556,6 +596,9 @@ public class MainFrame extends JFrame {
 	    grid.getActionMap().put(cut, cutAct);
 	    grid.getActionMap().put(copy, copyAct);
 	    grid.getActionMap().put(paste, pasteAct);
+	    grid.getActionMap().put(fint, fintAct);
+	    grid.getActionMap().put(fmon, fmonAct);
+	    grid.getActionMap().put(fsci, fsciAct);
 
 	    InputMap[] inputMaps = new InputMap[] {
 	        grid.getInputMap(JComponent.WHEN_FOCUSED),
@@ -571,7 +614,15 @@ public class MainFrame extends JFrame {
 	        i.put(KeyStroke.getKeyStroke("control X"), cut);
 	        i.put(KeyStroke.getKeyStroke("control C"), copy);
 	        i.put(KeyStroke.getKeyStroke("control V"), paste);
+	        i.put(KeyStroke.getKeyStroke("control I"), fint);
+	        i.put(KeyStroke.getKeyStroke("control M"), fmon);
+	        i.put(KeyStroke.getKeyStroke("control E"), fsci);
 	    }
+	}
+	private void clearFormat(){
+	    textField.setText(textField.getText().replaceAll(":M",""));
+	    textField.setText(textField.getText().replaceAll(":S",""));
+	    textField.setText(textField.getText().replaceAll(":I",""));
 	}
 	
 	private void performCommand(Command command) {
