@@ -18,15 +18,29 @@ public class Cell {
     boolean isFormatted = false;
     char formatType = ' ';
     //constructors
+    
+    /*
+     * DONT CHANGE OLD CONSTRUCTORS, If you need to add something new like 'IsFormatted' then you need to create
+     * a new constructor for it.  By changing constructors, you will destroy many other sections of the code.
+     * remember: Design For Change, its important that new changes dont break old code.
+     * */
     public Cell() {
     	isPrimitive = true;
     	newCell(0.0, "", -1, -1, false, ' ');
+    }
+    public Cell(double value, int row, int column) {
+    	isPrimitive = true;
+    	newCell(value, "", row, column, isFormatted, formatType);
     }
     public Cell(double value, int row, int column, boolean isFormatted, char formatType) {
     	isPrimitive = true;
     	newCell(value, "", row, column, isFormatted, formatType);
     }
     public Cell(String Formula, int row, int column, boolean isFormatted, char formatType){
+    	isPrimitive = false;
+    	newCell(0.0, Formula, row, column, isFormatted, formatType);
+    }
+    public Cell(String Formula, int row, int column){
     	isPrimitive = false;
     	newCell(0.0, Formula, row, column, isFormatted, formatType);
     }
