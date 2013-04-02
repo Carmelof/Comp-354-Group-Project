@@ -275,18 +275,21 @@ public class MainFrame extends JFrame {
 			    else if(e.getSource() == form_int){
 			    	//formats selected cell to int form
 			    	Command temp;
+			    	clearFormat();
 			    	temp=new Command(textField.getText()+":I");
 			    	performCommand(temp);
 			    }
 			    else if(e.getSource() == form_mon){
 			    	//formats selected cell to monetary form
 			    	Command temp;
+			    	clearFormat();
 			    	temp=new Command(textField.getText()+":M");
 			    	performCommand(temp);
 			    }
 			    else if(e.getSource() == form_sci){
 			    	//formats selected cell to scientific form
 			    	Command temp;
+			    	clearFormat();
 			    	temp=new Command(textField.getText()+":S");
 			    	performCommand(temp);
 			    }
@@ -563,6 +566,7 @@ public class MainFrame extends JFrame {
 	    Action fintAct = new AbstractAction() {
 	        public void actionPerformed(ActionEvent e) {
 	    	    Command temp;
+	    	    clearFormat();
 	        	temp=new Command(textField.getText()+":I");
 	        	performCommand(temp);
 	        }
@@ -570,6 +574,7 @@ public class MainFrame extends JFrame {
 	    Action fmonAct = new AbstractAction() {
 	        public void actionPerformed(ActionEvent e) {
 	        	Command temp;
+	        	clearFormat();
 	        	temp=new Command(textField.getText()+":M");
 	        	performCommand(temp);
 	        }
@@ -577,6 +582,7 @@ public class MainFrame extends JFrame {
 	    Action fsciAct = new AbstractAction() {
 	        public void actionPerformed(ActionEvent e) {
 	        	Command temp;
+	        	clearFormat();
 	        	temp=new Command(textField.getText()+":S");
 	        	performCommand(temp);
 	        }
@@ -611,6 +617,11 @@ public class MainFrame extends JFrame {
 	        i.put(KeyStroke.getKeyStroke("control M"), fmon);
 	        i.put(KeyStroke.getKeyStroke("control E"), fsci);
 	    }
+	}
+	private void clearFormat(){
+	    textField.setText(textField.getText().replaceAll(":M",""));
+	    textField.setText(textField.getText().replaceAll(":S",""));
+	    textField.setText(textField.getText().replaceAll(":I",""));
 	}
 	
 	private void performCommand(Command command) {
