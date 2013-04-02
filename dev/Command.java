@@ -115,36 +115,36 @@ public class Command {
 /*******************************************************
  * Private methods	 -- Changed to public for test case use					 
  *******************************************************/
-	private boolean isAlphaNumeric() {
+	public boolean isAlphaNumeric() {
 		
 		return (command.matches(ALPHANUM_PATTERN));
 	}
 	
-	private boolean containsSpecialChars() {
+	public boolean containsSpecialChars() {
 		return command.matches("^(?![K-Z~`!@\\&#\\$\\{\\}])$");
 	}
 	
-	private boolean containsDivisionByZero() {
+	public boolean containsDivisionByZero() {
 		return command.matches("^.*(/\\s*0).*$");
 	}
 	
-	private boolean containsFormat(){
+	public boolean containsFormat(){
 		return command.matches("^.*([0-9]:(I|M|S))$");
 	}
 	
-	private boolean isIntegerFormat() {
+	public boolean isIntegerFormat() {
 		return command.contains(":I");
 	}
 	
-	private boolean isMonetaryFormat() {
+	public boolean isMonetaryFormat() {
 		return command.contains(":M");
 	}
 	
-	private boolean isScientificFormat() {
+	public boolean isScientificFormat() {
 		return command.contains(":S");
 	}
 	
-	private int getCellRow(String cellName) {		
+	public int getCellRow(String cellName) {		
 		int row = 0;
 		String[] tmp = new String[2];
 		
@@ -154,7 +154,7 @@ public class Command {
 		return row;
 	}
 	
-	private int getCellColumn(String cellName) {		
+	public int getCellColumn(String cellName) {		
 		int column = 0;	
 		
     	column = ( ((int) cellName.charAt(0)) - 65 );
@@ -166,7 +166,7 @@ public class Command {
 	 * if equation = "A1 + 4 - 8 * C3", then replaceCellNamesByValue(equation, 1.0)
 	 * returns "1.0 + 4 - 8 * 1.0"
 	 */
-	private String replaceCellNamesByValue(String equation, double value) {
+	public String replaceCellNamesByValue(String equation, double value) {
 		
 		Pattern MY_PATTERN = Pattern.compile("[A-J]\\d{1,2}");
 		Matcher myMatch = MY_PATTERN.matcher(equation);
@@ -180,7 +180,7 @@ public class Command {
 		return myEquation;
 	}
 	
-	private void updateGrid(Grid grid, String cellName) {
+	public void updateGrid(Grid grid, String cellName) {
 		Cell tmpCell;;
 		double tmpValue =  0.0;
 		
@@ -202,7 +202,7 @@ public class Command {
 	 * if engine.eval catches an exception, then it means that it wasn't able to evaluate the expression,
 	 * therefore the command is invalid
 	 */
-	private boolean isValidEquation() {
+	public boolean isValidEquation() {
 		ScriptEngineManager manager = new ScriptEngineManager();
 	    ScriptEngine engine = manager.getEngineByName("JavaScript");
 	    String numericEquation = command;
@@ -228,7 +228,7 @@ public class Command {
 	    			
 	}
 	
-	private boolean isCircular(Grid grid, int x, int y, String itself) {
+	public boolean isCircular(Grid grid, int x, int y, String itself) {
 		if(command.contains(itself))
 			return true;
 		else {
@@ -245,5 +245,11 @@ public class Command {
 			}
 		}
 		return false;
+	}
+	public boolean isValid() {
+		return true;
+	}
+	public boolean isInRange(){
+		return true;
 	}
 }
