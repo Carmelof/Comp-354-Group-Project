@@ -40,6 +40,7 @@ public class FileHandler {
     	// TODO: fix for variable grid size
     	String[][] entries = new String[10][10];
     	storeEntries(grid, entries);
+    	filename += ".csv";
     	try {
     		FileWriter fstream = new FileWriter(filename);
     		BufferedWriter out = new BufferedWriter(fstream);
