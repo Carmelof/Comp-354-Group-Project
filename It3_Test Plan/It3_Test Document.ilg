@@ -1,0 +1,923 @@
+This is makeindex, version 2.15 [TeX Live 2012] (kpathsea + Thai support).
+Scanning input file It3_Test Document.tex...
+!! Input index error (file = It3_Test Document.tex, line = 1):
+   -- Unknown index keyword \documentclass[12pt].
+!! Input index error (file = It3_Test Document.tex, line = 3):
+   -- Unknown index keyword \pagestyle.
+!! Input index error (file = It3_Test Document.tex, line = 4):
+   -- Unknown index keyword \setcounter.
+!! Input index error (file = It3_Test Document.tex, line = 6):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 7):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 8):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 9):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 10):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 11):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 12):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 13):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 14):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 15):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 16):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 17):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 18):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 19):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 20):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = It3_Test Document.tex, line = 21):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 22):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 24):
+   -- Unknown index keyword \vspace*.
+!! Input index error (file = It3_Test Document.tex, line = 25):
+   -- Unknown index keyword \centerline.
+!! Input index error (file = It3_Test Document.tex, line = 27):
+   -- Unknown index keyword \vspace*.
+!! Input index error (file = It3_Test Document.tex, line = 28):
+   -- Unknown index keyword \centerline.
+!! Input index error (file = It3_Test Document.tex, line = 30):
+   -- Unknown index keyword \vspace*.
+!! Input index error (file = It3_Test Document.tex, line = 31):
+   -- Unknown index keyword \centerline.
+!! Input index error (file = It3_Test Document.tex, line = 33):
+   -- Unknown index keyword \vspace*.
+!! Input index error (file = It3_Test Document.tex, line = 34):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 35):
+   -- Unknown index keyword \caption.
+!! Input index error (file = It3_Test Document.tex, line = 36):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 37):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 38):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 39):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 40):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 41):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 42):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 43):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 44):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 45):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 46):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 47):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 48):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 49):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 50):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 51):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 52):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 53):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 55):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 60):
+   -- Unknown index keyword \index.
+!! Input index error (file = It3_Test Document.tex, line = 61):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 63):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 64):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 65):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 67):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 69):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 70):
+   -- Unknown index keyword \textbf.
+!! Input index error (file = It3_Test Document.tex, line = 71):
+   -- Unknown index keyword \textbf.
+!! Input index error (file = It3_Test Document.tex, line = 72):
+   -- Unknown index keyword \textbf.
+!! Input index error (file = It3_Test Document.tex, line = 73):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 74):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 75):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 76):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 77):
+   -- Unknown index keyword \textbf.
+!! Input index error (file = It3_Test Document.tex, line = 78):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 79):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 80):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 81):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 82):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 83):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 84):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 85):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 86):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 87):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 88):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 90):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 91):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 92):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 93):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 94):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 96):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 97):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 98):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 100):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 101):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 102):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 103):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 104):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 106):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 107):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 108):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 110):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 111):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 112):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 114):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 115):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 116):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 118):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 119):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 120):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 121):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 122):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 123):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 124):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 126):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 127):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 128):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 130):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 131):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 132):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 134):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 135):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 136):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 138):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 139):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 140):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 142):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 143):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 144):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 145):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 147):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 148):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 149):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 150):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 151):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 152):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 154):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 155):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 156):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 158):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 159):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 160):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 162):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 163):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 164):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 165):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 166):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 168):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 169):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 170):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 172):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 173):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 174):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 176):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 177):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 178):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 180):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 181):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 182):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 183):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 184):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 185):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 186):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 188):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 189):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 190):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 192):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 193):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 194):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 196):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 197):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 198):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 200):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 201):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 202):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 203):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 204):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 205):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 206):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 208):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 209):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 210):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 212):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 213):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 214):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 216):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 217):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 218):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 220):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 221):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 222):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 224):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 225):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 226):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 227):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 229):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 230):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 231):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 233):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 234):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 235):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 237):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 238):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 239):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 241):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 242):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 243):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 245):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 247):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 248):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 249):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 250):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 252):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 253):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 254):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 256):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 257):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 258):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 260):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 261):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 262):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 264):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 265):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 266):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 268):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 269):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 270):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 271):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 273):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 274):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 275):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 277):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 278):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 279):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 281):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 282):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 283):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 285):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 286):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 287):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 289):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 290):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 291):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 292):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 294):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 295):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 296):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 298):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 299):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 300):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 302):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 303):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 304):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 306):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 307):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 308):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 310):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 313):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 314):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 315):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 316):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 318):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 320):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 321):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 322):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 323):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 325):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 326):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 327):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 329):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 330):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 331):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 332):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 333):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 334):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 335):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 336):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 337):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 339):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 340):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 342):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 344):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 345):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 346):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 347):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 349):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 350):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 352):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 354):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 355):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 357):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 359):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 360):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 361):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 362):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 363):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 364):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 366):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 367):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 369):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 372):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 373):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 374):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 375):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 377):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 378):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 380):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 382):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 383):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 385):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 387):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 388):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 389):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 390):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 391):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 392):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 393):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 394):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 395):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 397):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 398):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 400):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 403):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 404):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 405):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 406):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 408):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 409):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 411):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 413):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 414):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 416):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 418):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 419):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 420):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 421):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 422):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 423):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 424):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 425):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 427):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 428):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 430):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 432):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 433):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 434):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 435):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 437):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 438):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 440):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 442):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 443):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 445):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 447):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 448):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 449):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 450):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 451):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 452):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 453):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 454):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 456):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 457):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 459):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 461):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 462):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 463):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 464):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 466):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 467):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 469):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 471):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 472):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 474):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 476):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 477):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 478):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 479):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 480):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 481):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 482):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 483):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 485):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 486):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 488):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 490):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 491):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 492):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 493):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 495):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 496):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 498):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 500):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 501):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 503):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 505):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 506):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 507):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 508):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 509):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 510):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 511):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 513):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 514):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 515):
+   -- Unknown index keyword \begin.
+!! Input index error (file = It3_Test Document.tex, line = 516):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 517):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 518):
+   -- Unknown index keyword \end.
+!! Input index error (file = It3_Test Document.tex, line = 520):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 521):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 523):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 525):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 526):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 527):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 528):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 530):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 531):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 532):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 534):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 535):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 536):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 538):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 540):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 541):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 542):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 543):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 545):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 546):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 547):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 549):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 550):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 551):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 553):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 554):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 556):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 557):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 559):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 560):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 562):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 563):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 564):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 566):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 567):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 569):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 571):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 572):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 573):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 574):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 575):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 576):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 578):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = It3_Test Document.tex, line = 579):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 580):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 581):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 582):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 583):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 585):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 586):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 587):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 589):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = It3_Test Document.tex, line = 590):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 591):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 593):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 595):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 597):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 599):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 601):
+   -- Unknown index keyword \section.
+!! Input index error (file = It3_Test Document.tex, line = 603):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 604):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = It3_Test Document.tex, line = 605):
+   -- Unknown index keyword \end.
+done (0 entries accepted, 459 rejected).
+Nothing written in It3_Test Document.ind.
+Transcript written in It3_Test Document.ilg.

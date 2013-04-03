@@ -1,0 +1,1203 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setcounter{secnumdepth}{2}
+
+\topmargin=0cm
+\oddsidemargin=0cm
+\textheight=22.0cm
+\textwidth=16cm
+\parindent=0cm
+\parskip=0.15cm
+\topskip=0truecm
+\raggedbottom
+\abovedisplayskip=3mm
+\belowdisplayskip=3mm
+\abovedisplayshortskip=0mm
+\belowdisplayshortskip=2mm
+\normalbaselineskip=12pt
+\normalbaselines
+\usepackage{makeidx}
+\makeindex
+\begin{document}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Test Document}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Team 2 - Increment 3}
+
+\vspace*{0.5in}
+\centerline{\bf\Large 3 April 2013}
+
+\vspace*{1.5in}
+\begin{table}[htbp]
+\caption{Team}
+\begin{center}
+\begin{tabular}{|r | c|}
+\hline
+Name & ID Number \\\hline\hline
+Kevin Cameron & 9801448 \\\hline\hline
+Addison Rodomista & 1967568 \\\hline\hline
+Dragos Dinulescu & 6304826 \\\hline\hline
+Adrian Max McCrea & 9801448 \\\hline\hline
+Ghazal Zamani & 1971158 \\\hline\hline
+Karim Kaidbey & 9654726 \\\hline\hline
+Carmelo Fragapane & 6298265 \\\hline\hline
+Long Wang & 9547967 \\\hline\hline
+Simone Ovilma & 9112510 \\\hline\hline
+Nicholas Constantinidis & 6330746 \\\hline\hline
+Asmaa Alshaibi & 9738231 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\clearpage
+
+
+
+
+\index{Introduction}
+\section{Introduction}
+
+{\it
+The objectives of this document are to outline the overall Test Plan created for ensuring best performance of the Fun Sheets application. This document outlines the full test schedule and the major phases of testing, how the tests are designed and what their results are, and how the tests relate to the requirements of the program itself. 
+}
+
+\section{Test Plan}
+
+{\it
+\textbf{Increment 1 (Weeks 1-4)}: Unit Testing \\*
+\textbf{Increment 2 (Weeks 5-8)}: Additional Unit Testing and Subsystem Testing \\*
+\textbf{Increment 3 (Weeks 9-11)}: Integration Testing and Regression Testing  \\*
+\\*
+The phases of the test plan were built using a Bottom-Up approach. The test cases for the first 2 increments relied heavily on JUnit Tests because features were continuously being re-adjusted to appropriately match the system requirements. Throughout all phases, Regression testing was used to ensure additional features did not disrupt previously passed test cases. Each unit test was designed to specify a specific functionality of the program, and each of the tests had approximately 5 variations to ensure consistency among multiple inputs. 
+\\*
+\\*
+\textbf{The requirements tested for the application include}:\\*
+- Inputting values or formulas into cells \\*
+- Adding cells together \\*
+- Testing for various exceptions \\*
+- Proper file handling \\*
+- Testing equation and grammar operations within cells \\*
+- Testing input line and validation \\*
+- Testing message line for appropriate outputs \\*
+- Testing Cut, Copy, and Paste functionalities \\*
+- Verifying the multiple data formats \\*
+- Interactivity testing with GUI elements of the program \\*
+- Testing hotkey implementation \\*
+
+}
+%-----------------------------------------
+%		 UNIT TESTING
+%-----------------------------------------
+\section{Unit Level Test Cases}
+
+{\it
+All test cases for testing at the system level.
+}
+
+\subsection{FileHandler Tests}
+%-----------------------------------------
+%		Test Case 4  Written by Long
+%-----------------------------------------
+\subsubsection{1. consistencyEmptyTest} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests is checking if the functions: consistencyEmpty() works from the filehandler class, testing the loaded empty data is the same as the saved empty data.
+
+\noindent
+{\bf Input Specification}\\
+Calling FileHandler class for a new file “test”.  Then the first new Grid “a” is saved in the new file then showing both grids on screen. Test returning a Boolean value if the saved Grid “a” is the same in the now loaded file of Grid “b”.
+
+\noindent
+{\bf Expected Output}\\
+The test should return true assuming Grid a and b are equal
+
+\noindent
+{\bf Traces to Use Cases}\\
+Traces to the class FileHandler.java in JUnit, validating test class consistencyEmpty().
+%-----------------------------------------
+%		Test Case 5  Written by Long
+%-----------------------------------------
+\subsubsection{2. consistencyDoubleTest} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests is checking if the functions: consistencyDouble() works from the filehandler class, testing the loaded data is the same as the saved data concerning type double values.
+
+\noindent
+{\bf Input Specification}\\
+Calling FileHandler class for a new file “test”.  The first Grid “a” with inserted doubled values is saved in the new file “test” then returning a Boolean value to check if the saved Grid “a” is the same in the now loaded file of Grid “b”.  Calling assertEquals for a consistency check of Grid a and b to check if both files are equal.
+
+\noindent
+{\bf Expected Output}\\
+I expect the test works, returning True, because Grid a has saved double values, then loading the file “test” thus Grid b will have the same inputted values.
+
+\noindent
+{\bf Traces to Use Cases}\\
+Traces to the class FileHandler.java in JUnit, validating test class consistencyDouble().
+
+%-----------------------------------------
+%		Test Case 6  Written by Long
+%-----------------------------------------
+\subsubsection{3. loadTest} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests is checking if the functions: loadTest() works from the filehandler class, testing if the file can be loaded or not.
+\noindent
+{\bf Input Specification}\\
+Calling FileHandler class for a new file “test”. A new Grid “a” and “b”.  Grid “a” is saved in file “test” having inserted values and/or formula(s).  Loading it to see if the file exists in comparison with Grid “b”, and asserting if both of the Grids are equal.
+
+\noindent
+{\bf Expected Output}\\
+I expect the test works, returning true, so testing if the file test can be loaded.  
+
+\noindent
+{\bf Traces to Use Cases}\\
+Traces to the class FileHandler.java in JUnit, validating test class loadTest().
+
+\subsection{Cell Tests}
+%-----------------------------------------
+%		Test Case 7		Addison
+%-----------------------------------------
+\subsubsection{4. TestCreationCells} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests are to ensure that the creation of a new Cell object properly assigns the appropriate data to the default variables. 
+
+\noindent
+{\bf Input Specification}\\
+Both default constructors are tested along with parameterized one. For the parameterized tests the input data includes a double representing the cell value, followed by two ints representing their x and y coordinate for the grid. 
+
+\noindent
+{\bf Expected Output}\\
+The tests should confirm that the creation of the Cell objects allocate proper data to default variables. 
+
+\noindent
+{\bf Traces to Use Cases}\\
+The Cell objects are the core of the system, and as such are necessary requirements for creating the entire application. These test cases in particular ensure that the smallest unit of our system can be created as expected. 
+%-----------------------------------------
+%		Test Case 8		Addison
+%-----------------------------------------
+\subsubsection{5. TestCellGetters} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests are to ensure that the Get method calls function as expected for their various uses in the program. These include returning cell data, rows, and columns.  
+
+\noindent
+{\bf Input Specification}\\
+Sample data passed include a double value representing the Cells content, followed by two ints representing their x and y coordinates in the grid. 
+
+\noindent
+{\bf Expected Output}\\
+The expected output should be consistent with the parameters passed for input. 
+
+\noindent
+{\bf Traces to Use Cases}\\
+Getting specific cells relates directly with the applications ability to communicate between cells and allows functionalities like adding multiple cells together to work appropriately. 
+%-----------------------------------------
+%		Test Case 9		Addison
+%-----------------------------------------
+\subsubsection{6. TestCellSetters} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests are to ensure that the Set method calls allocate the appropriate data to the specified cells
+
+\noindent
+{\bf Input Specification}\\
+Sample data passed include a double value representing the Cells content, followed by two ints representing their x and y coordinates in the grid. 
+
+\noindent
+{\bf Expected Output}\\
+The expected output should be consistent with the parameters passed for input. 
+
+\noindent
+{\bf Traces to Use Cases}\\
+Setting specific cells directly relates to the applications ability to accept input from the user and manipulate the grid. These use cases ensure functionality.
+
+%-----------------------------------------
+%		Test Case 10		Addison
+%-----------------------------------------
+\subsubsection{7. TestCellContent} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests are to determine the actual content within Cells. 
+
+\noindent
+{\bf Input Specification}\\
+No data is passed for these tests. 
+
+\noindent
+{\bf Expected Output}\\
+The expected output should consist of a boolean statement specifying whether the given cells contain Values or Formulas. 
+
+\noindent
+{\bf Traces to Use Cases}\\
+These use cases are traced to ensure that all cells within the grid contain content and can never be completely empty. 
+
+\subsection{CommandClass Tests}
+
+%-----------------------------------------
+%		Test Case 1		ghazal
+%-----------------------------------------
+\subsubsection{8. testValidations} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests is checking if the functions: isValid(), testIsInRange() , testIsValidEquation() , testIsAlphaNumeric() from the command class works as it is expected to or not. The isValid() and testisInRange() functions are just returning a Boolean object true. The isValidEquation() function checks for the equations to be in the required format the isAlphaNumeric() function is also called within this function to check the pattern of the passed equation. 
+
+\noindent
+{\bf Input Specification}\\
+We create a new object from the command class that is named command for testing. The functions are then run on this sample object. No parameter is needed to be passed to these functions.  
+
+\noindent
+{\bf Expected Output}\\
+We expect the output to be true for testIsValid(), testIsInRange() , testIsValidEquation() and false for  testIsAlphaNumeric().
+
+\noindent
+{\bf Traces to Use Cases}\\
+All of these functions are to check the validities of the equations which are passed by the user to our grid. These functions are used within the Command class only to make sure no invalid equation or value is passed to the grid. 
+
+%-----------------------------------------
+%		Test Case 2		ghazal
+%-----------------------------------------
+\subsubsection{9. testUpdateGrid} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests is checking if the functions: updateGrid() is working correctly or not. The function goes through the whole grid and update all cells with the new data.
+
+\noindent
+{\bf Input Specification}\\
+We create a new object from the Command class that is named command and a new object from the Grid class for testing. The function is then run on this sample objects. We need to pass two parameters to the function one Grid object and the cell name as a String. 
+
+\noindent
+{\bf Expected Output}\\
+We expect the output to be according to all the updates applied on every cells even after applying the formula. It updates the grid after each command if applicable. For example if you have the following commands:\\*A1 = 5\\*B1 = 10 + A1\\*A1 = 10\\*When A1 = 10 updateGrid checks for dependencies and will not only update A1 but also the value of B1 will be updated from 15 to 20.Test Case: testReplaceCellNamesByValue1() , testReplaceCellNamesByValue2() , testReplaceCellNamesByValue3():
+
+\noindent
+{\bf Traces to Use Cases}\\
+The function is used in the Command class to verify that all cells’ values are up to date according to the last changes made by the user to the grid even if they are already used elsewhere in an equation.
+
+%-----------------------------------------
+%		Test Case 3		GhAZAL
+%-----------------------------------------
+\subsubsection{10. testReplacingCells} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+The purpose of these tests is checking if the functions: testReplaceCellNamesByValue1() is working correctly or not. This function basically shows the equation or the value that is recorded in the cell. 
+
+\noindent
+{\bf Input Specification}\\
+We create a new object from the Command class that is named command for testing. The function is then run on this sample object. We need to pass two parameters to the function one equation as a String and a double value. 
+
+\noindent
+{\bf Expected Output}\\
+For this test cases we change the three sample cell’s value to 0.0 and then check if the change we made was successful or not (So we check if the value of that specific cell is 0.0 or not).
+
+\noindent
+{\bf Traces to Use Cases}\\
+The function is used in the Command class to basically edit the cell to hold an equation instead of the value. It can be some equation on two cells (addition, subtraction, etc.), two numbers or a number and another cell. The test checks if the final record in the cell is in the cell accordingly.  
+
+\subsection{Grid Tests}
+%-----------------------------------------
+%		Test Case 11		GhAZAL
+%-----------------------------------------
+\subsubsection{11. testGridCellGetters} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+These functions check if the getCellRow() function works properly or not. Basically the function’s job is to return the integer representing cell’s row.
+
+\noindent
+{\bf Input Specification}\\
+We first create a new object from Grid class and run the function on this object to test its functionality. The only parameter passed to getCellRow() is the cell’s name as a String.
+
+\noindent
+{\bf Expected Output}\\
+Since the functionality of the function is such that the row of any cell name is the number minus one, we for example expect the output for cell B6 to be 5 and D1 to be 0.
+
+\noindent
+{\bf Traces to Use Cases}\\
+The function GetCellRow() retrieves the cell row index from the cell name, it gets the numerical part of cell name and subtract it by one to return the row.
+%-----------------------------------------
+%		Test Case 12		GhAZAL
+%-----------------------------------------
+\subsubsection{12. testGridCellAlphanemericInputs} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+These functions are all different test cases for checking the functionality of the AlphanumericInput() function that checks if there are cell names after the = sign i.e check for C4 & F7 in A1 = C4 + 5 - F7.
+
+\noindent
+{\bf Input Specification}\\
+First we made an object from Grid class to run the function on it, then we either call the insertValue() on the grid object that we created to insert our sample values or we just test the cell the way it was initialized. After that we test the function with different sample equations.
+
+\noindent
+{\bf Expected Output}\\
+We check if the equations that were inserted in the cells are working properly meaning the correct equation is returned by the function.
+
+\noindent
+{\bf Traces to Use Cases}\\
+Every time a cell name is found  i.e A1 the function retrieves its index by using getCellRow & getCellColumn if you for example C4 is found,  then its index is row = 4 & column = 3. Once the index of the cell is known, its value is retrieved and the name of the cell is replaced by its value. In the newEquation string i.e if newEquation = "B1 + 4 + C2" and B1=7, C2=9; then newEquation becomes "7 + 4 + 9".
+%-----------------------------------------
+%		Test Case 13		GhAZAL
+%-----------------------------------------
+\subsubsection{13. testGridCellNumericInputs} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+These functions check the numericInput() function for its functionality. The function’s job is to get a numeric input or a equation with numbers such as 0.0 + 4.0 as input and record it accordingly. 
+
+\noindent
+{\bf Input Specification}\\
+The input which is passed to the function as parameter is basically an expression to be calculated.
+
+\noindent
+{\bf Expected Output}\\
+The function should return a double value representing the new value assigned to the cell.
+
+\noindent
+{\bf Traces to Use Cases}\\
+For this test case we assign different values to cells either by a single double (5.0) or by an expression (0.0 + 0.3), and the final cell value should be record accordingly. The function actually evaluate the arithmetic expression. 
+%-----------------------------------------
+%		Test Case 14		GhAZAL
+%-----------------------------------------
+\subsubsection{14. testGridGetCells} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+These functions are to check the functionality of the getCell() function from Grid class that basically returns the value of the cell by taking its column and row.
+
+\noindent
+{\bf Input Specification}\\
+First we create an object from Grid class and call insertValue() function on this object to give the gird’s cells some sample values. For input we need to pass dimensions of the cell as parameters. 
+
+\noindent
+{\bf Expected Output}\\
+We run the test to check if the assigned value is correctly recorded or not.
+
+\noindent
+{\bf Traces to Use Cases}\\
+The function getCell itself is an easy function that return the the Cell at the x,y position. (x and y are the dimensions of the cell on the grid)
+
+%-----------------------------------------
+%		Test Case 15		GhAZAL
+%-----------------------------------------
+\subsubsection{15. testGridGetCellColumns} \label{tc:1}
+
+\noindent
+{\bf Purpose}\\
+These functions check if the getCellColumn() function works properly or not. Basically the function’s job is to return the integer representing cell’s column.
+
+\noindent
+{\bf Input Specification}\\
+We first create a new object from Grid class and run the function on this object to test its functionality. The only parameter passed to getCellColumn() is the cell’s name as a String.
+
+\noindent
+{\bf Expected Output}\\
+The output is expected to be an integer representing the column number for example for A1 we expect 0 or for G9 we expect 6.
+
+\noindent
+{\bf Traces to Use Cases}\\
+The function GetCellColumn() retrieves the cell column index from the cell name i.e. A1 => column index is 0 (65 - 65), ASCII(A) = 65
+
+%-----------------------------------------
+%		!!!     Subsystem Tests	!!!
+%-----------------------------------------
+\section{Subsystem Level Test Cases}
+
+\subsection{Document Editing Tests}
+
+%-----------------------------------------
+%		Testing Copy Functionality
+%-----------------------------------------
+\subsubsection{1. Testing Copy Functionality}
+
+\noindent
+{\bf Summary}\\
+Copy the value of the cell whether it's a primitive or formula value. Paste the value of the last copied value or cut. Undo-ing the last event that has been done should be counteracted with a redo event.
+
+\noindent
+{\bf Preconditions}
+Cell(s) must be selected
+\noindent
+{\bf Main Scenario}
+\begin{enumerate}
+	\item Copy the value of the selected cell
+	\item Temporary storage will store the value for the next event
+\end{enumerate}
+
+\noindent
+{\bf Expected Results}
+
+The copied value should be stored in temporary storage.
+
+%-----------------------------------------
+%		Testing Cut Functionality
+%-----------------------------------------
+\subsubsection{2. Testing Cut Functionality}
+
+\noindent
+{\bf Summary}
+
+Cut the value of the cell whether it is a primitive or formula value.
+
+\noindent
+{\bf Preconditions}
+
+Cell must be selected
+
+\noindent
+{\bf Main Scenario}
+\begin{enumerate}
+	\item Cut the value of the selected cell
+	\item Temporary storage will store the value for the next event 
+\end{enumerate}
+
+\noindent
+{\bf Expected Results}
+
+The result of the selected value will disappear on the view and will be storage in temporary storage. 
+
+
+%-----------------------------------------
+%		Testing Paste Functionality
+%-----------------------------------------
+\subsubsection{3. Testing Paste Functionality}
+
+\noindent
+{\bf Summary}
+
+Paste the value of the last copied or cut value to a cell
+
+\noindent
+{\bf Preconditions}
+
+Cell must be selected, followed by the command to paste. 
+
+\noindent
+{\bf Main Scenario}
+\begin{enumerate}
+	\item User Selects a cell
+	\item Copies contents of specified cell
+	\item User Selects a different cell
+	\item Issues paste command through GUI or Hotkeys
+	\item Value is inputted into cells
+\end{enumerate}
+
+\noindent
+{\bf Expected Results}
+
+The value(s) held in temporary storage will be pasted to the specified cell
+
+
+%-----------------------------------------
+%		Testing Undo Functionality
+%-----------------------------------------
+\subsubsection{4. Testing Undo Functionality}
+
+\noindent
+{\bf Summary}
+
+Retrieve the previous event(s)
+
+\noindent
+{\bf Preconditions}
+
+The user must have made at least 1 change to the application at the time of using the Undo command. 
+
+\noindent
+{\bf Main Scenario}
+\begin{enumerate}
+	\item User Selects a cell
+	\item User edits a cell
+	\item User issues an Undo command
+	\item Cell contents return to previous state
+\end{enumerate}
+
+\noindent
+{\bf Expected Results}
+
+Per use of an Undo command, the spreadsheet should move back to its immediately previous state
+
+%-----------------------------------------
+%		Testing Formatting Functionality
+%-----------------------------------------
+\subsubsection{5. Testing Primitive Formatting Functionality}
+
+\noindent
+{\bf Summary}
+
+Adjusts the cells primitive formatting to either Monetary, Integer, or Scientific formatting
+
+\noindent
+{\bf Preconditions}
+
+A cell must be selected and for "Format" option must be selected from the menu GUI. 
+
+\noindent
+{\bf Main Scenario}
+\begin{enumerate}
+	\item User Selects a cell
+	\item User selects the Format tab
+	\item User selects desired primitive format
+	\item Cell contents are adjusted appropriately 
+\end{enumerate}
+
+\noindent
+{\bf Expected Results}
+
+The cells primitive format adjusts according to the set format. 
+
+%-----------------------------------------
+%		Testing Theme Functionality
+%-----------------------------------------
+\subsubsection{6. Testing Theme Functionality}
+
+\noindent
+{\bf Summary}
+
+Adjusts the grid design and overall graphical user interface to users preference. 
+
+\noindent
+{\bf Preconditions}
+
+Theme option from the options tab must be selected
+
+\noindent
+{\bf Main Scenario}
+\begin{enumerate}
+	\item User selects "Theme Tab"
+	\item User selects "Select Theme"
+	\item User selects desired theme from list
+	\item Spreadsheets UI is changed as desired
+\end{enumerate}
+
+\noindent
+{\bf Expected Results}
+
+The spreadsheet application appropriately adjusts its theme to the desired settings. 
+
+%-----------------------------------------
+%		Testing Formula Input Functionality
+%-----------------------------------------
+\subsubsection{7. Testing Formula Input Functionality}
+
+\noindent
+{\bf Summary}
+
+Once a formula has been inputted into a cell, the appropriate calculations are made and the primitive result is displayed in the cells view.
+
+\noindent
+{\bf Preconditions}
+
+A cell must be selected
+
+\noindent
+{\bf Main Scenario}
+\begin{enumerate}
+	\item User selects a cell
+	\item User enters a formula into the input fields
+	\item Primitive results are displayed in cells view
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}
+\begin{enumerate}
+	\item When selected cell address appears in formula, throw exception 
+	\item Warning message displayed on UI
+\end{enumerate}
+
+\noindent
+{\bf Expected Results}
+
+Correct calculations are made from users inputted formula and are displayed in the cell. 
+
+%-----------------------------------------
+%		!!! INTEGRATION TESTING !!!
+%-----------------------------------------
+\section{Integration Testing}
+
+\subsection{Subsystem Testing}
+
+\subsubsection{File Manager Test} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Create, Save and open
+
+\noindent
+{\bf Summary}\\
+Open a new instance of FunSheets with a default grid. Modify the values of the grid using primitive and formula values.
+Save the sheet to a new file, and then re-open it.
+
+\noindent
+{\bf Precondition}\\
+None
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open Funsheets using the default Icon or executable.
+\item Modify one or several cell blocks.
+\item Select the 'File' menu item and select 'Save'. Give file a new name
+\item Close the instance of FunSheets
+\item Open a new instance of FunSheets, Select 'File' menu item and select 'Load'.
+\item Navigate to the previously saved file and select it.
+\item Verify the primitive and formula values are consistent.
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item User must have write privileges to the save location.
+\end{enumerate}
+{\bf Expected Results}\
+\begin{enumerate}
+\item If User has write privilages to system location FunSheets will create a .csv file located at the directory selected in the dialog box
+\item If the User does not have write privilages FunSheets will report and access denied error and no files will be saved
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item User created .csv file is saved to hard disk. Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+High (Main requirment)
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Second File test
+%--------------------------------------------------------------------------------------------------
+
+\noindent
+{\bf Name}\\
+Open a third-party modified .csv
+
+\noindent
+{\bf Summary}\\
+Open the .CSV using a text editor, or third-party spreadsheet application and modify the cell values.
+
+\noindent
+{\bf Precondition}\\
+Pre-Existing .csv file created from FunSheets
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open the funSheets .csv file is default text editor
+\item Modify one or several cell elements and save the file
+\item Open a new instance of FunSheets, Select 'File' menu item and select 'Load'.
+\item Navigate to the previously saved file and select it.
+\item Varify the primitive and formula values are consistant.
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\
+\begin{enumerate}
+\item If third-party modifications do NOT follow the formatting requirments of FunSheets the .csv file will not open. Internally we will trap an exception and report that the file is not valid.
+\end{enumerate}
+
+{\bf Expected Results}\\
+\begin{enumerate}
+\item If the .csv file is modified and the changes adhear to the formatting requirments of FunSheets the spreadsheet application will open successfully and the changes will be visable to the user. 
+\item If the .csv file is modified and the changes conflict with the formatting requirments of FunSheets the file is deemed incompatable and an error message should be displayed.
+\end{enumerate}
+
+\noindent
+
+{\bf Postcondition and Results}\\
+\begin{enumerate}
+\item Modified .csv that conforms to formatting was open successfully and the changes were viable. Test Successful
+\item Modified .csv that conflicts to formatting was open successfully, error were not reported.\ 
+Test failed see example input IT\_SUB\_FM\_Test2.csv
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Low (Modifing .csv outside FunSheets is not supported)
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Third File test
+%--------------------------------------------------------------------------------------------------
+
+
+\noindent
+{\bf Name}\\
+Create a new .csv overwrite old data
+
+\noindent
+{\bf Summary}\\
+Open and existing .csv, use the 'File' menu option to create a new spreadsheet
+
+\noindent
+{\bf Precondition}\\
+Pre-Existing .csv file created from FunSheets
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open Funsheets using the default Icon or executable.
+\item Select the 'File' menu item and select 'New' or press 'CTRL + N' for new
+\item Accept warning for unsaved data.
+\item Select the 'File' menu and select 'Save' or press 'CTRL + S'
+\item Overwrite existing filename
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item None
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Warning message is displayed to warn the user about overwriting data.
+\item Accepting the warning will overwrite the saved file and data is lost
+\item Canceling the warning message will preserve the old file without datalost
+\end{enumerate}
+
+\noindent
+{\bf Postcondition and Results}\
+\begin{enumerate}
+\item No warning message is display. (Test failed)
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+High - Loss of data is unacceptable without a warning message to the user
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   fourth File test
+%--------------------------------------------------------------------------------------------------
+
+
+\noindent
+{\bf Name}\\
+Open an existing file without saving the current document
+
+\noindent
+{\bf Summary}\\
+After working on a file proceed to open an existing file without saving the current project
+
+\noindent
+{\bf Precondition}\\
+Pre-Existing .csv file created from FunSheets
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open Funsheets using the default Icon or executable.
+\item Modify one or several fields in the grid
+\item Select the 'File' menu and select 'Load' or press 'CTRL + L'
+\item Navigate to an existing .csv file and select it.
+\item Review warning message.
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item None
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Warning message is displayed to warn the user about unsaved data
+\item Accepting the warning will open the existing file, and all current work will be lost
+\item Canceling the warning message will preserve the current instance and allow the use to save the file.
+\end{enumerate}
+
+\noindent
+{\bf Postcondition and Results}\
+\begin{enumerate}
+\item Warning message is displayed and information is clear. Pressing 'Cancel' preserves the instance without data loss. Test successful
+\item Warning message is displayed and information is clear. Pressing 'Ok' will load the selected file and all current data is lost. Test successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+
+\subsection{Portability Testing}
+
+\subsubsection{Windows XP 32-Bit} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Windows XP 32-BIT deployment
+
+\noindent
+{\bf Summary}\\
+Port an executable version of FunSheets to a PC running Windows XP 32-BIT and test basic functionality and requirments.
+\noindent\\
+{\bf Precondition}\
+\begin{enumerate}
+\item Java project compiled without errors and all Major unit and subsystem tests have passed during development
+\item Target PC has properly configured Java Run-Time-Enviornment (JRE) or Java Development Tool-kit (JDK) installed and working.
+\end{enumerate}
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Using official version of FunSheets media (USB or DVD) install or copy the executable file to the target PC
+\item Launch an instance of FunSheets by doubleclicking on the executable.
+\item Testing various functionality according to Subsystem and Integration testing outlined in section XXX.XX
+%Addison need to fill in the XXXXXXXXX
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item None
+\end{enumerate}
+{\bf Expected Results}\
+\begin{enumerate}
+\item Subsystem test number XXX.XX to XXX.XX are successful.
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Windows 7 test - 32-bit
+%--------------------------------------------------------------------------------------------------
+\subsubsection{Windows 7 32-Bit} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Windows 7 32-BIT deployment
+
+\noindent
+{\bf Summary}\\
+Port an executable version of FunSheets to a PC running Windows 7 32-BIT and test basic functionality and requirments.
+
+\noindent
+{\bf Precondition}\\
+\begin{enumerate}
+\item Java project compiled without errors and all Major unit and subsystem tests have passed during development
+\item Target PC has properly configured Java Run-Time-Enviornment (JRE) or Java Development Tool-kit (JDK) installed and working.
+\end{enumerate}
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Using official version of FunSheets media (USB or DVD) install or copy the executable file to the target PC
+\item Launch an instance of FunSheets by doubleclicking on the executable.
+\item Testing various functionality according to Subsystem and Integration testing outlined in section XXX.XX
+%Addison need to fill in the XXXXXXXXX
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item Windows 7 UAC (User Account Controls) can provide complications when running third-party software
+\end{enumerate}
+{\bf Expected Results}\
+\begin{enumerate}
+\item Subsystem test number XXX.XX to XXX.XX are successful.
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item In some cases UAC controls need to be set to allow FunSheets to run correctly. Firewall exceptions should be created.
+\item Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Windows 7 test - 64-bit
+%--------------------------------------------------------------------------------------------------
+\subsubsection{Windows 7 64-Bit} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Windows 7 64-BIT deployment
+
+\noindent
+{\bf Summary}\\
+Port an executable version of FunSheets to a PC running Windows 7 64-BIT and test basic functionality and requirments.
+
+\noindent
+{\bf Precondition}\\
+\begin{enumerate}
+\item Java project compiled without errors and all Major unit and subsystem tests have passed during development
+\item Target PC has properly configured Java Run-Time-Enviornment (JRE) or Java Development Tool-kit (JDK) installed and working.
+\end{enumerate}
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Using official version of FunSheets media (USB or DVD) install or copy the executable file to the target PC
+\item Launch an instance of FunSheets by doubleclicking on the executable.
+\item Testing various functionality according to Subsystem and Integration testing outlined in section XXX.XX
+%Addison need to fill in the XXXXXXXXX
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item Windows 7 UAC (User Account Controls) can provide complications when running third-party software
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Subsystem test number XXX.XX to XXX.XX are successful.
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item In some cases UAC controls need to be set to allow FunSheets to run correctly. Firewall exceptions should be created.
+\item Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Windows 8 test - 32-bit
+%--------------------------------------------------------------------------------------------------
+\subsubsection{Windows 8 32-Bit} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Windows 8 32-BIT deployment
+
+\noindent
+{\bf Summary}\\
+Port an executable version of FunSheets to a PC running Windows 8 32-BIT and test basic functionality and requirments.
+
+\noindent
+{\bf Precondition}\\
+\begin{enumerate}
+\item Java project compiled without errors and all Major unit and subsystem tests have passed during development
+\item Target PC has properly configured Java Run-Time-Enviornment (JRE) or Java Development Tool-kit (JDK) installed and working.
+\end{enumerate}
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Using official version of FunSheets media (USB or DVD) install or copy the executable file to the target PC
+\item Launch an instance of FunSheets by doubleclicking on the executable.
+\item Testing various functionality according to Subsystem and Integration testing outlined in section XXX.XX
+%Addison need to fill in the XXXXXXXXX
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item Windows 8 UAC (User Account Controls) can provide complications when running third-party software
+\item FunSheets does not have an integrated Windows 8 Metro interface. Can only run from Desktop view
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Subsystem test number XXX.XX to XXX.XX are successful.
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item In some cases UAC controls need to be set to allow FunSheets to run correctly. Firewall exceptions should be created.
+\item A Desktop icon should be created and used rather then Metro interface.
+\item Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Windows 8 test - 64-bit
+%--------------------------------------------------------------------------------------------------
+\subsubsection{Windows 8 64-Bit} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Windows 8 64-BIT deployment
+
+\noindent
+{\bf Summary}\\
+Port an executable version of FunSheets to a PC running Windows 8 64-BIT and test basic functionality and requirments.
+
+\noindent
+{\bf Precondition}\\
+\begin{enumerate}
+\item Java project compiled without errors and all Major unit and subsystem tests have passed during development
+\item Target PC has properly configured Java Run-Time-Enviornment (JRE) or Java Development Tool-kit (JDK) installed and working.
+\end{enumerate}
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Using official version of FunSheets media (USB or DVD) install or copy the executable file to the target PC
+\item Launch an instance of FunSheets by doubleclicking on the executable.
+\item Testing various functionality according to Subsystem and Integration testing outlined in section XXX.XX
+%Addison need to fill in the XXXXXXXXX
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item Windows 8 UAC (User Account Controls) can provide complications when running third-party software
+\item FunSheets does not have an integrated Windows 8 Metro interface. Can only run from Desktop view
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Subsystem test number XXX.XX to XXX.XX are successful.
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item In some cases UAC controls need to be set to allow FunSheets to run correctly. Firewall exceptions should be created.
+\item A Desktop icon should be created and used rather then Metro interface.
+\item Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Apple OS X
+%--------------------------------------------------------------------------------------------------
+\subsubsection{Apple OS X} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Apple OS X deployment
+
+\noindent
+{\bf Summary}\\
+Port an executable version of FunSheets to a PC running Apple OS X and test basic functionality and requirments.
+
+\noindent
+{\bf Precondition}\\
+\begin{enumerate}
+\item Java project compiled without errors and all Major unit and subsystem tests have passed during development
+\item Target PC has properly configured Java Run-Time-Enviornment (JRE) or Java Development Tool-kit (JDK) installed and working.
+\end{enumerate}
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Using official version of FunSheets media (USB or DVD) install or copy the executable file to the target PC
+\item Launch an instance of FunSheets by doubleclicking on the executable.
+\item Testing various functionality according to Subsystem and Integration testing outlined in section XXX.XX
+%Addison need to fill in the XXXXXXXXX
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item User account as approprate privilages to install software
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Subsystem test number XXX.XX to XXX.XX are successful.
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+%-----------------------------------------
+%		!!! TEST RESULTS !!!
+%-----------------------------------------
+\section{Test Results}
+
+{\it
+List the tests, indicating which passed and which did not pass.
+List requirements indicating the percentage of tests that passed for that requirement.
+
+\subsection{CellTests}
+\subsubsection{testCellCreations}
+Success rate 100 percent (16/16 passed) \\*
+
+\subsubsection{testCellGetters}
+Success rate of 100 percent (8/8 passed) \\*
+
+\subsubsection{testCellSetters}
+Success rate of 100 percent (5/5 passed) \\*
+
+\subsubsection{testValidations}
+Success rate of 100 percent (17/17 passed) \\*
+
+\subsection{CommandTest}
+\subsubsection{testValidations}
+Success rate of 100 percent (7/7 passed) \\*
+
+\subsubsection{testUpdatingGrid}
+Success rate of 100 percent (1/1 passed) \\*
+
+\subsection{GridTest}
+
+\subsubsection{testGridInputs}
+Success rate of 100 percent (8/8 passed) \\*
+\subsubsection{testGridGetters}
+Success rate of 66 percent (8/12 passed) \\*
+testGetCell[0-4] resulted in failed runs
+}
+
+\subsection{FileHandlerTests}
+\subsubsection{controlTest}
+Success rate of 100 percent (1/1 passed) \\*
+\subsubsection{consistencyTests}
+Success rate of 25 percent (1/ 4 passed) \\*
+consistencyDouble, consistencyFormula, and consistencyBoth led to failed runs 
+
+\subsubsection{saveTest}
+Success rate of 0 percent (0/1 passed) \\*
+saveTest lead to failure
+
+\subsubsection{loadTest}
+Success rate of 0 percent (0/1 passed) \\*
+loadTest lead to failure
+
+\section{References}
+
+\printindex
+\end{document}
