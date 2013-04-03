@@ -482,6 +482,7 @@ public class MainFrame extends JFrame {
                 selectedCellLabel.setText("  " + (char)('A' + y) + "" + (x + 1) + " = ");
                 String formula = grid.getCell(x, y).getFormula();
                 textField.setText(formula.length() > 0 ? formula : Double.toString(grid.getCell(x, y).getValue()));
+                textField.requestFocus();
             }        	
         });
         JScrollPane scrollPane = new JScrollPane(grid);
