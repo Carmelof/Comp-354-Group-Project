@@ -1,0 +1,58 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Test Plan}{2}
+\contentsline {section}{\numberline {3}Unit Level Test Cases}{3}
+\contentsline {subsection}{\numberline {3.1}FileHandler Tests}{3}
+\contentsline {subsubsection}{1. consistencyEmptyTest}{3}
+\contentsline {subsubsection}{2. consistencyDoubleTest}{3}
+\contentsline {subsubsection}{3. loadTest}{4}
+\contentsline {subsection}{\numberline {3.2}Cell Tests}{4}
+\contentsline {subsubsection}{4. TestCreationCells}{4}
+\contentsline {subsubsection}{5. TestCellGetters}{4}
+\contentsline {subsubsection}{6. TestCellSetters}{5}
+\contentsline {subsubsection}{7. TestCellContent}{5}
+\contentsline {subsection}{\numberline {3.3}CommandClass Tests}{5}
+\contentsline {subsubsection}{8. testValidations}{5}
+\contentsline {subsubsection}{9. testUpdateGrid}{6}
+\contentsline {subsubsection}{10. testReplacingCells}{7}
+\contentsline {subsection}{\numberline {3.4}Grid Tests}{7}
+\contentsline {subsubsection}{11. testGridCellGetters}{7}
+\contentsline {subsubsection}{12. testGridCellAlphanemericInputs}{7}
+\contentsline {subsubsection}{13. testGridCellNumericInputs}{8}
+\contentsline {subsubsection}{14. testGridGetCells}{8}
+\contentsline {subsubsection}{15. testGridGetCellColumns}{9}
+\contentsline {section}{\numberline {4}Subsystem Level Test Cases}{9}
+\contentsline {subsection}{\numberline {4.1}Document Editing Tests}{9}
+\contentsline {subsubsection}{1. Testing Copy Functionality}{9}
+\contentsline {subsubsection}{2. Testing Cut Functionality}{10}
+\contentsline {subsubsection}{3. Testing Paste Functionality}{10}
+\contentsline {subsubsection}{4. Testing Undo Functionality}{10}
+\contentsline {subsubsection}{5. Testing Primitive Formatting Functionality}{11}
+\contentsline {subsubsection}{6. Testing Theme Functionality}{11}
+\contentsline {subsubsection}{7. Testing Formula Input Functionality}{12}
+\contentsline {section}{\numberline {5}Integration Testing}{12}
+\contentsline {subsection}{\numberline {5.1}Subsystem Testing}{12}
+\contentsline {subsubsection}{File Manager Test}{12}
+\contentsline {subsection}{\numberline {5.2}Portability Testing}{17}
+\contentsline {subsubsection}{Windows XP 32-Bit}{17}
+\contentsline {subsubsection}{Windows 7 32-Bit}{18}
+\contentsline {subsubsection}{Windows 7 64-Bit}{19}
+\contentsline {subsubsection}{Windows 8 32-Bit}{20}
+\contentsline {subsubsection}{Windows 8 64-Bit}{21}
+\contentsline {subsubsection}{Apple OS X}{22}
+\contentsline {section}{\numberline {6}Test Results}{22}
+\contentsline {subsection}{\numberline {6.1}CellTests}{23}
+\contentsline {subsubsection}{testCellCreations}{23}
+\contentsline {subsubsection}{testCellGetters}{23}
+\contentsline {subsubsection}{testCellSetters}{23}
+\contentsline {subsubsection}{testValidations}{23}
+\contentsline {subsection}{\numberline {6.2}CommandTest}{23}
+\contentsline {subsubsection}{testValidations}{23}
+\contentsline {subsubsection}{testUpdatingGrid}{23}
+\contentsline {subsection}{\numberline {6.3}GridTest}{23}
+\contentsline {subsubsection}{testGridInputs}{23}
+\contentsline {subsubsection}{testGridGetters}{24}
+\contentsline {subsection}{\numberline {6.4}FileHandlerTests}{24}
+\contentsline {subsubsection}{controlTest}{24}
+\contentsline {subsubsection}{consistencyTests}{24}
+\contentsline {subsubsection}{saveTest}{24}
+\contentsline {subsubsection}{loadTest}{24}

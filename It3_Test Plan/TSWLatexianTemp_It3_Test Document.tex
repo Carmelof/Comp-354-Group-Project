@@ -55,16 +55,20 @@ Asmaa Alshaibi & 9738231 \\\hline
 \clearpage
 
 
+\printindex
+\clearpage
+\tableofcontents
+\addcontents{ Introduction}
 
-
-\index{Introduction}
+\index{1. Introduction}
 \section{Introduction}
 
 {\it
 The objectives of this document are to outline the overall Test Plan created for ensuring best performance of the Fun Sheets application. This document outlines the full test schedule and the major phases of testing, how the tests are designed and what their results are, and how the tests relate to the requirements of the program itself. 
 }
-
+\index{2. Test Plan}
 \section{Test Plan}
+
 
 {\it
 \textbf{Increment 1 (Weeks 1-4)}: Unit Testing \\*
@@ -91,12 +95,13 @@ The phases of the test plan were built using a Bottom-Up approach. The test case
 %-----------------------------------------
 %		 UNIT TESTING
 %-----------------------------------------
+\index{3. Unit Test Cases}
 \section{Unit Level Test Cases}
 
 {\it
 All test cases for testing at the system level.
 }
-
+\index{3. Unit Test Cases!FileHandler Tests}
 \subsection{FileHandler Tests}
 %-----------------------------------------
 %		Test Case 4  Written by Long
@@ -159,6 +164,7 @@ I expect the test works, returning true, so testing if the file test can be load
 {\bf Traces to Use Cases}\\
 Traces to the class FileHandler.java in JUnit, validating test class loadTest().
 
+\index{3. Unit Test Cases!Cell Tests}
 \subsection{Cell Tests}
 %-----------------------------------------
 %		Test Case 7		Addison
@@ -242,6 +248,7 @@ The expected output should consist of a boolean statement specifying whether the
 {\bf Traces to Use Cases}\\
 These use cases are traced to ensure that all cells within the grid contain content and can never be completely empty. 
 
+\index{3. Unit Test Cases!CommandClass Tests}
 \subsection{CommandClass Tests}
 
 %-----------------------------------------
@@ -307,6 +314,7 @@ For this test cases we change the three sample cell’s value to 0.0 and then ch
 {\bf Traces to Use Cases}\\
 The function is used in the Command class to basically edit the cell to hold an equation instead of the value. It can be some equation on two cells (addition, subtraction, etc.), two numbers or a number and another cell. The test checks if the final record in the cell is in the cell accordingly.  
 
+\index{3. Unit Test Cases!Grid Tests}
 \subsection{Grid Tests}
 %-----------------------------------------
 %		Test Case 11		GhAZAL
@@ -335,8 +343,7 @@ The function GetCellRow() retrieves the cell row index from the cell name, it ge
 
 \noindent
 {\bf Purpose}\\
-These functions are all different test cases for checking the functionality of the AlphanumericInput() function that checks if there are cell names after the = sign i.e check for C4 & F7 in A1 = C4 + 5 - F7.
-
+These functions are all different test cases for checking the functionality of the AlphanumericInput() function that checks if there are cell names after the equals sign i.e check for C4 and F7 in A1 "=" C4 + 5 - F7.
 \noindent
 {\bf Input Specification}\\
 First we made an object from Grid class to run the function on it, then we either call the insertValue() on the grid object that we created to insert our sample values or we just test the cell the way it was initialized. After that we test the function with different sample equations.
@@ -347,7 +354,7 @@ We check if the equations that were inserted in the cells are working properly m
 
 \noindent
 {\bf Traces to Use Cases}\\
-Every time a cell name is found  i.e A1 the function retrieves its index by using getCellRow & getCellColumn if you for example C4 is found,  then its index is row = 4 & column = 3. Once the index of the cell is known, its value is retrieved and the name of the cell is replaced by its value. In the newEquation string i.e if newEquation = "B1 + 4 + C2" and B1=7, C2=9; then newEquation becomes "7 + 4 + 9".
+Every time a cell name is found  i.e A1 the function retrieves its index by using getCellRow and getCellColumn if you for example C4 is found,  then its index is row = 4 and column = 3. Once the index of the cell is known, its value is retrieved and the name of the cell is replaced by its value. In the newEquation string i.e if newEquation = "B1 + 4 + C2" and B1=7, C2=9; then newEquation becomes "7 + 4 + 9".
 %-----------------------------------------
 %		Test Case 13		GhAZAL
 %-----------------------------------------
@@ -413,8 +420,9 @@ The function GetCellColumn() retrieves the cell column index from the cell name 
 %-----------------------------------------
 %		!!!     Subsystem Tests	!!!
 %-----------------------------------------
+\index{4. Subsystem Test Cases}
 \section{Subsystem Level Test Cases}
-
+\index{4. Subsystem Test Cases!Document Editing Tests}
 \subsection{Document Editing Tests}
 
 %-----------------------------------------
@@ -625,8 +633,9 @@ Correct calculations are made from users inputted formula and are displayed in t
 %-----------------------------------------
 %		!!! INTEGRATION TESTING !!!
 %-----------------------------------------
+\index{5. Integration Test Cases}
 \section{Integration Testing}
-
+\index{5. Integration Test Cases!Subsystem Tests}
 \subsection{Subsystem Testing}
 
 \subsubsection{File Manager Test} \label{uc:1}
@@ -835,7 +844,7 @@ Pre-Existing .csv file created from FunSheets
 {\bf Priority}\\
 Successful
 \noindent
-
+\index{5. Integration Test Cases!Portability Testing}
 \subsection{Portability Testing}
 
 \subsubsection{Windows XP 32-Bit} \label{uc:1}
@@ -1144,9 +1153,11 @@ Port an executable version of FunSheets to a PC running Apple OS X and test basi
 {\bf Priority}\\
 Successful
 \noindent
+
 %-----------------------------------------
 %		!!! TEST RESULTS !!!
 %-----------------------------------------
+\index{6. Test Results}
 \section{Test Results}
 
 {\it
@@ -1197,7 +1208,6 @@ saveTest lead to failure
 Success rate of 0 percent (0/1 passed) \\*
 loadTest lead to failure
 
-\section{References}
 
-\printindex
+
 \end{document}
