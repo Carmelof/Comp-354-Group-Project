@@ -483,6 +483,7 @@ public class MainFrame extends JFrame {
                 String formula = grid.getCell(x, y).getFormula();
                 textField.setText(formula.length() > 0 ? formula : Double.toString(grid.getCell(x, y).getValue()));
                 textField.requestFocus();
+                textField.selectAll();
             }        	
         });
         JScrollPane scrollPane = new JScrollPane(grid);
