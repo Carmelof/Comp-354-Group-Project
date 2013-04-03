@@ -1,0 +1,236 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setcounter{secnumdepth}{2}
+
+\topmargin=0cm
+\oddsidemargin=0cm
+\textheight=22.0cm
+\textwidth=16cm
+\parindent=0cm
+\parskip=0.15cm
+\topskip=0truecm
+\raggedbottom
+\abovedisplayskip=3mm
+\belowdisplayskip=3mm
+\abovedisplayshortskip=0mm
+\belowdisplayshortskip=2mm
+\normalbaselineskip=12pt
+\normalbaselines
+
+\begin{document}
+
+\section{Integration Testing}
+
+\subsection{Subsystem Testing}
+
+\subsubsection{File Manager Test} \label{uc:1}
+
+\noindent
+{\bf Name}\\
+Create, Save and open
+
+\noindent
+{\bf Summary}\\
+Open a new instance of FunSheets with a default grid. Modify the values of the grid using primitive and formula values.
+Save the sheet to a new file, and then re-open it.
+
+\noindent
+{\bf Precondition}\\
+None
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open Funsheets using the default Icon or executable.
+\item Modify one or several cell blocks.
+\item Select the 'File' menu item and select 'Save'. Give file a new name
+\item Close the instance of FunSheets
+\item Open a new instance of FunSheets, Select 'File' menu item and select 'Load'.
+\item Navigate to the previously saved file and select it.
+\item Varify the primitive and formula values are consistant.
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item User must have write privilages to the save location.
+\end{enumerate}
+{\bf Expected Results}\
+\begin{enumerate}
+\item If User has write privilages to system location FunSheets will create a .csv file located at the directory selected in the dialog box
+\item If the User does not have write privilages FunSheets will report and access denied error and no files will be saved
+\end{enumerate}
+
+{\bf Postcondition And Results}\
+\begin{enumerate}
+\item User created .csv file is saved to hard disk. Results are successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+High (Main requirment)
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Second File test
+%--------------------------------------------------------------------------------------------------
+
+\noindent
+{\bf Name}\\
+Open a third-party modified .csv
+
+\noindent
+{\bf Summary}\\
+Open the .CSV using a text editor, or third-party spreadsheet application and modify the cell values.
+
+\noindent
+{\bf Precondition}\\
+Pre-Existing .csv file created from FunSheets
+
+\noindent
+{\bf Main Scenario}\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open the funSheets .csv file is default text editor
+\item Modify one or several cell elements and save the file
+\item Open a new instance of FunSheets, Select 'File' menu item and select 'Load'.
+\item Navigate to the previously saved file and select it.
+\item Varify the primitive and formula values are consistant.
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\
+\begin{enumerate}
+\item If third-party modifications do NOT follow the formatting requirments of FunSheets the .csv file will not open. Internally we will trap an exception and report that the file is not valid.
+\end{enumerate}
+
+{\bf Expected Results}\\
+\begin{enumerate}
+\item If the .csv file is modified and the changes adhear to the formatting requirments of FunSheets the spreadsheet application will open successfully and the changes will be visable to the user. 
+\item If the .csv file is modified and the changes conflict with the formatting requirments of FunSheets the file is deemed incompatable and an error message should be displayed.
+\end{enumerate}
+
+\noindent
+
+{\bf Postcondition and Results}\\
+\begin{enumerate}
+\item Modified .csv that conforms to formatting was open successfully and the changes were viable. Test Successful
+\item Modified .csv that conflicts to formatting was open successfully, error were not reported.\ 
+Test failed see example input IT\_SUB\_FM\_Test2.csv
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Low (Modifing .csv outside FunSheets is not supported)
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   Third File test
+%--------------------------------------------------------------------------------------------------
+
+
+\noindent
+{\bf Name}\\
+Create a new .csv overwrite old data
+
+\noindent
+{\bf Summary}\\
+Open and existing .csv, use the 'File' menu option to create a new spreadsheet
+
+\noindent
+{\bf Precondition}\\
+Pre-Existing .csv file created from FunSheets
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open Funsheets using the default Icon or executable.
+\item Select the 'File' menu item and select 'New' or press 'CTRL + N' for new
+\item Accept warning for unsaved data.
+\item Select the 'File' menu and select 'Save' or press 'CTRL + S'
+\item Overwrite existing filename
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item None
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Warning message is displayed to warn the user about overwriting data.
+\item Accepting the warning will overwrite the saved file and data is lost
+\item Canceling the warning message will preserve the old file without datalost
+\end{enumerate}
+
+\noindent
+{\bf Postcondition and Results}\
+\begin{enumerate}
+\item No warning message is display. (Test failed)
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+High - Loss of data is unacceptable without a warning message to the user
+\noindent
+
+\clearpage
+%--------------------------------------------------------------------------------------------------
+%                   fourth File test
+%--------------------------------------------------------------------------------------------------
+
+
+\noindent
+{\bf Name}\\
+Open an existing file without saving the current document
+
+\noindent
+{\bf Summary}\\
+After working on a file proceed to open an existing file without saving the current project
+
+\noindent
+{\bf Precondition}\\
+Pre-Existing .csv file created from FunSheets
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item Open Funsheets using the default Icon or executable.
+\item Modify one or several fields in the grid
+\item Select the 'File' menu and select 'Load' or press 'CTRL + L'
+\item Navigate to an existing .csv file and select it.
+\item Review warning message.
+\end{enumerate}
+
+{\bf Exceptions}\
+\begin{enumerate}
+\item None
+\end{enumerate}
+
+{\bf Expected Results}\
+\begin{enumerate}
+\item Warning message is displayed to warn the user about unsaved data
+\item Accepting the warning will open the existing file, and all current work will be lost
+\item Canceling the warning message will preserve the current instance and allow the use to save the file.
+\end{enumerate}
+
+\noindent
+{\bf Postcondition and Results}\
+\begin{enumerate}
+\item Warning message is displayed and information is clear. Pressing 'Cancel' preserves the instance without data loss. Test successful
+\item Warning message is displayed and information is clear. Pressing 'Ok' will load the selected file and all current data is lost. Test successful
+\end{enumerate}
+
+\noindent
+{\bf Priority}\\
+Successful
+\noindent
+
+\end{document}
+
+
