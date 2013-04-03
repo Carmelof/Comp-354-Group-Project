@@ -103,7 +103,6 @@ public class Command {
 	            updateGrid(grid, itself);
 	            return 1; //regular equation
 			}
-			
 		}
 		else {
 			return 3; //invalid input
