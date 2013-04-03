@@ -33,21 +33,12 @@ public class Grid extends JTable {
 		 }
 	}
 	
-	public void addRow(int CurrentRow, boolean Above){
-	/*
-	 * If Above = True create a new row above CurrentRow, else below
-	 * NOTE: You will need to create a new table that is size + 1 and copy
-	 * the entries of current table into new table. Will also need some 
-	 * logic that will update any cell ref. to thier new values.
-	 * 
-	 * */
+	public void addRow(){
 		
 	}
 	
-	public void addCol(int CurrentCol, boolean Left){
-		/*
-		 * You guessed it.
-		 * */
+	public void addCol(){
+		
 	}
 	
 	public void insertCell(Cell myCell, boolean isFormatted, char formatType){

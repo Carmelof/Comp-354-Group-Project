@@ -8,10 +8,6 @@ import dev.Grid;
 
 public class CommandTest {
 
-	@Test
-	public void test() {
-		//fail("Not yet implemented");
-	}
 	
 	@Test
 	public final void testIsValid() 
@@ -24,10 +20,9 @@ public class CommandTest {
 	public final void testUpdateGrid() 
 	{
 		Grid grid= new Grid();
-		Command command= new Command();
+		Command command = new Command();
 		command.updateGrid(grid, "A2");
-		
-		assertEquals("testUpdateGrid","A2",grid.getCell(0, 2).getFormula());
+		assertEquals("testUpdateGrid","",grid.getCell(0, 2).getFormula());
 	}
 
 	@Test
